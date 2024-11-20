@@ -1,39 +1,92 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Claudia Otero</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+        nav {
+            width: 20%;
+            background-color: #333;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+        nav a:hover {
+            color: #ff9800;
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
         }
         header {
-            background-color: #f8f9fa;
+            text-align: center;
             padding: 20px;
+            background-color: #f8f9fa;
+            border-bottom: 2px solid #ddd;
+        }
+        header h1 {
+            margin: 0;
+        }
+        section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        section h2 {
+            margin-top: 0;
         }
         img {
             border-radius: 50%;
-            max-width: 200px;
-            margin: 20px auto;
-        }
-        section {
-            padding: 20px;
+            max-width: 150px;
+            display: block;
+            margin: 0 auto 20px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Claudia Otero</h1>
-    </header>
-    <section>
-        <img src="images/senior.jpg" alt="Claudia Otero">
-        <p><strong>Bio:</strong> I'm Claudia, passionate about [your interests/fields]. Welcome to my personal website!</p>
-        <p><strong>Contact:</strong> claudia@example.com</p>
-    </section>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="internships.html">Internships</a>
+        <a href="resume.html">Resume</a>
+    </nav>
+    <main>
+        <header>
+            <h1>Claudia Otero</h1>
+            <p>Hi, I am Claudia Otero. This is my portfolio and data science/computer science projects from my education and internships.</p>
+        </header>
+        <section>
+            <h2>About Me</h2>
+            <img src="images/senior.jpg" alt="Claudia Otero">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit, sapien non vehicula venenatis, risus purus hendrerit justo, ut bibendum magna elit nec arcu. Aenean in massa nec nulla eleifend convallis.</p>
+            <p>Morbi malesuada, quam at tempor volutpat, orci ex commodo quam, sed malesuada libero ligula at nisi. Suspendisse potenti. Duis vitae quam ac felis congue facilisis.</p>
+        </section>
+        <section>
+            <h2>Contact Information</h2>
+            <p>Email: claudia@example.com</p>
+            <p>LinkedIn: <a href="#" target="_blank">linkedin.com/in/claudia-otero</a></p>
+            <p>GitHub: <a href="#" target="_blank">github.com/ceotero88</a></p>
+        </section>
+    </main>
 </body>
 </html>
