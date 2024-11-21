@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=3.0, user-scalable=yes">
     <title>Projects</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
@@ -121,17 +121,19 @@
         margin-right: auto;
     }
 iframe {
-    width: 100%; /* Ensure the iframe scales with the container */
-    height: 500px; /* Adjust height to a more reasonable size */
+    width: 100%;
+    max-width: 100%;
+    height: 400px; /* Adjust height as needed */
     border: none;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    overflow: auto; /* Allow scrolling inside the iframe */
-    transform-origin: 0 0; /* Ensure scaling originates at the top-left */
-    transform: scale(1); /* Reset scaling for consistent zoom level */
-    touch-action: pan-x pan-y; /* Allow both horizontal and vertical scrolling */
-    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+    overflow-x: auto; /* Allow horizontal scrolling inside the iframe */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    touch-action: pan-x pan-y;
+    transform: scale(0.9); /* Scale down iframe to fit better on smaller screens */
+    transform-origin: 0 0; /* Anchor scaling to the top-left */
 }
+
 
 .project-preview-container {
     max-width: 100%; /* Prevent the container from exceeding the page width */
@@ -205,11 +207,12 @@ iframe {
             <a href="documents/Sentiment_Analysis_of_Amazon_Electronics_Reviews.pdf" target="_blank">Open Paper PDF</a>
         </p>
             <h4>Paper Preview:</h4>
-             <div class="project-preview-container">
-    <iframe src="documents/Sentiment_Analysis_of_Amazon_Electronics_Reviews.pdf" 
-            style="width: 100%; height: 500px;">
-    </iframe>
-</div>
+
+<iframe 
+    src="documents/Sentiment_Analysis_of_Amazon_Electronics_Reviews.pdf" 
+    style="width: 100%; height: 500px; overflow: auto;">
+</iframe>
+
 
         </div>
     </div>
