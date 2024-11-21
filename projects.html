@@ -188,6 +188,38 @@
                 style="width: 100%; height: 350px; border: none; margin-top: 10px;"></iframe>
         </div>
     </div>
+
+    <div class="project">
+        <h3>Analyzing Minnesota Interstate Traffic Volume</h3>
+        <p>
+            An in-depth analysis using statistical tests and visualizations to understand how weather impacts traffic volume on Minnesota's Interstate-94.
+            <button class="toggle-details" onclick="toggleDetails('traffic-volume')">Read More</button>
+        </p>
+        <div id="traffic-volume" class="details" style="display: none;">
+            <p>
+                This project leveraged the **Metro Interstate Traffic Volume** dataset to explore correlations between weather conditions and traffic volume. Using R Studio, I performed **Welch’s T-tests** to evaluate differences in traffic volume under various weather scenarios, such as snowy vs. clear conditions and partly sunny vs. cloudy days. Surprisingly, while snowy weather did not significantly affect traffic, cloud coverage was found to reduce traffic volumes significantly.
+            </p>
+            <p>
+                Key technical elements include:
+            </p>
+            <ul>
+                <li>Data Visualization: Created histograms, boxplots, and distribution charts to illustrate traffic trends.</li>
+                <li>Statistical Testing: Conducted inferential analyses using Welch's T-tests to determine significant differences in mean traffic volumes.</li>
+                <li>Geographic Analysis: Used location-based data to provide actionable insights into urban infrastructure planning.</li>
+                <li>Google API Key: Integrated geographic roles for mapping traffic trends by weather type.</li>
+            </ul>
+            <p>
+                This analysis highlights the importance of understanding traffic behavior to optimize infrastructure and offers insights into driver habits during varying weather conditions.
+            </p>
+        </div>
+        <div>
+            <p>
+                <a href="documents/MinnesotaInterstateTrafficVolume.html" target="_blank">View Full Traffic Analysis</a>
+            </p>
+            <iframe src="documents/MinnesotaInterstateTrafficVolume.html" style="width: 100%; height: 400px; border: 1px solid #ccc; border-radius: 8px; margin-top: 10px;"></iframe>
+        </div>
+    </div>
+    
     <div class="project">
         <h3>COVID-19 Tableau Dashboard</h3>
         <p>
