@@ -186,7 +186,34 @@
                     <img src="images/arduino.jpg" alt="Arduino Sound Sensor Circuit">
                 </div>
             </div>
-        </section>
+
+                <div class="project">
+        <h3>Choose Your Own Adventure App</h3>
+        <p>
+            An interactive app that lets users embark on a fun journey between Minneapolis and Madison, exploring city highlights along the way.
+            <button class="toggle-details" onclick="toggleDetails('adventure')">Read More</button>
+        </p>
+        <p>
+            <a href="https://choose-your-adventure-sk2s.onrender.com/" target="_blank">View Choose Your Own Adventure App</a>
+        </p>
+        <div id="adventure" class="details">
+            <p>
+                This Python-based app uses the Dash framework to provide a dynamic, interactive experience for users. It features a map visualization of Minneapolis and Madison, generated using Plotly, and allows users to choose between restaurants and entertainment options in each city.
+            </p>
+            <p>
+                High-level features include:
+            </p>
+            <ul>
+                <li><strong>Interactive Maps:</strong> Users can explore city locations through an OpenStreetMap.</li>
+                <li><strong>Adventure Poem:</strong> Randomly generates a unique poem for each journey.</li>
+            </ul>
+            <p>
+                The app is hosted on Render and combines fun storytelling with technical elements like Dash callbacks, data visualizations, and creative content generation.
+            </p>
+        </div>
+    </div>
+</section>
+        
     </main>
     <script>
         function toggleDetails(id) {
