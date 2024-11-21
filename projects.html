@@ -110,128 +110,151 @@
         </header>
         
 
-        <section>
+<section>
     <h2>Coursework</h2>
 
+    <!-- Sentiment Analysis Project -->
     <div class="project">
-        <h3>Sentiment Analysis of Amazon Electronics Reviews: Insights for E-Commerce</h3>
+        <h3>Sentiment Analysis of Amazon Electronics Reviews</h3>
         <p>
-            A research paper examining customer satisfaction and behavior in electronics reviews, using sentiment analysis and NLP techniques to uncover key insights for e-commerce strategies.
+            This project leverages Python, NLP techniques, and libraries like NLTK and TextBlob to analyze customer satisfaction for Amazon electronics, focusing on review patterns and sentiment trends.
             <button class="toggle-details" onclick="toggleDetails('amazon-analysis')">Read More</button>
         </p>
         <p>
             <a href="documents/Sentiment_Analysis_of_Amazon_Electronics_Reviews.pdf" target="_blank">View Research Paper</a>
         </p>
-        <div id="amazon-analysis" class="details">
+        <div id="amazon-analysis" class="details" style="display: none;">
+            <h4>Objective:</h4>
             <p>
-                This research paper investigates customer satisfaction for electronics sold on Amazon, leveraging sentiment analysis and Natural Language Processing techniques to uncover consumer behavior patterns. Using the 2020 Amazon Product Reviews Dataset, the analysis identifies common complaints and compliments, evaluates time-based trends, and examines differences between purchases on Amazon and brand-specific stores. The study also highlights the importance of review length and sentiment, revealing how short reviews often capture concise feedback while longer reviews provide deeper insights.
+                To analyze customer sentiment for Amazon electronics using NLP techniques, uncovering key patterns in satisfaction, complaints, and review length impacts on ratings.
             </p>
+            <h4>Tech Stack:</h4>
+            <ul>
+                <li>Languages: Python</li>
+                <li>Libraries: NLTK, TextBlob</li>
+                <li>Platform: Google Colab</li>
+            </ul>
+            <h4>Key Components:</h4>
+            <ul>
+                <li>Text Analysis: Sentiment scoring using TextBlob to evaluate polarity and word frequency analysis for common themes.</li>
+                <li>Statistical Insights: Highlighted correlations between review length and sentiment trends.</li>
+                <li>Scalability: Efficiently processed over 1 million reviews for actionable insights.</li>
+            </ul>
+            <h4>Conclusion:</h4>
             <p>
-                Conducted using Python on Google Colab, this project utilized libraries like NLTK and TextBlob for sentiment scoring and data visualization tools to identify trends. The findings offer actionable recommendations for manufacturers and retailers, such as improving product features based on customer feedback and refining marketing strategies to emphasize highly-rated attributes. Overall, the paper underscores the value of sentiment analysis in understanding consumer preferences and enhancing the e-commerce experience.
+                The analysis reveals actionable insights for manufacturers and retailers, including feature improvements and marketing strategies aligned with customer feedback.
             </p>
-        </div>
-        <!-- Embed the PDF preview -->
-        <div>
-            <iframe src="documents/Sentiment_Analysis_of_Amazon_Electronics_Reviews.pdf" 
-                style="width: 100%; height: 300px; border: none; margin-top: 10px;"></iframe>
         </div>
     </div>
 
-         
+    <!-- Wisconsin Census Data Project -->
     <div class="project">
         <h3>Wisconsin Census Data Analysis</h3>
         <p>
-            Leveraging Python in Jupyter Notebook, this project explores population and land use trends in Wisconsin using advanced geospatial and statistical techniques. 
-            The analysis includes regression modeling to predict census population based on housing data and land-use features.
+            This Python project uses geospatial libraries like GeoPandas and rasterio to analyze population and land use trends in Wisconsin, employing regression models and statistical tests.
             <button class="toggle-details" onclick="toggleDetails('census')">Read More</button>
         </p>
         <p>
             <a href="documents/Wisconsin_Census_Data.ipynb" target="_blank">Download Jupyter Notebook</a>
         </p>
-        
-        <!-- Toggleable Read More Section -->
         <div id="census" class="details" style="display: none;">
+            <h4>Objective:</h4>
             <p>
-                This project demonstrates a sophisticated application of Python for geospatial data analysis. Data was sourced from four distinct files:
+                To analyze Wisconsin census data, predicting population using features like housing units and land use, with advanced geospatial and statistical methods.
             </p>
+            <h4>Tech Stack:</h4>
             <ul>
-                <li>counties.geojson: Population and boundaries for each Wisconsin county.</li>
-                <li>tracts.shp: Census tract boundaries within counties.</li>
-                <li>counties_tracts.db: Housing units and land data per census tract.</li>
-                <li>land.zip: Raster data on land use (forests, water, developed areas).</li>
+                <li>Languages: Python</li>
+                <li>Libraries: GeoPandas, rasterio, matplotlib, seaborn</li>
+                <li>Tools: Jupyter Notebook</li>
             </ul>
-            <p>Highlights include:</p>
+            <h4>Key Components:</h4>
             <ul>
-                <li>Feature Engineering: Created regression features such as AREALAND (area in square meters) and HU100 (housing units).</li>
-                <li>Statistical Testing: Applied Welch's T-tests to assess the relationship between weather and traffic volume.</li>
-                <li>Regression Models: Built models to predict population based on housing units and land-use features.</li>
-                <li>Visualization: Used matplotlib and seaborn for scatter plots, boxplots, and land-use raster imagery.</li>
-                <li>Geospatial Analysis: Integrated GeoPandas and rasterio for precise geographic masking and mapping.</li>
+                <li>Data Sources: counties.geojson, tracts.shp, counties_tracts.db, and land.zip.</li>
+                <li>Statistical Testing: Welch's T-tests for analyzing relationships between features.</li>
+                <li>Regression Models: Predicting population using housing unit and land-use data.</li>
+                <li>Visualization: Created scatter plots, boxplots, and geographic maps to illustrate findings.</li>
             </ul>
+            <h4>Conclusion:</h4>
             <p>
-                The project includes data cleaning, cross-validation, and an analysis of feature importance, providing insights for urban planning and demographic studies.
+                This project provides valuable insights for urban planning, showcasing the potential of combining geospatial data with statistical models.
             </p>
         </div>
-
-        <!-- Always visible HTML preview -->
         <iframe 
             src="documents/Wisconsin_Census_Data.html" 
             style="width: 100%; height: 300px; border: none; margin-top: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); border-radius: 8px;">
         </iframe>
     </div>
-</div>
 
+    <!-- Minnesota Traffic Analysis Project -->
     <div class="project">
-        <h3>Analyzing Minnesota Interstate Traffic Volume in RStudio</h3>
+        <h3>Analyzing Minnesota Interstate Traffic Volume</h3>
         <p>
-            An in-depth analysis in RStudio using statistical tests and visualizations to understand how weather impacts traffic volume on Minnesota's Interstate-94.
+            This RStudio project investigates weather impacts on traffic volume along Minnesota's Interstate-94 using Welch's T-tests and data visualizations.
             <button class="toggle-details" onclick="toggleDetails('traffic-volume')">Read More</button>
         </p>
-        <div id="traffic-volume" class="details" style="display: none;">
-            <p>
-                This project leveraged the Metro Interstate Traffic Volume dataset to explore correlations between weather conditions and traffic volume. Using R Studio, I performed Welch’s T-tests to evaluate differences in traffic volume under various weather scenarios, such as snowy vs. clear conditions and partly sunny vs. cloudy days. Surprisingly, while snowy weather did not significantly affect traffic, cloud coverage was found to reduce traffic volumes significantly.
-            </p>
-            <p>
-                Key technical elements include:
-            </p>
-            <ul>
-                <li>Data Visualization: Created histograms, boxplots, and distribution charts to illustrate traffic trends.</li>
-                <li>Statistical Testing: Conducted inferential analyses using Welch's T-tests to determine significant differences in mean traffic volumes.</li>
-                <li>Geographic Analysis: Used location-based data to provide actionable insights into urban infrastructure planning.</li>
-                <li>Google API Key: Integrated geographic roles for mapping traffic trends by weather type.</li>
-            </ul>
-            <p>
-                This analysis highlights the importance of understanding traffic behavior to optimize infrastructure and offers insights into driver habits during varying weather conditions.
-            </p>
-        </div>
-        <div>
-            <p>
-                <a href="documents/MinnesotaInterstateTrafficVolume.html" target="_blank">View Full Traffic Analysis</a>
-            </p>
-            <iframe src="documents/MinnesotaInterstateTrafficVolume.html" style="width: 100%; height: 300px; border: 1px solid #ccc; border-radius: 8px; margin-top: 10px;"></iframe>
-        </div>
-    </div>
-    
-    <div class="project">
-        <h3>COVID-19 Tableau Dashboard</h3>
         <p>
-            A Tableau project visualizing global COVID-19 data with interactive maps and time zone insights.
+            <a href="documents/MinnesotaInterstateTrafficVolume.html" target="_blank">View Full Traffic Analysis</a>
+        </p>
+        <div id="traffic-volume" class="details" style="display: none;">
+            <h4>Objective:</h4>
+            <p>
+                To analyze how different weather conditions impact traffic volume, using statistical testing to identify significant patterns.
+            </p>
+            <h4>Tech Stack:</h4>
+            <ul>
+                <li>Languages: R</li>
+                <li>Tools: RStudio, Google API Key</li>
+            </ul>
+            <h4>Key Components:</h4>
+            <ul>
+                <li>Statistical Testing: Welch's T-tests to compare traffic volumes under snowy, clear, cloudy, and partly sunny conditions.</li>
+                <li>Data Visualization: Histograms, boxplots, and interactive charts illustrating trends.</li>
+                <li>Geographic Analysis: Mapped weather-specific traffic data using geographic roles.</li>
+            </ul>
+            <h4>Conclusion:</h4>
+            <p>
+                The analysis reveals actionable insights into how weather influences traffic patterns, informing urban planning and driver behavior studies.
+            </p>
+        </div>
+        <iframe src="documents/MinnesotaInterstateTrafficVolume.html" style="width: 100%; height: 300px; border: 1px solid #ccc; border-radius: 8px; margin-top: 10px;"></iframe>
+    </div>
+
+    <!-- COVID-19 Tableau Dashboard -->
+    <div class="project">
+        <h3>Interactive COVID-19 Tableau Dashboard</h3>
+        <p>
+            A Tableau dashboard visualizing global COVID-19 cases by country and time zone, with interactive filters and geographic mapping.
             <button class="toggle-details" onclick="toggleDetails('covid')">Read More</button>
         </p>
-        <div id="covid" class="details">
+        <div id="covid" class="details" style="display: none;">
+            <h4>Objective:</h4>
             <p>
-                This project used Tableau to create a dynamic world map that visualizes COVID-19 cases and trends by country and time zone. The dashboard includes features like hover-over tooltips displaying metrics (total cases, location, and time zone), circle sizes representing total cases, and color coding by time zone. A dropdown filter allows users to focus on specific time zones, providing a tailored view of the data.
+                To visualize global COVID-19 case trends by country and time zone, providing interactive insights for comparative analysis.
             </p>
+            <h4>Tech Stack:</h4>
+            <ul>
+                <li>Software: Tableau</li>
+                <li>Features: Interactive filters, geographic mapping</li>
+            </ul>
+            <h4>Key Components:</h4>
+            <ul>
+                <li>Visualization: World map with circle sizes representing total cases and time zones color-coded for quick interpretation.</li>
+                <li>Filters: Dropdown filters for narrowing data by specific time zones.</li>
+                <li>Insights: Identified trends related to population density and policy responses across time zones.</li>
+            </ul>
+            <h4>Conclusion:</h4>
             <p>
-                Key insights include identifying time zones dominated by countries with high populations, such as the USA, China, and India, which naturally drive total case counts. The diversity of countries in UTC+1 highlights differences in case trends driven by public policy, healthcare infrastructure, and socio-economic factors. This project demonstrates my ability to leverage Tableau’s geographic and interactivity features to uncover meaningful patterns and trends in global datasets.
+                This dashboard showcases the potential of interactive visualization for large-scale datasets, offering valuable public health insights.
             </p>
         </div>
         <div>
             <img src="images/tableau.png" alt="COVID-19 Tableau Dashboard" style="max-width: 500px; margin-top: 10px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
         </div>
     </div>
-    
+
 </section>
+
         
         <section>
             <h2>Shiny Apps</h2>
