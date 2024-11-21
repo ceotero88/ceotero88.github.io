@@ -165,6 +165,31 @@
         <p>
             To predict user interest in promotional emails for targeted marketing, leveraging historical browsing and purchasing data to minimize customer annoyance and improve engagement rates.
         </p>
+        <h4>Tech Stack:</h4>
+        <ul>
+            <li>Languages: Python</li>
+            <li>Libraries: Scikit-learn, Pandas, NumPy</li>
+            <li>Techniques: Logistic Regression with L1 penalty, Pipeline Model</li>
+        </ul>
+        <h4>Key Components:</h4>
+        <ul>
+            <li>
+                Data Integration: Combined user demographic and activity data with browsing history for feature extraction.
+            </li>
+            <li>
+                Feature Engineering: Extracted meaningful features from URL browsing data, such as visit duration and page types.
+            </li>
+            <li>
+                Machine Learning Pipeline: Created a pipeline with StandardScaler for data preprocessing and Logistic Regression for classification.
+            </li>
+            <li>
+                Performance Metrics: Achieved over 85% accuracy on test datasets through iterative model optimization.
+            </li>
+        </ul>
+        <h4>Conclusion:</h4>
+        <p>
+            This project demonstrates the effectiveness of combining user activity data with machine learning techniques to predict customer engagement, providing actionable insights for targeted email marketing campaigns. The scalable pipeline allows for future integration of additional features and models.
+        </p>
         <h4>Code Preview:</h4>
         <pre style="background-color: #f4f4f4; border: 1px solid #ccc; padding: 10px; max-height: 300px; overflow-y: scroll;">
 
@@ -214,7 +239,6 @@ class UserPredictor(BaseEstimator, ClassifierMixin):
         return data
         </pre>
         <p>
-            <a href="documents/main.txt.txt" target="_blank">View Full Text File</a>
         </p>
     </div>
 </div>
