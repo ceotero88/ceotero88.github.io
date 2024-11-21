@@ -450,86 +450,94 @@ class UserPredictor(BaseEstimator, ClassifierMixin):
 </section>
 
 
+<section>
+    <h2>Personal Projects</h2>
 
-
-
-
-        <section>
-            <h2>Personal Projects</h2>
-
-            <div class="project">
-                <h3>Arduino Sound Sensor LED Control</h3>
-                <p>
-                    A circuit designed to change an LED's color based on sound levels using an Arduino, sound sensor, and RGB LED.
-                    <button class="toggle-details" onclick="toggleDetails('arduino')">Read More</button>
-                </p>
-                <div id="arduino" class="details">
-                    <p>
-                        This project involved designing and building a circuit using an Arduino Uno to control the color of an RGB LED based on sound levels picked up by a sound sensor. The setup included a breadboard for organizing connections, jumper cables to link components, resistors to protect the circuit, and an RGB LED that changed colors depending on the input from the sensor.
-                    </p>
-                    <p>
-                        The sound sensor captured ambient noise levels and sent voltage signals to the Arduino. I programmed the Arduino in C++ using the Arduino IDE, mapping the sensor’s analog input to RGB color values. Functions like analogRead() gathered the sound data, while analogWrite() adjusted the red, green, and blue pins on the LED, making it respond dynamically to sound in real-time.
-                    </p>
-                    <p>
-                        To ensure the circuit worked smoothly, I added resistors to prevent damage to the LED and made sure all jumper connections were solid. The final project combined hardware and software to create a responsive system that translated sound into light, offering hands-on experience with signal processing and embedded systems.
-                    </p>
-                    <img src="images/arduino.jpg" alt="Arduino Sound Sensor Circuit">
-                </div>
-            </div>
-
-                <div class="project">
-        <h3>Choose Your Own Adventure App</h3>
+    <!-- Arduino Sound Sensor LED Control -->
+    <div class="project">
+        <h3>Arduino Sound Sensor LED Control</h3>
         <p>
-            An interactive app that lets users embark on a fun journey between Minneapolis and Madison, exploring city highlights along the way.
-            <button class="toggle-details" onclick="toggleDetails('adventure')">Read More</button>
+            A circuit designed to change an LED's color based on sound levels using an Arduino, sound sensor, and RGB LED.
+            <button class="toggle-details" onclick="toggleDetails('arduino')">Read More</button>
         </p>
-        <p>
-            <a href="https://choose-your-adventure-sk2s.onrender.com/" target="_blank">View Choose Your Own Adventure App</a>
-        </p>
-        <div id="adventure" class="details">
+        <div id="arduino" class="details">
+            <h4>Objective:</h4>
             <p>
-                This Python-based app uses the Dash framework to provide a dynamic, interactive experience for users. It features a map visualization of Minneapolis and Madison, generated using Plotly, and allows users to choose between restaurants and entertainment options in each city.
+                To design and build a dynamic circuit that converts sound levels into responsive LED color changes, demonstrating a hands-on approach to signal processing and embedded systems.
             </p>
+            <h4>Personal Connection:</h4>
             <p>
-                High-level features include:
+                This project combines my interest in electronics and creative problem-solving. It allowed me to experiment with the practical applications of sensors and microcontrollers while bringing together my passion for visual feedback systems.
             </p>
+            <h4>Key Components:</h4>
             <ul>
-                <li>Interactive Maps: Users can explore city locations through an OpenStreetMap.</li>
-                <li>Adventure Poem: Randomly generates a unique poem for each journey.</li>
+                <li>Hardware: Arduino Uno, sound sensor, RGB LED, breadboard, resistors, and jumper wires.</li>
+                <li>Programming: C++ code using Arduino IDE to map sound levels to RGB values.</li>
+                <li>Signal Processing: Functions like <code>analogRead()</code> and <code>analogWrite()</code> to capture sound data and control LED outputs dynamically.</li>
+                <li>Circuit Design: Resistors to protect the LED and solid jumper connections for seamless operation.</li>
             </ul>
-            <p>
-                The app is hosted on Render and combines fun storytelling with technical elements like Dash callbacks, data visualizations, and creative content generation.
-            </p>
+            <img src="images/arduino.jpg" alt="Arduino Sound Sensor Circuit">
         </div>
     </div>
 
-           <div class="project">
-    <h3>Personal Website Development</h3>
-    <p>
-        A custom-built portfolio website showcasing my projects, hosted on GitHub and connected to a personalized domain.
-        <button class="toggle-details" onclick="toggleDetails('website')">Read More</button>
-    </p>
-    <div id="website" class="details">
+    <!-- Choose Your Own Adventure App -->
+    <div class="project">
+        <h3>Choose Your Own Adventure App</h3>
         <p>
-            This website was a rewarding and fun challenge that allowed me to develop and deploy a multi-page portfolio site. I used HTML and CSS for structuring and styling, ensuring a responsive design and seamless navigation across multiple sections. The project involved creating separate HTML files for each section, utilizing reusable navigation components for consistency and ease of maintenance.
+            An interactive app that lets users embark on a fun journey between Minneapolis and Madison, exploring city highlights along the way.
+            
         </p>
         <p>
-            High-level features include:
+            <a href="https://choose-your-adventure-sk2s.onrender.com/" target="_blank">Open Application</a>
+            <button class="toggle-details" onclick="toggleDetails('adventure')">Read More</button>
         </p>
-        <ul>
-            <li>Custom Domain Integration: The website is hosted through GitHub Pages and connected to a personalized domain, <a href="https://claudiaotero.com" target="_blank">claudiaotero.com</a>.</li>
-            <li>Dynamic Project Display: Includes features like collapsible "Read More" sections for detailed project descriptions, downloadable PDFs, and integrated images.</li>
-            <li>Responsive Design: Optimized for different devices with consistent styling and functionality.</li>
-            <li>Version Control: Utilized GitHub for version control, ensuring iterative improvements and a clear project history.</li>
-        </ul>
-        <p>
-            This project not only showcases my technical skills in web development but also highlights my ability to manage end-to-end deployment, from coding and version control to domain integration and hosting. It serves as an ongoing space to share my work and learnings in a professional yet personal way.
-        </p>
+        <div id="adventure" class="details">
+            <h4>Objective:</h4>
+            <p>
+                To create a fun and interactive app that highlights key landmarks and entertainment options in Minneapolis and Madison while using technical frameworks to engage users.
+            </p>
+            <h4>Personal Connection:</h4>
+            <p>
+                As someone who has roots in Minneapolis and attends university in Madison, I wanted to showcase these cities’ unique offerings. This project allowed me to share my love for both places while honing my technical skills in data visualization and interactivity.
+            </p>
+            <h4>Key Components:</h4>
+            <ul>
+                <li>Framework: Built with Python using the Dash framework for a dynamic, web-based experience.</li>
+                <li>Map Visualizations: Integrated Plotly for interactive maps highlighting city locations.</li>
+                <li>Dynamic Content: Included storytelling elements like a randomly generated "adventure poem" to add creativity to the technical framework.</li>
+                <li>Deployment: Hosted on Render for accessibility and performance.</li>
+            </ul>
+        </div>
     </div>
-</div>
- 
+
+    <!-- Personal Website Development -->
+    <div class="project">
+        <h3>Personal Website Development</h3>
+        <p>
+            A custom-built portfolio website showcasing my projects, hosted on GitHub and connected to a personalized domain.
+            <button class="toggle-details" onclick="toggleDetails('website')">Read More</button>
+        </p>
+        <div id="website" class="details">
+            <h4>Objective:</h4>
+            <p>
+                To design and deploy a professional portfolio website that highlights my technical projects and skills in an accessible and visually appealing format.
+            </p>
+            <h4>Personal Connection:</h4>
+            <p>
+                This project represents my journey in web development, showcasing not just my technical growth but also my commitment to presenting my work in a polished and organized way. It’s a space where I can share my creativity and achievements.
+            </p>
+            <h4>Key Components:</h4>
+            <ul>
+                <li>Languages: Built with HTML and CSS for structure and styling.</li>
+                <li>Responsive Design: Optimized for viewing across devices with a seamless user experience.</li>
+                <li>Dynamic Features: Includes collapsible "Read More" sections, downloadable project files, and embedded images.</li>
+                <li>Hosting: Deployed via GitHub Pages with a custom domain (<a href="https://claudiaotero.com" target="_blank">claudiaotero.com</a>).</li>
+                <li>Version Control: Used GitHub for iterative improvements and project tracking.</li>
+            </ul>
+        </div>
+    </div>
 </section>
-        
+
     </main>
     <script>
     function toggleDetails(id) {
