@@ -158,7 +158,7 @@
         <button class="toggle-details" onclick="toggleDetails('selling-tvs')">Read More</button>
     </p>
     <p>
-        <a href="documents/main.py" target="_blank" download>Download main.py</a>
+        <a href="documents/main.py" target="_blank" download>Download Python File</a>
     </p>
     <div id="selling-tvs" class="details" style="display: none;">
         <h4>Objective:</h4>
@@ -220,45 +220,47 @@ class UserPredictor(BaseEstimator, ClassifierMixin):
 </div>
 
 
-    <!-- Wisconsin Census Data Project -->
-    <div class="project">
-        <h3>Wisconsin Census Data Analysis</h3>
+   <!-- Wisconsin Census Data Project -->
+<div class="project">
+    <h3>Wisconsin Census Data Analysis</h3>
+    <p>
+        This Python project uses geospatial libraries like GeoPandas and rasterio to analyze population and land use trends in Wisconsin, employing regression models and statistical tests.
+        <button class="toggle-details" onclick="toggleDetails('census')">Read More</button>
+    </p>
+    <p>
+        <a href="documents/Wisconsin_Census_Data.ipynb" target="_blank">Download Jupyter Notebook</a>
+    </p>
+    <div id="census" class="details" style="display: none;">
+        <h4>Objective:</h4>
         <p>
-            This Python project uses geospatial libraries like GeoPandas and rasterio to analyze population and land use trends in Wisconsin, employing regression models and statistical tests.
-            <button class="toggle-details" onclick="toggleDetails('census')">Read More</button>
+            To analyze Wisconsin census data, predicting population using features like housing units and land use, with advanced geospatial and statistical methods.
         </p>
+        <h4>Tech Stack:</h4>
+        <ul>
+            <li>Languages: Python</li>
+            <li>Libraries: GeoPandas, rasterio, matplotlib, seaborn</li>
+            <li>Tools: Jupyter Notebook</li>
+        </ul>
+        <h4>Key Components:</h4>
+        <ul>
+            <li>Data Sources: counties.geojson, tracts.shp, counties_tracts.db, and land.zip.</li>
+            <li>Statistical Testing: CV testing (R² and explained variance score) to evaluate and compare model performance across datasets.</li>
+            <li>Regression Models: Predicting population using housing unit and land-use data.</li>
+            <li>Visualization: Created scatter plots, boxplots, and geographic maps to illustrate findings.</li>
+            <li>Raster Analysis: Used masking and cell counting techniques to quantify land-use types within county boundaries, linking them to demographic features.</li>
+        </ul>
+        <h4>Conclusion:</h4>
         <p>
-            <a href="documents/Wisconsin_Census_Data.ipynb" target="_blank">Download Jupyter Notebook</a>
+            This project provides valuable insights for urban planning, showcasing the potential of combining geospatial data with statistical models.
         </p>
-        <div id="census" class="details" style="display: none;">
-            <h4>Objective:</h4>
-            <p>
-                To analyze Wisconsin census data, predicting population using features like housing units and land use, with advanced geospatial and statistical methods.
-            </p>
-            <h4>Tech Stack:</h4>
-            <ul>
-                <li>Languages: Python</li>
-                <li>Libraries: GeoPandas, rasterio, matplotlib, seaborn</li>
-                <li>Tools: Jupyter Notebook</li>
-            </ul>
-            <h4>Key Components:</h4>
-            <ul>
-                <li>Data Sources: counties.geojson, tracts.shp, counties_tracts.db, and land.zip.</li>
-                <li>Statistical Testing: CV testing (R² and explained variance score) to evaluate and compare model performance across datasets.</li>
-                <li>Regression Models: Predicting population using housing unit and land-use data.</li>
-                <li>Visualization: Created scatter plots, boxplots, and geographic maps to illustrate findings.</li>
-                <li>Raster Analysis: Used masking and cell counting techniques to quantify land-use types within county boundaries, linking them to demographic features.</li>
-            </ul>
-            <h4>Conclusion:</h4>
-            <p>
-                This project provides valuable insights for urban planning, showcasing the potential of combining geospatial data with statistical models.
-            </p>
-        </div>
+        <h4>Code Preview:</h4>
         <iframe 
             src="documents/Wisconsin_Census_Data.html" 
             style="width: 100%; height: 300px; border: none; margin-top: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); border-radius: 8px;">
         </iframe>
     </div>
+</div>
+
 
     <!-- Minnesota Traffic Analysis Project -->
     <div class="project">
