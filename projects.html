@@ -5,97 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-<style>
-    body {
-        font-family: 'Montserrat', sans-serif;
-        margin: 0;
-        padding: 0;
-    }
-    nav {
-        width: 20%;
-        background-color: #333;
-        color: white;
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
-        box-sizing: border-box;
-        height: 100vh;
-        position: fixed;
-    }
-    nav a {
-        color: white;
-        text-decoration: none;
-        margin: 10px 0;
-        font-size: 1.2em;
-    }
-    nav a:hover {
-        color: #ff9800;
-    }
-    main {
-        margin-left: 20%;
-        padding: 20px;
-        overflow-y: auto;
-    }
-    header {
-        text-align: center;
-        padding: 20px;
-        background-color: #f8f9fa;
-        border-bottom: 2px solid #ddd;
-    }
-    header h1 {
-        margin: 0;
-    }
-    section {
-        margin: 20px 0;
-        padding: 20px;
-        background-color: #f4f4f4;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    section h2 {
-        margin-top: 0;
-        text-align: center;
-        font-size: 1.8em;
-        color: #333;
-    }
-    .project {
-        margin: 20px 0;
-    }
-    .project h3 {
-        margin-bottom: 10px;
-    }
-    .project p {
-        margin: 10px 0;
-    }
-    .project a {
-        color: #0073e6;
-        text-decoration: none;
-    }
-    .project a:hover {
-        text-decoration: underline;
-    }
-    .details {
-        display: none;
-        margin-top: 10px;
-    }
-    .toggle-details {
-        background-color: #0073e6;
-        color: white;
-        border: none;
-        padding: 8px 12px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    .toggle-details:hover {
-        background-color: #005bb5;
-    }
-    img {
-        max-width: 400px;
-        margin-top: 10px;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-</style>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            width: 20%;
+            background-color: #333;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+            height: 100vh;
+            position: fixed;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+        nav a:hover {
+            color: #ff9800;
+        }
+        main {
+            margin-left: 20%;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-bottom: 2px solid #ddd;
+        }
+        header h1 {
+            margin: 0;
+        }
+        section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        section h2 {
+            margin-top: 0;
+            text-align: center;
+            font-size: 1.8em;
+            color: #333;
+        }
+        .project {
+            margin: 20px 0;
+        }
+        .project h3 {
+            margin-bottom: 10px;
+        }
+        .project p {
+            margin: 10px 0;
+        }
+        .project a {
+            color: #0073e6;
+            text-decoration: none;
+        }
+        .project a:hover {
+            text-decoration: underline;
+        }
+        .details {
+            display: none;
+            margin-top: 10px;
+        }
+        .toggle-details {
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .toggle-details:hover {
+            background-color: #005bb5;
+        }
+        img {
+            max-width: 400px;
+            margin-top: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -108,86 +108,85 @@
         <header>
             <h1>Projects</h1>
         </header>
-<section>
-    <h2>Shiny Apps</h2>
+        <section>
+            <h2>Shiny Apps</h2>
 
-    <div class="project">
-        <h3>Minnesota Twins Player Stats Explorer</h3>
-        <p>
-            An interactive app for visualizing Minnesota Twins' player performance, focusing on key statistics like Home Runs, Batting Average, and RBIs across seasons.
-            <button class="toggle-details" onclick="toggleDetails('twins')">Read More</button>
-        </p>
-        <p>
-            <a href="https://ceotero.shinyapps.io/TwinsStatsExplorer/" target="_blank">View Minnesota Twins Player Stats Explorer</a>
-        </p>
-        <div id="twins" class="details">
-            <p>
-                The Minnesota Twins Player Stats Explorer is an interactive Shiny app built for analyzing player performance. Focused on Twins players with at least one home run, the app allows users to visualize key statistics like Home Runs, Batting Average, RBIs, Hits, and Runs over time. Using Plotly, the app provides interactive line plots with zoom and hover capabilities, paired with a dynamic table for detailed yearly stats. Styled in Twins colors (navy, red, white), it delivers a clean, branded interface. Ideal for exploring career trends, comparing player outputs, or performing data-driven performance analysis.
-            </p>
-        </div>
-    </div>
+            <div class="project">
+                <h3>Minnesota Twins Player Stats Explorer</h3>
+                <p>
+                    An interactive app for visualizing Minnesota Twins' player performance, focusing on key statistics like Home Runs, Batting Average, and RBIs across seasons.
+                    <button class="toggle-details" onclick="toggleDetails('twins')">Read More</button>
+                </p>
+                <p>
+                    <a href="https://ceotero.shinyapps.io/TwinsStatsExplorer/" target="_blank">View Minnesota Twins Player Stats Explorer</a>
+                </p>
+                <div id="twins" class="details">
+                    <p>
+                        The Minnesota Twins Player Stats Explorer is an interactive Shiny app built for analyzing player performance. Focused on Twins players with at least one home run, the app allows users to visualize key statistics like Home Runs, Batting Average, RBIs, Hits, and Runs over time. Using Plotly, the app provides interactive line plots with zoom and hover capabilities, paired with a dynamic table for detailed yearly stats. Styled in Twins colors (navy, red, white), it delivers a clean, branded interface. Ideal for exploring career trends, comparing player outputs, or performing data-driven performance analysis.
+                    </p>
+                </div>
+            </div>
 
-    <div class="project">
-        <h3>Healthcare Appointment No-Show Analysis</h3>
-        <p>
-            A tool for analyzing patient no-show trends and demographic factors influencing missed medical appointments.
-            <button class="toggle-details" onclick="toggleDetails('noshow')">Read More</button>
-        </p>
-        <p>
-            <a href="https://ceotero.shinyapps.io/milestone2/" target="_blank">View Patient No-Show Analysis</a>
-        </p>
-        <div id="noshow" class="details">
-            <p>
-                The Patient No-Show Analysis is a visualization interface designed to help healthcare providers understand factors influencing patient no-shows to appointments. Through interactive visualizations, this app allows providers to explore demographic trends and health-related factors associated with higher no-show rates, enabling data-driven strategies for targeted interventions.
-            </p>
-            <p>Key visualization approaches include a bar chart comparing no-show rates across health conditions such as hypertension and diabetes, a line plot revealing trends in no-show rates by month to identify seasonal patterns, and an interactive line plot showing how age and gender distributions relate to no-show rates. This application empowers healthcare providers with actionable insights to optimize appointment scheduling, resource allocation, and patient engagement strategies.</p>
-        </div>
-    </div>
+            <div class="project">
+                <h3>Healthcare Appointment No-Show Analysis</h3>
+                <p>
+                    A tool for analyzing patient no-show trends and demographic factors influencing missed medical appointments.
+                    <button class="toggle-details" onclick="toggleDetails('noshow')">Read More</button>
+                </p>
+                <p>
+                    <a href="https://ceotero.shinyapps.io/milestone2/" target="_blank">View Patient No-Show Analysis</a>
+                </p>
+                <div id="noshow" class="details">
+                    <p>
+                        The Patient No-Show Analysis is a visualization interface designed to help healthcare providers understand factors influencing patient no-shows to appointments. Through interactive visualizations, this app allows providers to explore demographic trends and health-related factors associated with higher no-show rates, enabling data-driven strategies for targeted interventions.
+                    </p>
+                    <p>Key visualization approaches include a bar chart comparing no-show rates across health conditions such as hypertension and diabetes, a line plot revealing trends in no-show rates by month to identify seasonal patterns, and an interactive line plot showing how age and gender distributions relate to no-show rates. This application empowers healthcare providers with actionable insights to optimize appointment scheduling, resource allocation, and patient engagement strategies.</p>
+                </div>
+            </div>
 
-    <div class="project">
-        <h3>Pokémon Stat Explorer</h3>
-        <p>
-            A dynamic app for exploring Pokémon stats, comparing Attack and Defense attributes across types, generations, and rarity.
-            <button class="toggle-details" onclick="toggleDetails('pokemon')">Read More</button>
-        </p>
-        <p>
-            <a href="https://ceotero.shinyapps.io/pokemon_shiny_app/" target="_blank">View Pokémon Stat Explorer</a>
-        </p>
-        <div id="pokemon" class="details">
-            <p>
-                The Pokémon Stat Explorer is an interactive Shiny app designed to visualize Pokémon attributes across generations and types. This application allows users to explore the relationships between a Pokémon's Attack and Defense stats, filtered by type and generation. Users can examine specific generations or compare all generations simultaneously, providing flexibility in analysis.
-            </p>
-            <p>The app further enhances insights by distinguishing between Legendary and Non-Legendary Pokémon, enabling users to understand how these rare Pokémon compare to others. By toggling between different types, generations, and views, users can uncover deeper insights into how Pokémon characteristics have evolved across the franchise’s history.</p>
-        </div>
-    </div>
+            <div class="project">
+                <h3>Pokémon Stat Explorer</h3>
+                <p>
+                    A dynamic app for exploring Pokémon stats, comparing Attack and Defense attributes across types, generations, and rarity.
+                    <button class="toggle-details" onclick="toggleDetails('pokemon')">Read More</button>
+                </p>
+                <p>
+                    <a href="https://ceotero.shinyapps.io/pokemon_shiny_app/" target="_blank">View Pokémon Stat Explorer</a>
+                </p>
+                <div id="pokemon" class="details">
+                    <p>
+                        The Pokémon Stat Explorer is an interactive Shiny app designed to visualize Pokémon attributes across generations and types. This application allows users to explore the relationships between a Pokémon's Attack and Defense stats, filtered by type and generation. Users can examine specific generations or compare all generations simultaneously, providing flexibility in analysis.
+                    </p>
+                    <p>The app further enhances insights by distinguishing between Legendary and Non-Legendary Pokémon, enabling users to understand how these rare Pokémon compare to others. By toggling between different types, generations, and views, users can uncover deeper insights into how Pokémon characteristics have evolved across the franchise’s history.</p>
+                </div>
+            </div>
+        </section>
 
-</section>
-       <h2>Personal Projects</h2>
+        <section>
+            <h2>Personal Projects</h2>
 
-    <div class="project">
-        <h3>Arduino Sound Sensor LED Control</h3>
-        <p>
-            A circuit designed to change an LED's color based on sound levels using an Arduino, sound sensor, and RGB LED.
-            <button class="toggle-details" onclick="toggleDetails('arduino')">Read More</button>
-        </p>
-        <div id="arduino" class="details" style="display: none;">
-            <p>
-        This project involved designing and building a circuit using an Arduino Uno to control the color of an RGB LED based on sound levels picked up by a sound sensor. The setup included a breadboard for organizing connections, jumper cables to link components, resistors to protect the circuit, and an RGB LED that changed colors depending on the input from the sensor.
-    </p>
-    <p>
-        The sound sensor captured ambient noise levels and sent voltage signals to the Arduino. I programmed the Arduino in C++ using the Arduino IDE, mapping the sensor’s analog input to RGB color values. Functions like analogRead() gathered the sound data, while analogWrite() adjusted the red, green, and blue pins on the LED, making it respond dynamically to sound in real-time.
-    </p>
-    <p>
-        To ensure the circuit worked smoothly, I added resistors to prevent damage to the LED and made sure all jumper connections were solid. The final project combined hardware and software to create a responsive system that translated sound into light, offering hands-on experience with signal processing and embedded systems.
-    </p>
-        </div>
-        <div>
-            <img src="images/arduino.jpg" alt="Arduino Sound Sensor Circuit" style="max-width: 400px; margin-top: 10px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-        </div>
-    </div>
-
-</section> 
-
+            <div class="project">
+                <h3>Arduino Sound Sensor LED Control</h3>
+                <p>
+                    A circuit designed to change an LED's color based on sound levels using an Arduino, sound sensor, and RGB LED.
+                    <button class="toggle-details" onclick="toggleDetails('arduino')">Read More</button>
+                </p>
+                <div id="arduino" class="details">
+                    <p>
+                        This project involved designing and building a circuit using an Arduino Uno to control the color of an RGB LED based on sound levels picked up by a sound sensor. The setup included a breadboard for organizing connections, jumper cables to link components, resistors to protect the circuit, and an RGB LED that changed colors depending on the input from the sensor.
+                    </p>
+                    <p>
+                        The sound sensor captured ambient noise levels and sent voltage signals to the Arduino. I programmed the Arduino in C++ using the Arduino IDE, mapping the sensor’s analog input to RGB color values. Functions like analogRead() gathered the sound data, while analogWrite() adjusted the red, green, and blue pins on the LED, making it respond dynamically to sound in real-time.
+                    </p>
+                    <p>
+                        To ensure the circuit worked smoothly, I added resistors to prevent damage to the LED and made sure all jumper connections were solid. The final project combined hardware and software to create a responsive system that translated sound into light, offering hands-on experience with signal processing and embedded systems.
+                    </p>
+                </div>
+                <div>
+                    <img src="images/arduino.jpg" alt="Arduino Sound Sensor Circuit">
+                </div>
+            </div>
+        </section>
     </main>
     <script>
         function toggleDetails(id) {
