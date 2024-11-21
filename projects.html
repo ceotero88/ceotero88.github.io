@@ -163,19 +163,14 @@
         </p>
         <div id="arduino" class="details" style="display: none;">
             <p>
-                This project involves building a circuit with an Arduino microcontroller to control the color of an RGB LED based on sound levels detected by a sound sensor. The circuit uses the following components:
-            </p>
-            <ul>
-                <li>Arduino Uno</li>
-                <li>Sound sensor module</li>
-                <li>RGB LED</li>
-                <li>Breadboard</li>
-                <li>Jumper cables</li>
-                <li>Resistors (to prevent damage to components)</li>
-            </ul>
-            <p>
-                The Arduino was programmed to read sound intensity data from the sensor and adjust the LED's color dynamically. The project showcases the integration of hardware and software to create an interactive, sound-responsive circuit. It highlights skills in circuit assembly and coding for embedded systems.
-            </p>
+        This project involved designing and building a circuit using an Arduino Uno microcontroller to dynamically control the color of an RGB LED based on sound intensity levels detected by a sound sensor. The hardware setup included a breadboard for component connections, jumper cables for linking the components, resistors to protect the circuit, and an RGB LED capable of producing different colors based on the input signals.
+    </p>
+    <p>
+        The sound sensor module detected sound intensity levels in the environment and transmitted corresponding voltage signals to the Arduino. The Arduino was programmed in C++ using the Arduino IDE, where the code processed the analog input from the sound sensor and mapped these values to specific RGB color intensities. By using the `analogRead()` function for sensor data collection and `analogWrite()` to adjust the LED's red, green, and blue pins, the circuit achieved real-time responsiveness to changes in ambient sound levels.
+    </p>
+    <p>
+        Careful attention was given to hardware configuration, such as correctly placing resistors in series with the LED pins to prevent excessive current flow and ensuring solid electrical connections with jumper wires. The final implementation integrated hardware and software to create an interactive system capable of demonstrating real-time sound-to-color mapping, providing a practical understanding of signal processing and embedded systems.
+    </p>
         </div>
         <div>
             <img src="images/arduino.jpg" alt="Arduino Sound Sensor Circuit" style="max-width: 400px; margin-top: 10px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
