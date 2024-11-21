@@ -119,10 +119,16 @@
     }
     iframe {
         width: 100%; /* Ensure iframes scale with the container */
-        height: 400px; /* Adjust height for better visibility on mobile */
+        max-width: 100%; /* Prevents the iframe from exceeding container width */
+        height: 300px; /* Adjust height as needed */
         border: none;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        overflow-x: auto; /* Allow horizontal scrolling inside the iframe */
+    }
+    .project-preview-container {
+        overflow-x: auto; /* Enable horizontal scrolling for wide iframe content */
+        max-width: 100%; /* Prevent the container from exceeding the page width */
     }
     pre {
         max-width: 100%; /* Ensure code blocks scale within container */
@@ -134,6 +140,7 @@
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 </style>
+
 
 
 </head>
