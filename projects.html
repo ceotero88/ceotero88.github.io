@@ -151,6 +151,75 @@
         </div>
     </div>
 
+    <div class="project">
+    <h3>Targeted Email Marketing: Predicting Customer Engagement</h3>
+    <p>
+        Developed a machine learning classifier using Python to predict user engagement with promotional emails based on their browsing and purchasing history. Achieved over 85% accuracy through feature engineering and a pipeline model with logistic regression.
+        <button class="toggle-details" onclick="toggleDetails('selling-tvs')">Read More</button>
+    </p>
+    <p>
+        <a href="documents/main.py" target="_blank" download>Download main.py</a>
+    </p>
+    <div id="selling-tvs" class="details" style="display: none;">
+        <h4>Objective:</h4>
+        <p>
+            To predict user interest in promotional emails for targeted marketing, leveraging historical browsing and purchasing data to minimize customer annoyance and improve engagement rates.
+        </p>
+        <h4>Code Preview:</h4>
+        <pre style="background-color: #f4f4f4; border: 1px solid #ccc; padding: 10px; max-height: 300px; overflow-y: scroll;">
+
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegression
+from sklearn.base import BaseEstimator, ClassifierMixin
+import pandas as pd
+import numpy as np
+
+class UserPredictor(BaseEstimator, ClassifierMixin):
+    def __init__(self):
+        """Initialize the predictive model with scaling and logistic regression using L1 penalty."""
+        self.model = Pipeline([
+            ('scaler', StandardScaler()),
+            ('log_reg', LogisticRegression(C=0.5, penalty='l1', solver='saga'))  # L1 penalty with SAGA solver
+        ])
+
+    def fit(self, X_users, X_logs, y):
+        """Fit the model using user and log data. Prepare features and fit the logistic regression model."""
+        data = self.prepare_features(X_users, X_logs)
+        self.model.fit(data, y['clicked'])
+
+    def predict(self, X_users, X_logs):
+        """Predict whether users will click the email based on prepared features."""
+        data = self.prepare_features(X_users, X_logs)
+        return self.model.predict(data)
+    
+    def prepare_features(self, X_users, X_logs):
+        """Prepare and return features for modeling, including URL-based features."""
+        features = X_users[['id', 'past_purchase_amt']].copy()
+        
+        # Analyze URL visits
+        X_logs['product_type'] = X_logs['url'].apply(lambda x: x.split('/')[-1].split('.')[0])
+        url_features = pd.get_dummies(X_logs['product_type']).groupby(X_logs['id']).sum()
+        
+        # Time and log data features
+        log_summary = X_logs.groupby('id').agg({
+            'duration': ['sum', 'mean', 'std', 'min', 'max'],
+            'url': 'count'
+        })
+        log_summary.columns = ['_'.join(col).strip() for col in log_summary.columns.values]
+        log_summary.reset_index(inplace=True)
+        
+        data = pd.merge(features, log_summary, on='id', how='left')
+        data = pd.merge(data, url_features, on='id', how='left').fillna(0)
+        return data
+        </pre>
+        <p>
+            <a href="documents/main.txt.txt" target="_blank">View Full Text File</a>
+        </p>
+    </div>
+</div>
+
+
     <!-- Wisconsin Census Data Project -->
     <div class="project">
         <h3>Wisconsin Census Data Analysis</h3>
