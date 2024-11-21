@@ -127,20 +127,21 @@ iframe {
     border: none;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transform: scale(0.8); /* Adjust the zoom */
-    transform-origin: top left; /* Ensure scaling starts from the top-left corner */
+    overflow-x: auto; /* Allow horizontal scrolling inside the iframe */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS devices */
+    touch-action: pan-x pan-y; /* Allow panning in both directions */
 }
 
 
 
 .project-preview-container {
-    max-width: 100%; /* Prevent the container from exceeding the page width */
-    overflow: auto; /* Enable scrolling for the container */
-    display: flex; /* Ensure iframe adjusts properly */
-    justify-content: center; /* Center the iframe */
-    padding: 10px; /* Add some spacing around the iframe */
+    width: 100%;
+    overflow-x: auto; /* Enable horizontal scrolling for wide content */
+    max-width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
+
 
     pre {
         max-width: 100%; /* Ensure code blocks scale within container */
