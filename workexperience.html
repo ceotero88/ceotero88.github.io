@@ -211,30 +211,19 @@
         </section>
     </main>
     <script>
-     function toggleDetails(id) {
-    const details = document.getElementById(id);
-    const button = document.querySelector(`[onclick="toggleDetails('${id}')"]`);
-    
-    // Toggle the display of the details section
-    if (details.style.display === "none" || details.style.display === "") {
-        details.style.display = "block";
-        
-        // Special case for the FNE project
-        if (id === "mortenson-fne") {
-            button.textContent = "Hide Completed Circuit"; // Custom text
-        } else {
-            button.textContent = "Read Less"; // Default text
-        }
-    } else {
-        details.style.display = "none";
-        
-        // Special case for the FNE project
-        if (id === "mortenson-fne") {
-            button.textContent = "View Completed Circuit"; // Custom text
-        } else {
-            button.textContent = "Read More"; // Default text
+      function toggleDetails(id) {
+            const details = document.getElementById(id);
+            const button = document.querySelector([onclick="toggleDetails('${id}')"]);
+            
+            // Toggle the display of the details section
+            if (details.style.display === "none" || details.style.display === "") {
+                details.style.display = "block";
+                button.textContent = "Read Less"; // Change button text to "Read Less"
+            } else {
+                details.style.display = "none";
+                button.textContent = "Read More"; // Change button text to "Read More"
             }
-        }
+        } I
     </script>
 </body>
 </html>
