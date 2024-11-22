@@ -211,26 +211,29 @@
         </section>
     </main>
     <script>
-        function toggleDetails(id) {
+     function toggleDetails(id) {
     const details = document.getElementById(id);
     const button = document.querySelector(`[onclick="toggleDetails('${id}')"]`);
     
-    // Check for the specific ID for FNE project
-    if (id === "mortenson-fne") {
-        if (details.style.display === "none" || details.style.display === "") {
-            details.style.display = "block";
-            button.textContent = "Hide Circuit"; // Custom behavior for FNE project
+    if (!details || !button) return; // Safety check
+
+    // Toggle display
+    if (details.style.display === "none" || details.style.display === "") {
+        details.style.display = "block";
+        
+        // Custom behavior for FNE project
+        if (id === "mortenson-fne") {
+            button.textContent = "Hide Circuit";
         } else {
-            details.style.display = "none";
-            button.textContent = "View Completed Circuit"; // Custom behavior for FNE project
+            button.textContent = "Read Less"; // Default behavior
         }
     } else {
-        // Default behavior for other projects
-        if (details.style.display === "none" || details.style.display === "") {
-            details.style.display = "block";
-            button.textContent = "Read Less"; // Default behavior
+        details.style.display = "none";
+        
+        // Custom behavior for FNE project
+        if (id === "mortenson-fne") {
+            button.textContent = "View Completed Circuit";
         } else {
-            details.style.display = "none";
             button.textContent = "Read More"; // Default behavior
             }
         }
