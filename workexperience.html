@@ -215,26 +215,24 @@
     const details = document.getElementById(id);
     const button = document.querySelector(`[onclick="toggleDetails('${id}')"]`);
     
-    if (!details || !button) return; // Safety check
-
-    // Toggle display
+    // Toggle the display of the details section
     if (details.style.display === "none" || details.style.display === "") {
         details.style.display = "block";
         
-        // Custom behavior for FNE project
+        // Special case for the FNE project
         if (id === "mortenson-fne") {
-            button.textContent = "Hide Circuit";
+            button.textContent = "Hide Completed Circuit"; // Custom text
         } else {
-            button.textContent = "Read Less"; // Default behavior
+            button.textContent = "Read Less"; // Default text
         }
     } else {
         details.style.display = "none";
         
-        // Custom behavior for FNE project
+        // Special case for the FNE project
         if (id === "mortenson-fne") {
-            button.textContent = "View Completed Circuit";
+            button.textContent = "View Completed Circuit"; // Custom text
         } else {
-            button.textContent = "Read More"; // Default behavior
+            button.textContent = "Read More"; // Default text
             }
         }
     </script>
