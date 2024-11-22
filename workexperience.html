@@ -136,17 +136,19 @@
 
             <!-- Generative Prediction Model -->
             <div class="project">
-                <h3>Generative Prediction Model</h3>
+                <h3>Project Cost Prediction Application</h3>
                 <p>
-                    Built and optimized cost prediction models, leveraging ensemble techniques and feature engineering for cost comparability.
+                    Developed a cost prediction application combining Python for backend model integration and HTML for the user interface, designed to improve the accuracy of future project cost estimates through advanced regression techniques, synthetic data, and feature engineering.
                     <button class="toggle-details" onclick="toggleDetails('mortenson-model')">Read More</button>
                 </p>
                 <div id="mortenson-model" class="details">
                     <h4>Key Contributions:</h4>
                     <ul>
-                        <li><strong>Feature Engineering:</strong> Added Cost Per MW and Cost Per Watt to enhance comparability across projects.</li>
-                        <li><strong>Synthetic Data:</strong> Improved prediction accuracy by integrating synthetic data for diverse configurations.</li>
-                        <li><strong>Ensemble Modeling:</strong> Utilized stacking regressors for capturing complex patterns across 20 regression models.</li>
+                        <li><strong>Model Development in Python:</strong> Developed 23 regression models in Python, each optimized for its assigned task. Models included advanced regressors such as Stacking Regressors (leveraging ensemble methods), Gradient Boosting, Ridge Regression, Random Forest, and K-Nearest Neighbors. Each model was evaluated using train-test splits and cross-validation to determine the optimal combination of regressors and features.</li>
+                        <li><strong>Synthetic Data Integration:</strong> Generated and incorporated synthetic data to improve the generalization and robustness of the models, particularly for underrepresented scenarios.</li>
+                        <li><strong>Feature Engineering:</strong> Engineered domain-specific features to improve cost comparability across diverse project configurations. This resulted in enhanced model performance, including improved R², MAE, and MSE scores.</li>
+                        <li><strong>Application Integration:</strong> Serialized 23 task-specific models into .pkl files, integrating them into a unified application with a Python backend (app.py) and an HTML-based user interface (index.html). Each model uses its optimal features to generate precise predictions, while the centralized application provides seamless input handling and accurate cost estimation.</li>
+                        <li><strong>Deployment via Azure DevOps:</strong> Deployed the finalized application and models to a live production environment through Azure DevOps.</li>
                     </ul>
                     <img src="images/generative_model.jpg" alt="Generative Prediction Model Visualization">
                 </div>
