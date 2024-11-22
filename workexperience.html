@@ -212,16 +212,26 @@
     </main>
     <script>
         function toggleDetails(id) {
-            const details = document.getElementById(id);
-            const button = document.querySelector(`[onclick="toggleDetails('${id}')"]`);
-            
-            // Toggle the display of the details section
-            if (details.style.display === "none" || details.style.display === "") {
-                details.style.display = "block";
-                button.textContent = "Read Less"; // Change button text to "Read Less"
-            } else {
-                details.style.display = "none";
-                button.textContent = "Read More"; // Change button text to "Read More"
+    const details = document.getElementById(id);
+    const button = document.querySelector(`[onclick="toggleDetails('${id}')"]`);
+    
+    // Check for the specific ID for FNE project
+    if (id === "mortenson-fne") {
+        if (details.style.display === "none" || details.style.display === "") {
+            details.style.display = "block";
+            button.textContent = "Hide Circuit"; // Custom behavior for FNE project
+        } else {
+            details.style.display = "none";
+            button.textContent = "View Completed Circuit"; // Custom behavior for FNE project
+        }
+    } else {
+        // Default behavior for other projects
+        if (details.style.display === "none" || details.style.display === "") {
+            details.style.display = "block";
+            button.textContent = "Read Less"; // Default behavior
+        } else {
+            details.style.display = "none";
+            button.textContent = "Read More"; // Default behavior
             }
         }
     </script>
