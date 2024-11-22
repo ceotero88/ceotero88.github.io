@@ -207,21 +207,21 @@
                 </div>
             </div>
         </section>
-    </main>
+     </main>
     <script>
-      function toggleDetails(id) {
-            const details = document.getElementById(id);
-            const button = document.querySelector([onclick="toggleDetails('${id}')"]);
-            
-            // Toggle the display of the details section
-            if (details.style.display === "none" || details.style.display === "") {
-                details.style.display = "block";
-                button.textContent = "Read Less"; // Change button text to "Read Less"
-            } else {
-                details.style.display = "none";
-                button.textContent = "Read More"; // Change button text to "Read More"
-            }
+    function toggleDetails(id) {
+        const details = document.getElementById(id);
+        const button = document.querySelector(`[onclick="toggleDetails('${id}')"]`);
+        
+        // Toggle the display of the details section
+        if (details.style.display === "none" || details.style.display === "") {
+            details.style.display = "block";
+            button.textContent = "Read Less"; // Change button text to "Read Less"
+        } else {
+            details.style.display = "none";
+            button.textContent = "Read More"; // Change button text to "Read More"
         }
-    </script>
+    }
+</script>
 </body>
 </html>
