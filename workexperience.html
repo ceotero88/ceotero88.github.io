@@ -188,24 +188,41 @@
         <section>
             <h2>E.A. Sween Company</h2>
 
-            <!-- Continuous Improvement -->
-            <div class="project">
-                <h3>Continuous Improvement Analysis</h3>
-                <p>
-                    Automated mass balance calculations and visualized data using advanced analytical tools for actionable insights.
-                    <button class="toggle-details" onclick="toggleDetails('easween-improvement')">Read More</button>
-                </p>
-                <div id="easween-improvement" class="details">
-                    <h4>Key Contributions:</h4>
-                    <ul>
-                        <li><strong>Mass Balance Automation:</strong> Created scalable calculations in Excel.</li>
-                        <li><strong>Data Visualization:</strong> Built dashboards with Tableau and Minitab.</li>
-                        <li><strong>Statistical Analysis:</strong> Used R for error metric evaluation (MSE, R²).</li>
-                    </ul>
-                    <img src="images/continuous_improvement.jpg" alt="Continuous Improvement Analysis">
-                </div>
-            </div>
-        </section>
+           <div class="project">
+        <h3>Automated Mass Balance System</h3>
+        <p>
+            Developed an automated mass balance system in Excel to streamline data analysis, outputting key metrics such as Scrap %, Delta from BOM, and untracked waste dollars, providing actionable insights into waste and cost variance.
+            <button class="toggle-details" onclick="toggleDetails('mass-balance')">Read More</button>
+        </p>
+        <div id="mass-balance" class="details">
+            <h4>Key Contributions:</h4>
+            <ul>
+                <li><strong>Automation:</strong> Created an automated system in Excel, outputting high-level metrics such as Scrap %, Delta from BOM, and untracked waste dollars.</li>
+                <li><strong>Insights:</strong> Enabled streamlined data interpretation to evaluate BOM accuracy, explain cost variances, and provide true waste insights.</li>
+                <li><strong>Visualization:</strong> Developed R-based visualizations to enhance mass balance data comprehension and communication.</li>
+                <li><strong>Advanced Analytics:</strong> Used Minitab and Tableau to analyze data with metrics like mean squared error and R², identifying trends and improvement opportunities.</li>
+            </ul>
+            <img src="images/mb.png" alt="Mass Balance Automation Visualization">
+        </div>
+    </div>
+
+    <!-- Manufacturing Equipment Optimization -->
+    <div class="project">
+        <h3>Manufacturing Equipment Optimization</h3>
+        <p>
+            Contributed to reducing raw material waste by designing a straining tool using Shapr3D software. Piloted and implemented the tool into production, achieving a 5% reduction in scrap for a specific product.
+        </p>
+    </div>
+
+    <!-- Packaging Material Standardization -->
+    <div class="project">
+        <h3>Packaging Film Thickness Optimization</h3>
+        <p>
+            Utilized Optech-O2 software to analyze and determine the optimal packaging film thickness, contributing to the standardization of manufacturing materials and improving process efficiency.
+        </p>
+    </div>
+</section>
+        
      </main>
     <script>
     function toggleDetails(id) {
