@@ -438,29 +438,39 @@ class UserPredictor(BaseEstimator, ClassifierMixin):
 <section>
     <h2>Shiny Web Apps</h2>
 
-    <!-- Minnesota Twins Player Stats Explorer -->
-    <div class="project">
-        <h3>Minnesota Twins Player Stats Explorer</h3>
+<!-- Minnesota Twins Analytics -->
+<div class="project">
+    <h3>Minnesota Twins Analytics</h3>
+    <p>
+        An interactive app for visualizing Minnesota Twins' player performance, focusing on key statistics like Home Runs, Batting Average, and RBIs across seasons.
+    </p>
+    <p>
+        <a href="https://ceotero.shinyapps.io/minnesota_twins_analytics/" target="_blank">Open Application</a>
+        <button class="toggle-details" onclick="toggleDetails('twins')">Read More</button>
+    </p>
+    <div id="twins" class="details">
+        <h4>Objective:</h4>
         <p>
-            An interactive app for visualizing Minnesota Twins' player performance, focusing on key statistics like Home Runs, Batting Average, and RBIs across seasons.
+            To provide an interactive platform for analyzing Minnesota Twins' player performance trends, using advanced statistical techniques to uncover insights.
         </p>
-        <p>
-            <a href="https://ceotero.shinyapps.io/TwinsStatsExplorer/" target="_blank">Open Application</a>
-            <button class="toggle-details" onclick="toggleDetails('twins')">Read More</button>
-        </p>
-        <div id="twins" class="details">
-            <h4>Objective:</h4>
-            <p>
-                To provide an interactive platform for analyzing player performance trends for the Minnesota Twins, helping fans and analysts explore key statistics across seasons.
-            </p>
-            <h4>Key Components:</h4>
-            <ul>
-                <li>Visualizations with Plotly, offering zoom and hover capabilities.</li>
-                <li>Interactive table displaying player stats like Home Runs, Batting Average, RBIs, and Hits year-by-year.</li>
-                <li>Branded Interface: Styled in Minnesota Twins colors (navy, red, white) for a polished, team-focused presentation.</li>
-            </ul>
-        </div>
+        <h4>Key Components:</h4>
+        <ul>
+            <li>
+                Regression Analysis: Predicts home runs for a given season based on player statistics like Batting Average, RBIs, Hits, and Runs.
+            </li>
+            <li>
+                PCA (Principal Component Analysis): Reduces high-dimensional player performance data into key components, helping identify top performers and performance clusters.
+            </li>
+            <li>
+                Interactive Visualizations: Plotly charts and tables with zoom and hover features for detailed exploration of yearly player statistics.
+            </li>
+            <li>
+                Branded Interface: Styled in Minnesota Twins colors for a cohesive and professional look.
+            </li>
+        </ul>
     </div>
+</div>
+
 
     <!-- Healthcare Appointment No-Show Analysis -->
     <div class="project">
