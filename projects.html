@@ -472,29 +472,50 @@ class UserPredictor(BaseEstimator, ClassifierMixin):
 </div>
 
 
-    <!-- Healthcare Appointment No-Show Analysis -->
-    <div class="project">
-        <h3>Healthcare Appointment No-Show Analysis</h3>
+<!-- Healthcare Appointment Analysis -->
+<div class="project">
+    <h3>Healthcare Appointment Analysis</h3>
+    <p>
+        A dual-application tool leveraging interactive visualizations and predictive analytics to understand patient no-show trends and influencing factors.
+    </p>
+    <p>
+        <a href="https://srathi.shinyapps.io/EDA_app/" target="_blank">Open Analysis Application</a> | 
+        <a href="https://srathi.shinyapps.io/logistic_app/" target="_blank">Open Logistic Regression Application</a>
+        <button class="toggle-details" onclick="toggleDetails('appointment-analysis')">Read More</button>
+    </p>
+    <div id="appointment-analysis" class="details">
+        <h4>Logistic Regression Application:</h4>
         <p>
-            A tool for analyzing patient no-show trends and demographic factors influencing missed medical appointments.
+            An interactive platform utilizing a logistic regression model to predict the probability of patients attending their appointments. 
         </p>
+        <h5>Key Features:</h5>
+        <ul>
+            <li>Input Panel:
+                <ul>
+                    <li>Demographics: Dropdowns for gender and neighborhood, numeric input for age.</li>
+                    <li>Health Conditions: Checkboxes for binary conditions such as Scholarship, Hypertension, and Alcoholism.</li>
+                </ul>
+            </li>
+            <li>Output Panel:
+                <ul>
+                    <li>Probability Visualization: Dynamic bar chart displaying predicted attendance probabilities based on user inputs.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>Analysis Application:</h4>
         <p>
-            <a href="https://ceotero.shinyapps.io/milestone2/" target="_blank">Open Application</a>
-            <button class="toggle-details" onclick="toggleDetails('noshow')">Read More</button>
+            A visualization-focused tool analyzing seasonal, demographic, and health condition trends affecting no-show rates.
         </p>
-        <div id="noshow" class="details">
-            <h4>Objective:</h4>
-            <p>
-                To help healthcare providers understand patient no-show trends, identifying actionable strategies for reducing missed appointments.
-            </p>
-            <h4>Key Components:</h4>
-            <ul>
-                <li>Demographic Analysis: Explore trends in patient no-shows by gender, age, and health condition.</li>
-                <li>Seasonality Insights: Identify months with higher no-show rates for targeted scheduling improvements.</li>
-                <li>Interactive Visualizations: Bar charts, line plots, and age-gender distribution graphs for actionable insights.</li>
-            </ul>
-        </div>
+        <h5>Key Features:</h5>
+        <ul>
+            <li>Health Conditions Analysis: Compare no-show probabilities for various health conditions using logistic regression outputs.</li>
+            <li>Seasonal Trends: Line plots highlighting month-wise no-show rates for targeted scheduling improvements.</li>
+            <li>Demographic Trends: Grouped line plots showing no-show rates across age and gender cohorts.</li>
+        </ul>
     </div>
+</div>
+
 
     <!-- Pokémon Stat Explorer -->
     <div class="project">
