@@ -4,50 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Claudia Otero</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lora:wght@600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    nav {
+        width: 100%; /* Full width for mobile responsiveness */
+        background-color: #333;
+        color: white;
+        display: flex;
+        flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+        padding: 10px;
+        box-sizing: border-box;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+    }
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin: 5px;
+        font-size: 1em; /* Reduced font size for better fit */
+        text-align: center; /* Center-align text for better navigation on mobile */
+        flex: 1 1 auto; /* Flexible item sizing */
+    }
+    nav a:hover {
+        color: #ff9800;
+    }
+    main {
+        flex: 1;
+        margin-top: 60px; /* Leave space for fixed navigation bar */
+        padding: 20px;
+        overflow-y: auto;
+    }
+    header {
+        text-align: center;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-bottom: 2px solid #ddd;
+    }
+    header h1 {
+        margin: 0;
+        font-size: 1.5em; /* Adjusted for mobile screens */
+    }
+    section {
+        margin: 20px 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    section h2 {
+        margin-top: 0;
+        text-align: center;
+        font-size: 1.5em; /* Adjusted for smaller screens */
+    }
+    img {
+        border-radius: 50%;
+        max-width: 30%; /* Ensure image scales to container width */
+        height: auto; /* Maintain aspect ratio */
+        display: block;
+        margin: 0 auto 20px;
+    }
+    p {
+        line-height: 1.6; /* Improved readability */
+    }
+</style>
+
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">Claudia Otero</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="workexperience.html">Work Experience</a></li>
-            </ul>
-        </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="workexperience.html">Work Experience</a>
     </nav>
-    <header class="hero">
-        <div class="container">
-            <h1>Welcome to My Portfolio</h1>
-            <p>Showcasing my experience in data science, software development, and engineering.</p>
-        </div>
-    </header>
-    <main class="container">
-        <section class="about">
+    <main>
+        <header>
+            <h1>Claudia Otero</h1>
+            <p>Welcome to my portfolio, where I showcase my coding, software development, and engineering experience gained through academic coursework, internships, and personal projects.</p>
+        </header>
+        <section>
             <h2>About Me</h2>
-            <div class="profile">
-                <img src="images/senior.jpg" alt="Claudia Otero">
-                <p>
-                    I am a senior at the University of Wisconsin-Madison majoring in Data Science and minoring in Computer Science. 
-                    My passion lies in creating dynamic and user-friendly web interfaces.
-                </p>
-            </div>
+            <img src="images/senior.jpg" alt="Claudia Otero">
+            <p>I am a senior at the University of Wisconsin-Madison majoring in Data Science and minoring in Computer Science. My time at UW has been incredibly rewarding, and I’ve found my coursework both meaningful and impactful. I have significant experience in Python, R, and Java, and I’ve developed a passion for building and deploying user interfaces, especially web interfaces using Flask and HTML. Creating UIs isn’t just a skill for me, it’s something I genuinely enjoy!</p>
+            <p>Professionally, I’ve had the opportunity to gain diverse experiences, including roles as a Data Analytics Intern at Mortenson Construction, a Continuous Improvement Analytics Intern at E.A. Sween Company, and Head of Technology for Stranded on State, a Madison-based startup.</p>
+            <p>I’m originally from Minneapolis, Minnesota, and I have a deep appreciation for the charm of the Midwest. Outside of school and work, I’d describe myself as extroverted, adventurous, and curious. I'm a big sports fan and I love the connection it brings to people.</p>
         </section>
-        <section class="contact">
+        <section>
             <h2>Contact Information</h2>
-            <ul>
-                <li>Email: <a href="mailto:ceotero@wisc.edu">ceotero@wisc.edu</a></li>
-                <li>Phone: 651-276-9238</li>
-                <li>LinkedIn: <a href="https://linkedin.com/in/claudia-otero-250328239" target="_blank">View Profile</a></li>
-            </ul>
+            <p>School Email: ceotero@wisc.edu</p>
+            <p>Work Email: claudia.otero@mortenson.com</p>
+            <p>Phone Number: 651-276-9238</p>
+            <p>LinkedIn: <a href="https://linkedin.com/in/claudia-otero-250328239" target="_blank">linkedin.com/in/claudia-otero-250328239</a></p>
         </section>
     </main>
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Claudia Otero. All rights reserved.</p>
-        </div>
-    </footer>
 </body>
 </html>
