@@ -19,7 +19,7 @@
     header{margin-top:calc(var(--nav-height) + 3rem);padding:0 2rem 1rem;text-align:center;max-width:900px;margin-left:auto;margin-right:auto;animation:fadeIn 1s ease forwards .5s;opacity:0}
     header h1{font-size:clamp(2.6rem,6vw,4rem)}
 
-    .category-title{font-size:1.7rem;margin:3rem 0 1rem 2rem;opacity:.85}
+    .category-title{font-size:1.7rem;margin:3rem 0 1rem;text-align:center;opacity:.85}
 
     .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;padding:0 2rem;max-width:1300px;margin:0 auto}
     .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:1rem;padding:1.6rem 1.4rem;display:flex;flex-direction:column;justify-content:space-between;backdrop-filter:blur(3px);transition:transform .3s,box-shadow .3s}
@@ -58,29 +58,29 @@
   <!-- PREDICTIVE MODELING & ML -->
   <h2 class="category-title">Predictive Modeling & Machine Learning</h2>
   <section class="projects-grid">
-    <div class="card"><h3>Amazon Electronics Sentiment Analysis</h3><p>Tokenized 1.1 M reviews and built TextBlob + TF‑IDF dashboards revealing seasonality & length bias in sentiment.</p><button data-modal="m-amazon">Details</button></div>
+    <div class="card"><h3>Amazon Electronics Sentiment Analysis</h3><p>Developed Dash dashboards that tokenize 1.1 M reviews and use TextBlob + TF‑IDF to expose seasonal and length‑based sentiment shifts.</p><button data-modal="m-amazon">Details</button></div>
 
-    <div class="card"><h3>Email Engagement Classifier</h3><p>Engineered 40 browsing‑path features and trained L1 logistic model (AUC 0.84) to target high‑CTR segments.</p><button data-modal="m-email">Details</button></div>
+    <div class="card"><h3>Email Engagement Classifier</h3><p>Built an L1‑regularized logistic model on 40 engineered browsing features (AUC 0.84) to boost email click‑through targeting.</p><button data-modal="m-email">Details</button></div>
 
-    <div class="card"><h3>Logistic Regression – NFL Pass Completions</h3><p>Selected 4 key features via permutation‑importance + LassoCV to predict completion odds with F1 0.80.</p><button data-modal="m-logreport">Details</button></div>
+    <div class="card"><h3>NFL Pass Completion Logistic Model</h3><p>Used permutation importance + LassoCV to choose 4 features and predict completion odds with F1 0.80.</p><button data-modal="m-logreport">Details</button></div>
 
-    <div class="card"><h3>Minnesota Twins Analytics (Shiny)</h3><p>PCA + K‑means cluster hitters; GLM forecasts HR totals in interactive R Shiny dashboard.</p><button data-modal="m-twins">Details</button></div>
+    <div class="card"><h3>Minnesota Twins R‑Shiny Explorer</h3><p>Interactive PCA + K‑means clustering and GLM HR forecasts for hitters using Lahman data.</p><button data-modal="m-twins">Details</button></div>
   </section>
 
   <!-- SPATIAL & CULTURAL ANALYTICS -->
   <h2 class="category-title">Spatial & Cultural Analytics</h2>
   <section class="projects-grid">
-    <div class="card"><h3>Wisconsin Census Geo‑Analysis</h3><p>Extracted NLCD rasters with GeoPandas/rasterio and fit ridge regression (R² 0.87) to model county population.</p><button data-modal="m-census">Details</button></div>
-    <div class="card"><h3>Museum APIs: Islamic Art Study</h3><p>Scraped 18 k Met/Louvre/V&A records to quantify post‑9/11 shifts in Islamic art collecting & metadata.</p><button data-modal="m-museum">Details</button></div>
+    <div class="card"><h3>Wisconsin Census Geo‑Analysis</h3><p>Masked NLCD rasters with GeoPandas/rasterio and fit a ridge model (R² 0.87) to explain county population.</p><button data-modal="m-census">Details</button></div>
+    <div class="card"><h3>Museum APIs Islamic Art Study</h3><p>Scraped 18 k Met/Louvre/V&A records to quantify post‑9/11 acquisition and metadata shifts.</p><button data-modal="m-museum">Details</button></div>
   </section>
 
   <!-- OPTIMIZATION & OPERATIONS RESEARCH -->
   <h2 class="category-title">Optimization & Operations Research</h2>
   <section class="projects-grid">
-    <div class="card"><h3>Airport Baggage Carousel Scheduling</h3><p>Optimized carousel assignments with Julia/JuMP MILP, two‑stage heuristic & fairness model (≤6 s solve).</p><button data-modal="m-opt">Details</button></div>
+    <div class="card"><h3>Airport Baggage Carousel Scheduling</h3><p>Julia/JuMP MILP + two‑stage heuristic minimizes passenger wait (<6 s) and fairness model caps max 58 min.</p><button data-modal="m-opt">Details</button></div>
   </section>
 
-  <footer>Site built with vanilla HTML, CSS & JS. Deployed on GitHub Pages.</footer>
+  <footer>Site built with vanilla HTML, CSS &amp; JS. Deployed on GitHub Pages.</footer>
 
   <!-- =============== MODALS =============== -->
   <!-- Amazon NLP -->
@@ -88,37 +88,37 @@
     <ul>
       <li><strong>Tech:</strong> Python, NLTK, TextBlob, pandas, Dash.</li>
       <li><strong>Data:</strong> 1.1 M Amazon electronics reviews (2020).</li>
-      <li><strong>Results:</strong> Surface drivers of positive/negative sentiment; dashboards guide product & CX teams.</li>
+      <li><strong>Results:</strong> Dashboards pinpoint seasonal sentiment swings &amp; length bias for CX and product teams.</li>
     </ul>
-    <p><a href="documents/Sentiment_Analysis_of_Amazon_Electronics_Reviews.pdf" target="_blank">Download paper</a></p>
+    <p><a href="documents/Sentiment_Analysis_Amazon_Electronics.pdf" target="_blank">Download PDF</a></p>
   </div></div>
 
   <!-- Email ML -->
   <div class="modal" id="m-email"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Email Engagement Classifier</h2>
     <ul>
-      <li><strong>Tech:</strong> Python, Scikit‑learn, StandardScaler, LogisticRegression (L1).</li>
-      <li><strong>Data:</strong> 400 k users + clickstream & purchase logs → 40 engineered features.</li>
-      <li><strong>Results:</strong> AUC 0.84; top‑decile lift +42 pp in click‑through rate.</li>
+      <li><strong>Tech:</strong> Python, Scikit‑learn, StandardScaler, LogisticRegression (L1).</li>
+      <li><strong>Data:</strong> 400 k users – clickstream &amp; purchase logs expanded to 40 features.</li>
+      <li><strong>Results:</strong> ROC‑AUC 0.84; top‑decile lift +42 pp in click‑through rate.</li>
     </ul>
-    <p><a href="documents/main.py" download target="_blank">Download code</a></p>
+    <p><a href="documents/email_engagement_classifier.py" download target="_blank">Download code</a></p>
   </div></div>
 
   <!-- Logistic Regression -->
-  <div class="modal" id="m-logreport"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>NFL Pass Completion – Logistic Regression</h2>
+  <div class="modal" id="m-logreport"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>NFL Pass Completion Logistic Model</h2>
     <ul>
       <li><strong>Tech:</strong> Python, Scikit‑learn, permutation importance, LassoCV.</li>
       <li><strong>Data:</strong> 8 704 pass plays (NFL Big Data Bowl 2025).</li>
       <li><strong>Results:</strong> Precision 71 %, recall 91 %, F1 0.80; completion odds drop 1.2 pp per extra yard.</li>
     </ul>
-    <p><a href="documents/Stat_451_Final_Report_Claudia.pdf" target="_blank">Download full report</a></p>
+    <p><a href="documents/Stat_451_PassCompletion_Report.pdf" target="_blank">Download PDF</a></p>
   </div></div>
 
   <!-- Twins -->
-  <div class="modal" id="m-twins"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Minnesota Twins Analytics – R Shiny</h2>
+  <div class="modal" id="m-twins"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Minnesota Twins R‑Shiny Explorer</h2>
     <ul>
       <li><strong>Tech:</strong> R, Shiny, Plotly, FactoMineR, GLM.</li>
-      <li><strong>Data:</strong> Lahman DB seasons 2000‑2024; 12 batting stats per player.</li>
-      <li><strong>Results:</strong> PCA explains 78 % variance; GLM HR RMSE 3.4; interactive clustering & prediction.</li>
+      <li><strong>Data:</strong> Lahman DB seasons 2000‑2024; 12 batting stats/player.</li>
+      <li><strong>Results:</strong> PCA explains 78 % variance; GLM HR RMSE 3.4; interactive clustering &amp; prediction.</li>
     </ul>
     <p><a href="https://ceotero.shinyapps.io/minnesota_twins_analytics/" target="_blank">Launch app</a></p>
   </div></div>
@@ -126,31 +126,31 @@
   <!-- Census -->
   <div class="modal" id="m-census"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Wisconsin Census Geo‑Analysis</h2>
     <ul>
-      <li><strong>Tech:</strong> Python, GeoPandas, rasterio, Folium, Scikit‑learn (Ridge).</li>
+      <li><strong>Tech:</strong> Python, GeoPandas, rasterio, Folium, Scikit‑learn (Ridge).</li>
       <li><strong>Data:</strong> 72 counties; 30 m NLCD land‑cover rasters + 2020 Census.</li>
-      <li><strong>Results:</strong> Ridge R² 0.87; choropleth residuals highlight growth corridors vs underserved areas.</li>
+      <li><strong>Results:</strong> Ridge R² 0.87; residual maps reveal growth corridors vs. underserved areas.</li>
     </ul>
-    <p><a href="documents/Wisconsin_Census_Data.ipynb" target="_blank">Download notebook</a></p>
+    <p><a href="documents/Wisconsin_Census_GeoAnalysis.ipynb" target="_blank">Download notebook</a></p>
   </div></div>
 
   <!-- Museum APIs Study -->
-  <div class="modal" id="m-museum"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Museum APIs: Islamic Art Pre/Post‑9/11</h2>
+  <div class="modal" id="m-museum"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Museum APIs Islamic Art Study</h2>
     <ul>
-      <li><strong>Tech:</strong> Python, requests, pandas, matplotlib, seaborn.</li>
+      <li><strong>Tech:</strong> Python, REST APIs (requests), pandas, matplotlib, seaborn.</li>
       <li><strong>Data:</strong> 18 000 acquisition records (Met, Louvre, V&A) 1977‑2024.</li>
       <li><strong>Results:</strong> +40 % post‑9/11 acquisitions; metadata shifts from religious to narrative tags.</li>
     </ul>
-    <p><a href="documents/Museum APIs_ Islamic Art Study.pdf" target="_blank">Download study</a></p>
+    <p><a href="documents/Museum_APIs_IslamicArt_Study.pdf" target="_blank">Download PDF</a></p>
   </div></div>
 
   <!-- Optimization -->
-  <div class="modal" id="m-opt"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Airport Baggage Carousel Scheduling – Julia/JuMP</h2>
+  <div class="modal" id="m-opt"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Airport Baggage Carousel Scheduling</h2>
     <ul>
       <li><strong>Tech:</strong> Julia, JuMP, Gurobi, DataFrames.jl.</li>
       <li><strong>Data:</strong> Synthetic 100‑flight, 12‑carousel schedule.</li>
-      <li><strong>Results:</strong> MILP passenger‑weighted wait 5.94e5 min; two‑stage solves 15 % faster; fairness model caps max wait 58 min.</li>
+      <li><strong>Results:</strong> MILP wait 5.94e5 min; two‑stage 15 % faster; fairness variant caps max wait 58 min.</li>
     </ul>
-    <p><a href="documents/CourseProjectClaudiaOtero (1).html" target="_blank">Open HTML report</a></p>
+    <p><a href="documents/Baggage_Carousel_Scheduling.html" target="_blank">Open HTML report</a></p>
   </div></div>
 
   <script>
