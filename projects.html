@@ -3,160 +3,214 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Claudia Otero – Featured Projects</title>
+  <title>Claudia Otero – Projects</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    :root{--blue-start:#007cc2;--blue-end:#00e5ff;--nav-height:72px}
-    *{margin:0;padding:0;box-sizing:border-box;color:#fff;font-family:'Montserrat',sans-serif}
-    html,body{height:100%;background:linear-gradient(120deg,#000,#1a1a1a,#000);background-size:200% 200%;animation:bgShift 15s ease infinite;overflow-x:hidden}
-    @keyframes bgShift{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+    /* ---------- THEME ---------- */
+    :root {
+      --blue-start:#007cc2;
+      --blue-end:#00e5ff;
+      --nav-height:72px;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;color:#fff;font-family:'Montserrat',sans-serif;}
+    html,body{height:100%;background:linear-gradient(120deg,#000,#1a1a1a,#000);background-size:200% 200%;animation:bgShift 15s ease infinite;overflow-x:hidden;}
+    @keyframes bgShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 
-    nav{position:fixed;top:0;width:100%;height:var(--nav-height);display:flex;align-items:center;justify-content:flex-end;gap:2.5rem;padding:0 2rem;background:linear-gradient(90deg,var(--blue-start),var(--blue-end));backdrop-filter:blur(6px);z-index:20}
-    nav a{text-decoration:none;text-transform:uppercase;font-weight:600;letter-spacing:.5px;transition:opacity .3s}
-    nav a:hover{opacity:.75}
+    /* ---------- NAV ---------- */
+    nav{position:fixed;top:0;width:100%;height:var(--nav-height);display:flex;align-items:center;padding:0 1.5rem;background:linear-gradient(90deg,var(--blue-start),var(--blue-end));z-index:20;backdrop-filter:blur(6px);}    
+    .nav-links{margin-left:auto;display:flex;gap:2.5rem;}
+    nav a{text-decoration:none;text-transform:uppercase;font-weight:600;letter-spacing:.5px;transition:opacity .3s;}
+    nav a:hover{opacity:.75;}
 
-    header{margin-top:calc(var(--nav-height) + 3rem);padding:0 2rem 1rem;text-align:center;max-width:900px;margin-left:auto;margin-right:auto;animation:fadeIn 1s ease forwards .5s;opacity:0}
-    header h1{font-size:clamp(2.6rem,6vw,4rem)}
+    /* ---------- HEADINGS ---------- */
+    header{padding:calc(var(--nav-height)+2rem) 2rem 1.5rem;text-align:center;max-width:900px;margin:0 auto;}
+    header h1{font-size:clamp(2.5rem,6vw,4rem);position:relative;}
+    .category-heading{text-align:center;font-size:1.8rem;font-weight:700;margin:3.5rem 0 1.5rem;}
 
-    .category-title{font-size:1.7rem;margin:3rem 0 1rem;text-align:center;opacity:.85}
+    /* ---------- PROJECT GRID ---------- */
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;padding:0 2rem 4rem;max-width:1300px;margin:0 auto;}
+    .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:1rem;padding:2rem 1.5rem;display:flex;flex-direction:column;justify-content:space-between;backdrop-filter:blur(3px);transition:transform .3s,box-shadow .3s;}
+    .card:hover{transform:translateY(-8px);box-shadow:0 12px 24px rgba(0,0,0,.4);}    
+    .card h3{font-size:1.3rem;margin-bottom:.75rem;}
+    .card p{font-size:.95rem;line-height:1.5;}
+    .card button{margin-top:1.25rem;align-self:flex-start;padding:.6rem 1.1rem;border-radius:.5rem;border:2px solid var(--blue-end);background:transparent;color:var(--blue-end);font-weight:600;cursor:pointer;transition:background .3s,color .3s;}
+    .card button:hover{background:var(--blue-end);color:#000;}
 
-    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;padding:0 2rem;max-width:1300px;margin:0 auto}
-    .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:1rem;padding:1.6rem 1.4rem;display:flex;flex-direction:column;justify-content:space-between;backdrop-filter:blur(3px);transition:transform .3s,box-shadow .3s}
-    .card:hover{transform:translateY(-6px);box-shadow:0 10px 20px rgba(0,0,0,.4)}
-    .card h3{font-size:1.22rem;margin-bottom:.55rem}
-    .card p{font-size:.88rem;line-height:1.45}
-    .card button{margin-top:1rem;align-self:flex-start;padding:.55rem 1rem;border-radius:.5rem;border:2px solid var(--blue-end);background:transparent;color:var(--blue-end);font-weight:600;cursor:pointer;transition:background .3s,color .3s}
-    .card button:hover{background:var(--blue-end);color:#000}
+    /* ---------- MODAL ---------- */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;padding:1.5rem;z-index:50;visibility:hidden;opacity:0;transition:opacity .3s,visibility .3s;}
+    .modal.open{visibility:visible;opacity:1;}
+    .modal-content{background:#121212;max-width:900px;max-height:90vh;overflow-y:auto;border-radius:1rem;padding:2rem 2.5rem;position:relative;}
+    .close-btn{position:absolute;top:1rem;right:1rem;font-size:1.5rem;background:none;border:none;color:var(--blue-end);cursor:pointer;}
+    .modal-content h2{margin-bottom:.8rem;font-size:1.6rem;}
+    .modal-content ul{margin-left:1.2rem;}
+    .modal-content li{margin-bottom:.4rem;}
+    .modal-content a{color:var(--blue-end);text-decoration:underline;}
 
-    .modal{position:fixed;inset:0;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;padding:1.5rem;z-index:50;visibility:hidden;opacity:0;transition:opacity .3s,visibility .3s}
-    .modal.open{visibility:visible;opacity:1}
-    .modal-content{background:#121212;max-width:900px;max-height:90vh;overflow-y:auto;border-radius:1rem;padding:2rem 2.5rem;position:relative}
-    .modal-content h2{margin-bottom:.9rem}
-    .modal-content ul{margin-left:1.2rem;margin-bottom:1rem}
-    .modal-content li{margin-bottom:.4rem}
-    .modal-content a{color:var(--blue-end)}
-    .close-btn{position:absolute;top:1rem;right:1rem;font-size:1.5rem;background:none;border:none;color:var(--blue-end);cursor:pointer}
-    pre{display:none}
-
-    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-
-    footer{padding:2rem 2rem 4rem;text-align:center;font-size:.85rem;opacity:.6}
+    @media(max-width:500px){.card h3{font-size:1.1rem}.card p{font-size:.9rem}}
   </style>
 </head>
 <body>
+  <!-- NAV -->
   <nav>
-    <a href="index.html">Home</a>
-    <a href="projects.html">Projects</a>
-    <a href="workexperience.html">Professional Experience</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="workexperience.html">Professional Experience</a>
+    </div>
   </nav>
 
+  <!-- HEADER -->
   <header>
     <h1>Featured Projects</h1>
   </header>
 
-  <!-- PREDICTIVE MODELING & ML -->
-  <h2 class="category-title">Predictive Modeling & Machine Learning</h2>
+  <!-- ================= PREDICTIVE MODELING SECTION ================= -->
+  <h2 class="category-heading">Predictive Modeling & Machine Learning</h2>
   <section class="projects-grid">
-    <div class="card"><h3>Amazon Electronics Sentiment Analysis</h3><p>Developed Dash dashboards that tokenize 1.1 M reviews and use TextBlob + TF‑IDF to expose seasonal and length‑based sentiment shifts.</p><button data-modal="m-amazon">Details</button></div>
+    <!-- Amazon Sentiment -->
+    <div class="card"><h3>Amazon Electronics Sentiment Analysis</h3>
+      <p>Analyzed 1.1 M Amazon reviews with Python + NLP; TextBlob sentiment & TF‑IDF dashboards reveal length‑bias and seasonal shifts.</p>
+      <button data-modal="modal-amazon">Details</button></div>
 
-    <div class="card"><h3>Email Engagement Classifier</h3><p>Built an L1‑regularized logistic model on 40 engineered browsing features (AUC 0.84) to boost email click‑through targeting.</p><button data-modal="m-email">Details</button></div>
+    <!-- Email Classifier -->
+    <div class="card"><h3>Email Engagement Classifier</h3>
+      <p>Built an L1‑regularized logistic pipeline in Scikit‑learn to predict click‑through, engineering 40 URL & session features (AUC 0.85).</p>
+      <button data-modal="modal-email">Details</button></div>
 
-    <div class="card"><h3>NFL Pass Completion Logistic Model</h3><p>Used permutation importance + LassoCV to choose 4 features and predict completion odds with F1 0.80.</p><button data-modal="m-logreport">Details</button></div>
+    <!-- NFL Pass Completion -->
+    <div class="card"><h3>NFL Pass‑Completion Model</h3>
+      <p>Logistic model on Big Data Bowl plays—4 key features drive 70 % accuracy, exposing pass‑length & coverage effects.</p>
+      <button data-modal="modal-nfl">Details</button></div>
 
-    <div class="card"><h3>Minnesota Twins R‑Shiny Explorer</h3><p>Interactive PCA + K‑means clustering and GLM HR forecasts for hitters using Lahman data.</p><button data-modal="m-twins">Details</button></div>
+    <!-- Twins Analytics -->
+    <div class="card"><h3>Minnesota Twins Analytics (Shiny)</h3>
+      <p>R Shiny explorer: PCA clusters hitters & GLM predicts HR totals across 2 5 seasons with interactive Plotly radar charts.</p>
+      <button data-modal="modal-twins">Details</button></div>
   </section>
 
-  <!-- SPATIAL & CULTURAL ANALYTICS -->
-  <h2 class="category-title">Spatial & Cultural Analytics</h2>
+  <!-- ================= SPATIAL & CULTURAL SECTION ================= -->
+  <h2 class="category-heading">Spatial & Cultural Analytics</h2>
   <section class="projects-grid">
-    <div class="card"><h3>Wisconsin Census Geo‑Analysis</h3><p>Masked NLCD rasters with GeoPandas/rasterio and fit a ridge model (R² 0.87) to explain county population.</p><button data-modal="m-census">Details</button></div>
-    <div class="card"><h3>Museum APIs Islamic Art Study</h3><p>Scraped 18 k Met/Louvre/V&A records to quantify post‑9/11 acquisition and metadata shifts.</p><button data-modal="m-museum">Details</button></div>
+    <!-- Wisconsin Census -->
+    <div class="card"><h3>Wisconsin Census Geo‑Analysis</h3>
+      <p>Combined GeoPandas tracts with 30 m NLCD rasters; ridge regression (R² 0.87) links land‑use mix to county population.</p>
+      <button data-modal="modal-census">Details</button></div>
+
+    <!-- Museum Islamic Study -->
+    <div class="card"><h3>Museum APIs: Islamic Art Study</h3>
+      <p>Scraped 18 k objects via REST APIs (Met, Louvre, V&A); Python visualizations track post‑9/11 acquisition & metadata shifts.</p>
+      <button data-modal="modal-museum">Details</button></div>
   </section>
 
-  <!-- OPTIMIZATION & OPERATIONS RESEARCH -->
-  <h2 class="category-title">Optimization & Operations Research</h2>
+  <!-- ================= OPTIMIZATION SECTION ================= -->
+  <h2 class="category-heading">Optimization & Operations Research</h2>
   <section class="projects-grid">
-    <div class="card"><h3>Airport Baggage Carousel Scheduling</h3><p>Julia/JuMP MILP + two‑stage heuristic minimizes passenger wait (<6 s) and fairness model caps max 58 min.</p><button data-modal="m-opt">Details</button></div>
+    <!-- Baggage Scheduling -->
+    <div class="card"><h3>Airport Baggage Carousel Scheduling</h3>
+      <p>Julia + JuMP MILP (~60 k binaries) minimizes passenger‑weighted wait; two‑stage & fairness variants cut runtime and bound delay.</p>
+      <button data-modal="modal-baggage">Details</button></div>
   </section>
 
-  <footer>Site built with vanilla HTML, CSS &amp; JS. Deployed on GitHub Pages.</footer>
-
-  <!-- =============== MODALS =============== -->
-  <!-- Amazon NLP -->
-  <div class="modal" id="m-amazon"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Amazon Electronics Sentiment Analysis</h2>
+  <!-- ================= MODALS ================= -->
+  <!-- AMAZON MODAL -->
+  <div class="modal" id="modal-amazon"><div class="modal-content">
+    <button class="close-btn" data-close>&times;</button>
+    <h2>Amazon Electronics Sentiment Analysis</h2>
     <ul>
-      <li><strong>Tech:</strong> Python, NLTK, TextBlob, pandas, Dash.</li>
-      <li><strong>Data:</strong> 1.1 M Amazon electronics reviews (2020).</li>
-      <li><strong>Results:</strong> Dashboards pinpoint seasonal sentiment swings &amp; length bias for CX and product teams.</li>
+      <li><strong>Tech</strong> – Python, NLTK, TextBlob, Dash</li>
+      <li><strong>Data</strong> – 1.1 M Amazon 2020 electronics reviews</li>
+      <li><strong>Results</strong> – Discovered length bias, seasonal polarity swings; interactive dashboard for product teams</li>
+      <li><strong>Download</strong> – <a href="documents/Amazon_Electronics_Sentiment.pdf" target="_blank">Project Report (PDF)</a></li>
     </ul>
-    <p><a href="documents/Sentiment_Analysis_Amazon_Electronics.pdf" target="_blank">Download PDF</a></p>
   </div></div>
 
-  <!-- Email ML -->
-  <div class="modal" id="m-email"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Email Engagement Classifier</h2>
+  <!-- EMAIL MODAL -->
+  <div class="modal" id="modal-email"><div class="modal-content">
+    <button class="close-btn" data-close>&times;</button>
+    <h2>Email Engagement Classifier</h2>
     <ul>
-      <li><strong>Tech:</strong> Python, Scikit‑learn, StandardScaler, LogisticRegression (L1).</li>
-      <li><strong>Data:</strong> 400 k users – clickstream &amp; purchase logs expanded to 40 features.</li>
-      <li><strong>Results:</strong> ROC‑AUC 0.84; top‑decile lift +42 pp in click‑through rate.</li>
+      <li><strong>Tech</strong> – Python, Scikit‑learn, Pipeline, L1 Logistic</li>
+      <li><strong>Data</strong> – 250 k browsing & purchase logs</li>
+      <li><strong>Results</strong> – 10‑fold ROC‑AUC 0.85; 42 pp lift at top decile</li>
+      <li><strong>Download</strong> – <a href="documents/email_engagement_model.py" download>Python Script</a></li>
     </ul>
-    <p><a href="documents/email_engagement_classifier.py" download target="_blank">Download code</a></p>
   </div></div>
 
-  <!-- Logistic Regression -->
-  <div class="modal" id="m-logreport"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>NFL Pass Completion Logistic Model</h2>
+  <!-- NFL MODAL -->
+  <div class="modal" id="modal-nfl"><div class="modal-content">
+    <button class="close-btn" data-close>&times;</button>
+    <h2>NFL Pass‑Completion Modeling</h2>
     <ul>
-      <li><strong>Tech:</strong> Python, Scikit‑learn, permutation importance, LassoCV.</li>
-      <li><strong>Data:</strong> 8 704 pass plays (NFL Big Data Bowl 2025).</li>
-      <li><strong>Results:</strong> Precision 71 %, recall 91 %, F1 0.80; completion odds drop 1.2 pp per extra yard.</li>
+      <li><strong>Tech</strong> – Python, Scikit‑learn, Permutation Importance</li>
+      <li><strong>Data</strong> – 8 704 plays (NFL Big Data Bowl 2025)</li>
+      <li><strong>Results</strong> – 70 % accuracy; precision 71 %, recall 91 %</li>
+      <li><strong>Download</strong> – <a href="documents/Stat_451_Final_Report_Claudia.pdf" target="_blank">Full Report (PDF)</a></li>
     </ul>
-    <p><a href="documents/Stat_451_PassCompletion_Report.pdf" target="_blank">Download PDF</a></p>
   </div></div>
 
-  <!-- Twins -->
-  <div class="modal" id="m-twins"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Minnesota Twins R‑Shiny Explorer</h2>
+  <!-- TWINS MODAL -->
+  <div class="modal" id="modal-twins"><div class="modal-content">
+    <button class="close-btn" data-close>&times;</button>
+    <h2>Minnesota Twins Analytics App</h2>
     <ul>
-      <li><strong>Tech:</strong> R, Shiny, Plotly, FactoMineR, GLM.</li>
-      <li><strong>Data:</strong> Lahman DB seasons 2000‑2024; 12 batting stats/player.</li>
-      <li><strong>Results:</strong> PCA explains 78 % variance; GLM HR RMSE 3.4; interactive clustering &amp; prediction.</li>
+      <li><strong>Tech</strong> – R, Shiny, FactoMineR, GLM, Plotly</li>
+      <li><strong>Data</strong> – Lahman DB 2000‑2024 seasons</li>
+      <li><strong>Results</strong> – PCA clusters hitters; GLM predicts HR with CV RMSE 6.2</li>
+      <li><strong>Launch</strong> – <a href="https://ceotero.shinyapps.io/minnesota_twins_analytics/" target="_blank">Open Shiny App</a></li>
     </ul>
-    <p><a href="https://ceotero.shinyapps.io/minnesota_twins_analytics/" target="_blank">Launch app</a></p>
   </div></div>
 
-  <!-- Census -->
-  <div class="modal" id="m-census"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Wisconsin Census Geo‑Analysis</h2>
+  <!-- CENSUS MODAL -->
+  <div class="modal" id="modal-census"><div class="modal-content">
+    <button class="close-btn" data-close>&times;</button>
+    <h2>Wisconsin Census Geo‑Analysis</h2>
     <ul>
-      <li><strong>Tech:</strong> Python, GeoPandas, rasterio, Folium, Scikit‑learn (Ridge).</li>
-      <li><strong>Data:</strong> 72 counties; 30 m NLCD land‑cover rasters + 2020 Census.</li>
-      <li><strong>Results:</strong> Ridge R² 0.87; residual maps reveal growth corridors vs. underserved areas.</li>
+      <li><strong>Tech</strong> – Python, GeoPandas, rasterio, Ridge Regression</li>
+      <li><strong>Data</strong> – NLCD rasters ☓ 72 counties, 2020 census</li>
+      <li><strong>Results</strong> – Model R² 0.87; Folium maps flag high‑error counties</li>
+      <li><strong>Download</strong> – <a href="documents/WI_Census_GeoAnalysis.ipynb" target="_blank">Notebook (IPYNB)</a></li>
     </ul>
-    <p><a href="documents/Wisconsin_Census_GeoAnalysis.ipynb" target="_blank">Download notebook</a></p>
   </div></div>
 
-  <!-- Museum APIs Study -->
-  <div class="modal" id="m-museum"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Museum APIs Islamic Art Study</h2>
+  <!-- MUSEUM MODAL -->
+  <div class="modal" id="modal-museum"><div class="modal-content">
+    <button class="close-btn" data-close>&times;</button>
+    <h2>Museum APIs: Islamic Art Study</h2>
     <ul>
-      <li><strong>Tech:</strong> Python, REST APIs (requests), pandas, matplotlib, seaborn.</li>
-      <li><strong>Data:</strong> 18 000 acquisition records (Met, Louvre, V&A) 1977‑2024.</li>
-      <li><strong>Results:</strong> +40 % post‑9/11 acquisitions; metadata shifts from religious to narrative tags.</li>
+      <li><strong>Tech</strong> – Python, REST/JSON APIs, seaborn</li>
+      <li><strong>Data</strong> – 18 000 objects (Met, Louvre, V&A 1977‑2024)</li>
+      <li><strong>Results</strong> – Acquisition volume ↑ 27 %; religious tags ↓ 60 %</li>
+      <li><strong>Download</strong> – <a href="documents/MuseumAPIs_IslamicArtStudy.pdf" target="_blank">Research Paper (PDF)</a></li>
     </ul>
-    <p><a href="documents/Museum_APIs_IslamicArt_Study.pdf" target="_blank">Download PDF</a></p>
   </div></div>
 
-  <!-- Optimization -->
-  <div class="modal" id="m-opt"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Airport Baggage Carousel Scheduling</h2>
+  <!-- BAGGAGE MODAL -->
+  <div class="modal" id="modal-baggage"><div class="modal-content">
+    <button class="close-btn" data-close>&times;</button>
+    <h2>Airport Baggage Carousel Scheduling</h2>
     <ul>
-      <li><strong>Tech:</strong> Julia, JuMP, Gurobi, DataFrames.jl.</li>
-      <li><strong>Data:</strong> Synthetic 100‑flight, 12‑carousel schedule.</li>
-      <li><strong>Results:</strong> MILP wait 5.94e5 min; two‑stage 15 % faster; fairness variant caps max wait 58 min.</li>
+      <li><strong>Tech</strong> – Julia, JuMP, Gurobi, MILP & Decomposition</li>
+      <li><strong>Data</strong> – Synthetic 100‑flight schedule, carousel windows</li>
+      <li><strong>Results</strong> – Integrated MILP solved in 6 s; fairness model caps max wait at 58 min</li>
+      <li><strong>Download</strong> – <a href="documents/Airport_Baggage_Optimization.pdf" target="_blank">Project Report (PDF)</a></li>
     </ul>
-    <p><a href="documents/Baggage_Carousel_Scheduling.html" target="_blank">Open HTML report</a></p>
   </div></div>
 
+  <!-- ========= JS (modal open/close) ========= -->
   <script>
-    document.querySelectorAll('.card button').forEach(btn=>btn.addEventListener('click',()=>{const m=document.getElementById(btn.getAttribute('data-modal'));m&&m.classList.add('open');}));
-    document.querySelectorAll('[data-close]').forEach(btn=>btn.addEventListener('click',()=>btn.closest('.modal').classList.remove('open')));
-    document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open');}));
+    document.querySelectorAll('.card button').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const target=document.getElementById(btn.getAttribute('data-modal'));
+        if(target)target.classList.add('open');
+      });
+    });
+    document.querySelectorAll('[data-close]').forEach(btn=>{
+      btn.addEventListener('click',()=>btn.closest('.modal').classList.remove('open'));
+    });
+    document.querySelectorAll('.modal').forEach(modal=>{
+      modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open');});
+    });
   </script>
 </body>
 </html>
