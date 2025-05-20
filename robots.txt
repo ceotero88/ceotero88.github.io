@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://claudiaotero.com/sitemap.xml
