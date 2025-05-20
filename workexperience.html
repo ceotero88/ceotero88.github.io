@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Claudia Otero – Professional Experience</title>
 
-  <!-- Montserrat + Font Awesome (icons optional here, but keeps parity) -->
+  <!-- Montserrat + Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
@@ -131,11 +131,11 @@
       max-width:900px;max-height:90vh;overflow-y:auto;
       border-radius:1rem;padding:2rem 2.5rem;position:relative;
     }
-    .modal-content h2{margin-bottom:.9rem;}
+    .modal-content h2{margin-bottom:.9rem;text-align:center;}
     .modal-content ul{margin-left:1.2rem;margin-bottom:1rem;}
     .modal-content li{margin-bottom:.4rem;}
     .modal-content a{color:var(--blue-end);}
-    .modal-content img{margin-top:1rem;border-radius:.5rem;max-width:100%;}
+    .modal-content img{margin:0.5rem auto 1rem;display:block;max-width:150px;}
     .close-btn{
       position:absolute;top:1rem;right:1rem;font-size:1.5rem;
       background:none;border:none;color:var(--blue-end);cursor:pointer;
@@ -169,8 +169,8 @@
     <h2 class="category-title">Mortenson Construction</h2>
     <section class="experience-grid">
       <div class="card">
-        <h3>Data Analytics &amp; Innovation Intern<br><span style="font-weight:400;">May 2024 – Present</span></h3>
-        <p>Built a full-stack cost-prediction tool (23 ML models&nbsp;+ Flask UI) and automated an internal materials marketplace with Power Automate.</p>
+        <h3>Incoming Systems Analyst<br><span style="font-weight:400;">Data Analytics &amp; Innovation Intern<br>May&nbsp;2024 – Present</span></h3>
+        <p>Stacked-model cost predictor, safety-inspection Shiny scheduler, and marketplace automation.</p>
         <button data-modal="modal-mortenson">Details</button>
       </div>
     </section>
@@ -180,17 +180,17 @@
     <section class="experience-grid">
       <div class="card">
         <h3>Continuous Improvement Specialist<br><span style="font-weight:400;">Sep 2023 – May 2024</span></h3>
-        <p>Deployed analytics-driven mass-balance dashboards and designed a tooling tweak that cut scrap 5 % on a flagship product line.</p>
+        <p>Automated mass-balance workflows, R & Tableau analytics, scrap-reduction tooling.</p>
         <button data-modal="modal-eas">Details</button>
       </div>
     </section>
 
     <!--══════════ STRANDED ON STATE ══════════-->
-    <h2 class="category-title">Stranded on State (Startup)</h2>
+    <h2 class="category-title">Stranded on State</h2>
     <section class="experience-grid">
       <div class="card">
         <h3>Head of Technology<br><span style="font-weight:400;">Jan 2024 – Present</span></h3>
-        <p>Maintain a GitHub-hosted site celebrating UW-Madison life—pushing responsive updates, CI/CD tweaks, and analytics hooks.</p>
+        <p>Maintained a 30 k-follower site, streamlined front-end updates with Git workflows.</p>
         <button data-modal="modal-sos">Details</button>
       </div>
     </section>
@@ -200,7 +200,7 @@
     <section class="experience-grid">
       <div class="card">
         <h3>Campaign Manager<br><span style="font-weight:400;">Dec 2019 – Feb 2020</span></h3>
-        <p>Ran seven community fund-raisers, netting $27 000 for the 2020 Students of the Year program and earning a regional scholarship.</p>
+        <p>Raised $27 k in seven fund-raisers for Students of the Year; earned regional scholarship.</p>
         <button data-modal="modal-lls">Details</button>
       </div>
     </section>
@@ -211,15 +211,14 @@
   <div class="modal" id="modal-mortenson">
     <div class="modal-content">
       <button class="close-btn" data-close>&times;</button>
+      <img src="images/mortenson.png" alt="Mortenson logo">
       <h2>Mortenson – Data Analytics &amp; Innovation Intern</h2>
       <ul>
-        <li>❖ <span style="font-weight:600;">23 task-specific ML models</span>: stacking, GBM, Ridge, RF, KNN. Synthetic data lifted recall on rare configs.</li>
-        <li>❖ Packaged with Pickle → served via Flask; single UI funnels inputs to the correct model.</li>
-        <li>❖ Azure DevOps pipeline auto-builds, tests, and deploys to internal web-solarestimation-shared environment.</li>
-        <li>❖ Built Power Automate flow for “Material Mart” marketplace: parses MS Forms, uploads photos, crafts Viva Engage posts, emails crews.</li>
-        <li>❖ Hands-on wiring for Field Network Enclosure cabinets—read schematics, built boards, validated continuity.</li>
+        <li>Developed a high-accuracy cost-prediction system by stacking 20 + regression models with synthetic data and custom feature engineering.</li>
+        <li>Built a Shiny app that auto-generates monthly safety-inspection schedules for 30 + project sites.</li>
+        <li>Created an internal materials-marketplace workflow using Power Automate (Forms ➜ SharePoint ➜ Viva Engage).</li>
+        <li>Packaged and deployed web apps through Azure DevOps CI/CD pipelines.</li>
       </ul>
-      <img src="images/cost.png" alt="Cost prediction dashboard">
     </div>
   </div>
 
@@ -227,14 +226,15 @@
   <div class="modal" id="modal-eas">
     <div class="modal-content">
       <button class="close-btn" data-close>&times;</button>
+      <img src="images/eas.png" alt="E.A. Sween logo">
       <h2>E.A. Sween – Continuous Improvement</h2>
       <ul>
-        <li>❖ Automated mass-balance system in Excel/VBA + R visuals; reconciles scrap vs. BOM, flags $ variances.</li>
-        <li>❖ Statistically profiled waste drivers with Minitab (MSE, R²) and Tableau trend dashboards.</li>
-        <li>❖ Designed 3-D-printed straining tool in Shapr3D; pilot cut scrap 5 %.</li>
-        <li>❖ Optimised packaging film thickness via Optech-O2, supporting material standardisation.</li>
+        <li>Automated a mass-balance system in Excel, creating repeatable data workflows and cutting manual prep time 70 %.</li>
+        <li>Analyzed production data in R, surfacing trends via Tableau dashboards and Minitab statistics.</li>
+        <li>Designed a straining tool in Shapr3D that reduced raw-material scrap 5 % during pilot runs.</li>
+        <li>Evaluated packaging film thickness with Optech-O2 to drive material standardization.</li>
+        <li>Built a Lean Six Sigma project tracker in Excel to visualise KPI progress.</li>
       </ul>
-      <img src="images/mb.png" alt="Mass balance dashboard">
     </div>
   </div>
 
@@ -242,16 +242,15 @@
   <div class="modal" id="modal-sos">
     <div class="modal-content">
       <button class="close-btn" data-close>&times;</button>
-      <h2>Stranded on State – Head of Tech</h2>
+      <img src="images/sos.png" alt="Stranded on State logo">
+      <h2>Stranded on State – Head of Technology</h2>
       <ul>
-        <li>❖ Maintaining GitHub-Pages site—HTML/CSS tweaks, performance audits, SEO tags.</li>
-        <li>❖ Set up simple CI to lint &amp; deploy on push.</li>
-        <li>❖ Embedded analytics to track post reach and guide content cadence.</li>
-        <li>❖ Brand presence: 30 k+ IG &amp; TikTok followers built on organic campus humour.</li>
+        <li>Maintain and optimise a GitHub-Pages website serving 30 k + followers across IG &amp; TikTok.</li>
+        <li>Streamlined front-end updates with modular HTML/CSS and Git workflows; cut release time 50 %.</li>
+        <li>Implemented basic CI to lint, build, and auto-deploy on push.</li>
+        <li>Added lightweight analytics hooks to track post reach and inform content cadence.</li>
       </ul>
-      <div style="margin-top:1rem;">
-        <a href="https://strandedonstate.com" target="_blank" rel="noopener" style="color:var(--blue-end);text-decoration:underline;">Visit website</a>
-      </div>
+      <a href="https://strandedonstate.com" target="_blank" rel="noopener" style="color:var(--blue-end);text-decoration:underline;">Visit website</a>
     </div>
   </div>
 
@@ -259,11 +258,12 @@
   <div class="modal" id="modal-lls">
     <div class="modal-content">
       <button class="close-btn" data-close>&times;</button>
+      <img src="images/lls.jpg" alt="Leukemia &amp; Lymphoma Society logo">
       <h2>Leukemia &amp; Lymphoma Society – Campaign Manager</h2>
       <ul>
-        <li>❖ Led a seven-week Students of the Year campaign; coordinated 7 events, corporate asks, and social pushes.</li>
-        <li>❖ Raised $27 000 (top 5 % nationally) → awarded regional Citizenship Engagement Scholarship.</li>
-        <li>❖ See the archived campaign page : <a href="https://events.lls.org/mn/mplsSOY20/tlivclaudi" target="_blank" rel="noopener" style="color:var(--blue-end);">link</a></li>
+        <li>Raised $27 000 in three months by organising seven community fund-raisers and leveraging donor data for targeted outreach.</li>
+        <li>Awarded the 2020 MN/ND/SD Citizenship Engagement Scholarship for leadership and impact.</li>
+        <li>Archived campaign page: <a href="https://events.lls.org/mn/mplsSOY20/tlivclaudi" target="_blank" rel="noopener">Students of the Year</a></li>
       </ul>
     </div>
   </div>
@@ -275,7 +275,7 @@
 
   <!-- ---------- SCRIPTS ---------- -->
   <script>
-    /* Modal open / close (same pattern used on projects page) */
+    /* Modal open / close */
     document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('button[data-modal]').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -284,19 +284,16 @@
         });
       });
 
-      /* close buttons */
       document.querySelectorAll('[data-close]').forEach(btn => {
         btn.addEventListener('click', () => {
           btn.closest('.modal').classList.remove('open');
         });
       });
 
-      /* click outside content closes modal */
       window.addEventListener('click', e => {
         if(e.target.classList.contains('modal')) e.target.classList.remove('open');
       });
 
-      /* escape key closes any open modal */
       document.addEventListener('keydown', e => {
         if(e.key === 'Escape'){
           document.querySelectorAll('.modal.open').forEach(m => m.classList.remove('open'));
