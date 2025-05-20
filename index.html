@@ -15,7 +15,6 @@
       color: #fff;
       font-family: 'Montserrat', sans-serif;
     }
-
     html, body {
       height: 100%;
       background: linear-gradient(120deg, #000000, #1a1a1a, #000000);
@@ -23,79 +22,76 @@
       animation: gradientBG 15s ease infinite;
       overflow-x: hidden;
     }
-
     @keyframes gradientBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
-    /* Navigation Bar */
+    /* --- NAVIGATION BAR --- */
+    :root {
+      --nav-height: 72px;
+      --blue-start: #007cc2;
+      --blue-end: #00e5ff;
+    }
+
     nav {
-      --nav-height: 70px;
       position: fixed;
       top: 0;
       width: 100%;
       height: var(--nav-height);
-      padding: 1rem 2rem;
+      padding: 0 2rem;
       display: flex;
+      align-items: center;
       justify-content: flex-end;
       gap: 2rem;
-      background: linear-gradient(90deg, #00e5ff 0%, #0066ff 100%);
+      background: linear-gradient(90deg, var(--blue-start), var(--blue-end));
       z-index: 10;
-      backdrop-filter: blur(5px);
+      backdrop-filter: blur(6px);
     }
-
     nav a {
-      color: #000;
       text-decoration: none;
       font-weight: 600;
       text-transform: uppercase;
-      transition: color 0.3s;
+      letter-spacing: 0.5px;
+      transition: opacity 0.3s;
     }
-
     nav a:hover {
-      color: #ffffff;
+      opacity: 0.75;
     }
 
-    /* Hero Section */
+    /* --- HERO SECTION --- */
     .hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
       min-height: 100vh;
-      padding: calc(var(--nav-height) + 2rem) 5rem 0;
+      padding: calc(var(--nav-height) + 2rem) 5rem 0 5rem; /* top padding to clear nav */
     }
-
     .hero .text {
       max-width: 600px;
-      animation: fadeIn 1s ease forwards;
-      animation-delay: 0.5s;
+      animation: fadeIn 1s ease forwards 0.5s;
       opacity: 0;
     }
-
     .hero .text h1 {
       font-size: clamp(3rem, 8vw, 6rem);
       margin-bottom: 1rem;
     }
-
     .hero .text p {
       font-size: 1.25rem;
       line-height: 1.6;
       margin-top: 0.5rem;
     }
-
-    /* Social Icons */
+    /* social buttons */
     .social {
       margin-top: 1.5rem;
       display: flex;
       gap: 1rem;
     }
-
     .social a {
       width: 48px;
       height: 48px;
-      border: 2px solid #00e5ff;
+      border: 2px solid var(--blue-end);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -103,54 +99,51 @@
       text-decoration: none;
       transition: background 0.3s, transform 0.3s;
       font-size: 1.2rem;
-      color: #00e5ff;
     }
-
     .social a:hover {
-      background: #00e5ff;
-      color: #000;
+      background: var(--blue-end);
       transform: scale(1.1);
     }
 
-    /* Hero Image */
+    /* hero image */
     .hero .image {
       display: flex;
       justify-content: center;
-      animation: fadeIn 1s ease forwards;
-      animation-delay: 1s;
+      animation: fadeIn 1s ease forwards 1s;
       opacity: 0;
     }
-
     .hero .image img {
       width: clamp(300px, 40vw, 500px);
       height: clamp(300px, 40vw, 500px);
       border-radius: 1.5rem;
       object-fit: cover;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 0 20px rgba(0,0,0,0.8);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
     .hero .image img:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 30px rgba(0, 0, 0, 1);
+      box-shadow: 0 0 30px rgba(0,0,0,1);
     }
 
-    /* Animations */
+    /* --- ANIMATIONS --- */
     @keyframes fadeIn {
-      to { opacity: 1; transform: translateY(0); }
       from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* Mobile Adjustments */
+    /* --- RESPONSIVE --- */
     @media (max-width: 768px) {
       nav {
+        padding: 0 1rem;
         justify-content: center;
-        padding: 0.75rem 1.5rem;
       }
       .hero {
         grid-template-columns: 1fr;
         text-align: center;
-        padding: calc(var(--nav-height) + 1.5rem) 2rem 2rem;
+        padding: calc(var(--nav-height) + 1.5rem) 1.5rem 0 1.5rem;
+      }
+      .hero .image {
+        margin-top: 2rem;
       }
       .social {
         justify-content: center;
@@ -177,6 +170,7 @@
         <a href="https://github.com/claudiaotero88" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
       </div>
     </div>
+
     <div class="image">
       <img src="images/senior.jpg" alt="Claudia Otero Senior Portrait" />
     </div>
