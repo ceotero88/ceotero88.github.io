@@ -1,349 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Claudia Otero</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-    body {
-        font-family: 'Montserrat', sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-    }
-    nav {
-        width: 100%; /* Adjusted for mobile view */
-        background-color: #333;
-        color: white;
-        display: flex;
-        flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-        padding: 10px; /* Reduced padding for mobile view */
-        box-sizing: border-box;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-    }
-    nav a {
-        color: white;
-        text-decoration: none;
-        margin: 5px;
-        font-size: 1em; /* Reduced font size for better fit */
-        overflow-wrap: break-word; /* Handle long text gracefully */
-        flex: 1 1 auto; /* Allow items to grow and shrink as needed */
-        text-align: center;
-    }
-    nav a:hover {
-        color: #ff9800;
-    }
-    main {
-        margin-top: 60px; /* Leave space for the nav bar */
-        padding: 20px;
-        overflow-y: auto;
-    }
-    header {
-        text-align: center;
-        padding: 20px;
-        background-color: #f8f9fa;
-        border-bottom: 2px solid #ddd;
-    }
-    header h1 {
-        margin: 0;
-        font-size: 1.5em; /* Adjusted for mobile screens */
-    }
-    section {
-        margin: 20px 0;
-        padding: 20px;
-        background-color: #f4f4f4;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    section h2 {
-        margin-top: 0;
-        text-align: center;
-        font-size: 1.5em; /* Adjusted for smaller screens */
-        color: #333;
-    }
-    .project {
-        margin: 40px 0;
-    }
-    .project h3 {
-        margin-bottom: 15px;
-        font-size: 1.2em; /* Adjusted for mobile */
-    }
-    .project p {
-        margin: 10px 0;
-    }
-    .project a {
-        color: #0073e6;
-        text-decoration: none;
-    }
-    .project a:hover {
-        text-decoration: underline;
-    }
-    .toggle-details {
-        display: block;
-        width: 100%;
-        text-align: center;
-        background-color: white; /* Dark grey to match the palette */
-        color: #333;
-        border: 2px solid #333;
-        padding: 10px 15px;
-        font-size: 14px; /* Adjusted for mobile */
-        cursor: pointer;
-        margin-top: 10px;
-        margin-bottom: 30px;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-    }
-    .toggle-details:hover {
-        background-color: #555; /* Slightly lighter grey for hover effect */
-    }
-    .details {
-        margin-top: 15px;
-        padding: 15px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        background-color: #f9f9f9;
-        display: none;
-    }
-    img {
-        max-width: 100%; /* Ensure images scale within their container */
-        height: auto;
-        margin-top: 10px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-iframe {
-    width: 100%; /* Ensure iframes scale with the container */
-    max-width: 100%; /* Prevents the iframe from exceeding container width */
-    height: 400px; /* Adjust height as needed */
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    overflow: auto; /* Allow horizontal scrolling inside the iframe */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS devices */
-    touch-action: pan-x pan-y; /* Allow panning in both directions */
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claudia Otero – Professional Experience</title>
 
+  <!-- Montserrat + Font Awesome (icons optional here, but keeps parity) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-
-.project-preview-container {
-    width: 100%;
-    overflow-x: auto; /* Enable horizontal scrolling for wide content */
-    max-width: 100%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-
-    pre {
-        max-width: 100%; /* Ensure code blocks scale within container */
-        overflow-x: auto; /* Allow horizontal scrolling for long lines */
-        background-color: #f4f4f4;
-        border: 1px solid #ccc;
-        padding: 10px;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        touch-action: pan-x;
+  <style>
+    :root{
+      --blue-start:#007cc2;
+      --blue-end:#00e5ff;
+      --nav-height:72px;
     }
-    .iframe-container {
-    overflow-x: auto; /* Enable scrolling inside the container */
-    width: 100%; /* Ensure container spans the full width */
-    max-width: 100%; /* Prevent the container from exceeding the viewport width */
-    height: 400px; /* Match the iframe height */
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    -webkit-overflow-scrolling: touch;
-}
-        .bio {
-    text-align: center;
-    font-style: italic;
-    margin-bottom: 20px; /* Adjust spacing below the bio */
-    color: #555; /* Optional: Customize text color */
-}
 
-    </style>
+    /* ---------- base ---------- */
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;color:#fff;}
+    html,body{
+      height:100%;
+      background:linear-gradient(120deg,#000,#1a1a1a,#000);
+      background-size:200% 200%;
+      animation:bgShift 15s ease infinite;
+      overflow-x:hidden;
+    }
+    @keyframes bgShift{
+      0%{background-position:0 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0 50%}
+    }
+
+    /* ---------- nav ---------- */
+    nav{
+      position:fixed;top:0;width:100%;height:var(--nav-height);
+      display:flex;align-items:center;justify-content:flex-end;
+      gap:2.5rem;padding:0 2rem;
+      background:linear-gradient(90deg,var(--blue-start),var(--blue-end));
+      backdrop-filter:blur(6px);
+      z-index:20;
+    }
+    nav a{
+      text-decoration:none;text-transform:uppercase;font-weight:600;letter-spacing:.5px;
+      transition:opacity .3s;
+    }
+    nav a:hover{opacity:.75;}
+
+    /* ---------- header ---------- */
+    header{
+      margin-top:calc(var(--nav-height) + 3rem);
+      padding:0 2rem 1rem;
+      text-align:center;
+      max-width:900px;margin-left:auto;margin-right:auto;
+      animation:fadeIn 1s ease forwards .5s;opacity:0;
+    }
+    header h1{font-size:clamp(2.6rem,6vw,4rem);}
+    header p{margin-top:.6rem;font-size:1.05rem;line-height:1.55;}
+
+    @keyframes fadeIn{
+      from{opacity:0;transform:translateY(20px);}
+      to{opacity:1;transform:translateY(0);}
+    }
+
+    /* ---------- company headings ---------- */
+    .category-title{
+      font-size:1.7rem;
+      margin:3rem 0 1rem;
+      text-align:center;
+      opacity:.85;
+    }
+
+    /* ---------- grid & cards ---------- */
+    .experience-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:2rem;
+      padding:0 2rem;
+      max-width:1300px;
+      margin:0 auto;
+    }
+    .card{
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:1rem;
+      padding:1.6rem 1.4rem;
+      display:flex;flex-direction:column;justify-content:space-between;
+      backdrop-filter:blur(3px);
+      transition:transform .3s,box-shadow .3s;
+    }
+    .card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 10px 20px rgba(0,0,0,.4);
+    }
+    .card h3{
+      font-size:1.22rem;
+      margin-bottom:.55rem;
+      line-height:1.3;
+      word-wrap:break-word;
+      white-space:normal;
+    }
+    .card p{
+      font-size:.88rem;line-height:1.45;
+    }
+    .card button{
+      margin-top:1rem;align-self:flex-start;
+      padding:.55rem 1rem;
+      border-radius:.5rem;
+      border:2px solid var(--blue-end);
+      background:transparent;
+      color:var(--blue-end);
+      font-weight:600;cursor:pointer;
+      transition:background .3s,color .3s;
+    }
+    .card button:hover{
+      background:var(--blue-end);color:#000;
+    }
+
+    /* ---------- modals ---------- */
+    .modal{
+      position:fixed;inset:0;
+      background:rgba(0,0,0,.85);
+      display:flex;align-items:center;justify-content:center;
+      padding:1.5rem;z-index:50;
+      visibility:hidden;opacity:0;
+      transition:opacity .3s,visibility .3s;
+    }
+    .modal.open{visibility:visible;opacity:1;}
+    .modal-content{
+      background:#121212;
+      max-width:900px;max-height:90vh;overflow-y:auto;
+      border-radius:1rem;padding:2rem 2.5rem;position:relative;
+    }
+    .modal-content h2{margin-bottom:.9rem;}
+    .modal-content ul{margin-left:1.2rem;margin-bottom:1rem;}
+    .modal-content li{margin-bottom:.4rem;}
+    .modal-content a{color:var(--blue-end);}
+    .modal-content img{margin-top:1rem;border-radius:.5rem;max-width:100%;}
+    .close-btn{
+      position:absolute;top:1rem;right:1rem;font-size:1.5rem;
+      background:none;border:none;color:var(--blue-end);cursor:pointer;
+    }
+
+    footer{
+      padding:2rem 2rem 4rem;
+      text-align:center;
+      font-size:.85rem;
+      opacity:.6;
+    }
+  </style>
 </head>
+
 <body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="workexperience.html">Work Experience</a>
-    </nav>
-    <main>
-        <header>
-            <h1>Work Experience</h1>
-            <p>This page showcases my professional experience, emphasizing roles that integrate data science, software development, and engineering principles.</p>
-        </header>
-        
-        <section>
-            <h2>Mortenson Construction</h2>
-            <img src="images/mortenson.png" alt="Mortenson Logo" style="display: block; margin: 0 auto; max-width: 150px;">
-            <p class="bio">Data Analytics and Innovation Intern, May 2024 - Present</p>
+  <!-- ---------- NAV ---------- -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="workexperience.html">Professional Experience</a>
+  </nav>
 
-            <!-- Generative Prediction Model -->
-            <div class="project">
-                <h3>Project Cost Prediction Application</h3>
-                <p>
-                    Developed a cost prediction application combining Python for backend model integration and HTML for the user interface, designed to improve the accuracy of future project cost estimates through advanced regression techniques, synthetic data, and feature engineering.
-                    <button class="toggle-details" onclick="toggleDetails('mortenson-model')">Read More</button>
-                </p>
-                <div id="mortenson-model" class="details">
-                    <h4>Key Contributions:</h4>
-                    <ul>
-                        <li>Model Development in Python: Developed 23 regression models in Python, each optimized for its assigned task. Models included advanced regressors such as Stacking Regressors (leveraging ensemble methods), Gradient Boosting, Ridge Regression, Random Forest, and K-Nearest Neighbors. Each model was evaluated using train-test splits and cross-validation to determine the optimal combination of regressors and features.</li>
-                        <li>Synthetic Data Integration: Generated and incorporated synthetic data to improve the generalization and robustness of the models, particularly for underrepresented scenarios.</li>
-                        <li>Feature Engineering: Engineered domain-specific features to improve cost comparability across diverse project configurations. This resulted in enhanced model performance, including improved R², MAE, and MSE scores.</li>
-                        <li>Application Integration: Serialized 23 task-specific models into .pkl files, integrating them into a unified application with a Python backend and an HTML-based user interface. Each model uses its optimal features to generate precise predictions, while the centralized application provides seamless input handling and accurate cost estimation.</li>
-                        <li>Deployment via Azure DevOps: Deployed the finalized application and models to a live production environment through Azure DevOps.</li>
-                    </ul>
-                    <p>This visualization demonstrates the performance of a specific task's model, achieving an R² score of 0.86 and outperforming historical estimates 85.7% of the time. It compares the predicted costs (model output) with historical estimates and actual project costs:</p>
-                    <img src="images/cost.png" alt="Generative Prediction Model Visualization">
-                </div>
-            </div>
+  <!-- ---------- HEADER ---------- -->
+  <header>
+    <h1>Professional Experience</h1>
+    <p>A snapshot of the roles where I fused data science, software, and continuous-improvement thinking to move real-world projects forward.</p>
+  </header>
 
-            <!-- Internal Marketplace Development -->
-<div class="project">
-    <h3>Internal Marketplace Development</h3>
-    <p>
-        Designed and deployed platform for trading and selling supplies internally, automating workflows with Power Automate to streamline submission processing and notifications.
-        <button class="toggle-details" onclick="toggleDetails('mortenson-marketplace')">Read More</button>
-    </p>
-    <div id="mortenson-marketplace" class="details">
-        <h4>Key Contributions:</h4>
-        <ul>
-            <li>Workflow Automation: Built a Power Automate flow to manage user submissions, dynamically handle photo uploads, generate unique post IDs, and store images in a shared internal folder.
-            <li>Data Integration: Connected Microsoft Forms, Excel storage, and Viva Engage to enable structured data handling and automated community email notifications.
-            <li>Flow Complexity: Utilized JSON parsing, loops, and conditional logic to process files, append them to arrays, and compose messages for Viva Engage posts.
-        </ul>
-            <img src="images/marketplace.png" alt="Internal Marketplace Development">
-              </div>
-</div>  
+  <main>
+    <!--══════════ MORTENSON ══════════-->
+    <h2 class="category-title">Mortenson Construction</h2>
+    <section class="experience-grid">
+      <div class="card">
+        <h3>Data Analytics &amp; Innovation Intern<br><span style="font-weight:400;">May 2024 – Present</span></h3>
+        <p>Built a full-stack cost-prediction tool (23 ML models&nbsp;+ Flask UI) and automated an internal materials marketplace with Power Automate.</p>
+        <button data-modal="modal-mortenson">Details</button>
+      </div>
+    </section>
 
+    <!--══════════ E.A. SWEEN ══════════-->
+    <h2 class="category-title">E.A. Sween Company</h2>
+    <section class="experience-grid">
+      <div class="card">
+        <h3>Continuous Improvement Specialist<br><span style="font-weight:400;">Sep 2023 – May 2024</span></h3>
+        <p>Deployed analytics-driven mass-balance dashboards and designed a tooling tweak that cut scrap 5 % on a flagship product line.</p>
+        <button data-modal="modal-eas">Details</button>
+      </div>
+    </section>
 
-            <!-- FNE Cabinets -->
-            <div class="project">
-                <h3>Field Network Enclosure Cabinet Circuit Wiring</h3>
-                <p>
-                    Interpreted circuit drawings to assemble and wire electrical boards for FNE cabinets, ensuring  the components met functionality requirements for deployment on project sites.
-                </p>
-                    <img src="images/fne.jpg" alt="FNE Cabinets">
-                </div>
-            </div>
-        </section>
+    <!--══════════ STRANDED ON STATE ══════════-->
+    <h2 class="category-title">Stranded on State (Startup)</h2>
+    <section class="experience-grid">
+      <div class="card">
+        <h3>Head of Technology<br><span style="font-weight:400;">Jan 2024 – Present</span></h3>
+        <p>Maintain a GitHub-hosted site celebrating UW-Madison life—pushing responsive updates, CI/CD tweaks, and analytics hooks.</p>
+        <button data-modal="modal-sos">Details</button>
+      </div>
+    </section>
 
-        <section>
-            <h2>E.A. Sween Company</h2>
-            <img src="images/eas.png" alt="E.A. Sween Company" style="display: block; margin: 0 auto; max-width: 150px;">
-            <p class="bio">Continuous Improvement Specialist, September 2023 - May 2024</p>
-            <p class="bio">Continuous Improvement Analytics Intern, June 2023 - September 2023</p>
+    <!--══════════ LLS ══════════-->
+    <h2 class="category-title">Leukemia &amp; Lymphoma Society</h2>
+    <section class="experience-grid">
+      <div class="card">
+        <h3>Campaign Manager<br><span style="font-weight:400;">Dec 2019 – Feb 2020</span></h3>
+        <p>Ran seven community fund-raisers, netting $27 000 for the 2020 Students of the Year program and earning a regional scholarship.</p>
+        <button data-modal="modal-lls">Details</button>
+      </div>
+    </section>
+  </main>
 
-           <div class="project">
-        <h3>Automated Mass Balance System</h3>
-        <p>
-            Developed an automated mass balance system in Excel to visualize the flow of materials during production and facilitate data analysis. The system outputs a data frame comparing collected scrap data to the Bill of Materials (BOM), enabling accurate evaluation of BOM accuracy, identification of variances, cost irregularities, and waste performance.
-            <button class="toggle-details" onclick="toggleDetails('mass-balance')">Read More</button>
-        </p>
-        <div id="mass-balance" class="details">
-            <h4>Key Contributions:</h4>
-            <ul>
-                <li>Visualization: Created R-based visualizations to improve the interpretation and communication of mass balance metrics.</li>
-                <li>Advanced Analytics: Analyzed mass balance data using Minitab and Tableau, applying statistical metrics such as mean squared error and R² to assess trends and identify improvement opportunities..</li>
-            </ul>
-            <img src="images/mb.png" alt="Mass Balance Automation Visualization">
-        </div>
+  <!-- ---------- MODALS ---------- -->
+  <!-- Mortenson -->
+  <div class="modal" id="modal-mortenson">
+    <div class="modal-content">
+      <button class="close-btn" data-close>&times;</button>
+      <h2>Mortenson – Data Analytics &amp; Innovation Intern</h2>
+      <ul>
+        <li>❖ <span style="font-weight:600;">23 task-specific ML models</span>: stacking, GBM, Ridge, RF, KNN. Synthetic data lifted recall on rare configs.</li>
+        <li>❖ Packaged with Pickle → served via Flask; single UI funnels inputs to the correct model.</li>
+        <li>❖ Azure DevOps pipeline auto-builds, tests, and deploys to internal web-solarestimation-shared environment.</li>
+        <li>❖ Built Power Automate flow for “Material Mart” marketplace: parses MS Forms, uploads photos, crafts Viva Engage posts, emails crews.</li>
+        <li>❖ Hands-on wiring for Field Network Enclosure cabinets—read schematics, built boards, validated continuity.</li>
+      </ul>
+      <img src="images/cost.png" alt="Cost prediction dashboard">
     </div>
+  </div>
 
-    <!-- Manufacturing Equipment Optimization -->
-    <div class="project">
-        <h3>Manufacturing Equipment Optimization</h3>
-        <p>
-            Contributed to reducing raw material waste by designing a straining tool using Shapr3D software. Piloted and implemented the tool into production, achieving a 5% reduction in scrap for a specific product.
-        </p>
+  <!-- E.A. Sween -->
+  <div class="modal" id="modal-eas">
+    <div class="modal-content">
+      <button class="close-btn" data-close>&times;</button>
+      <h2>E.A. Sween – Continuous Improvement</h2>
+      <ul>
+        <li>❖ Automated mass-balance system in Excel/VBA + R visuals; reconciles scrap vs. BOM, flags $ variances.</li>
+        <li>❖ Statistically profiled waste drivers with Minitab (MSE, R²) and Tableau trend dashboards.</li>
+        <li>❖ Designed 3-D-printed straining tool in Shapr3D; pilot cut scrap 5 %.</li>
+        <li>❖ Optimised packaging film thickness via Optech-O2, supporting material standardisation.</li>
+      </ul>
+      <img src="images/mb.png" alt="Mass balance dashboard">
     </div>
+  </div>
 
-    <!-- Packaging Material Standardization -->
-    <div class="project">
-        <h3>Packaging Film Thickness Optimization</h3>
-        <p>
-            Utilized Optech-O2 software to analyze and determine the optimal packaging film thickness, contributing to the standardization of manufacturing materials and improving process efficiency.
-        </p>
+  <!-- Stranded on State -->
+  <div class="modal" id="modal-sos">
+    <div class="modal-content">
+      <button class="close-btn" data-close>&times;</button>
+      <h2>Stranded on State – Head of Tech</h2>
+      <ul>
+        <li>❖ Maintaining GitHub-Pages site—HTML/CSS tweaks, performance audits, SEO tags.</li>
+        <li>❖ Set up simple CI to lint &amp; deploy on push.</li>
+        <li>❖ Embedded analytics to track post reach and guide content cadence.</li>
+        <li>❖ Brand presence: 30 k+ IG &amp; TikTok followers built on organic campus humour.</li>
+      </ul>
+      <div style="margin-top:1rem;">
+        <a href="https://strandedonstate.com" target="_blank" rel="noopener" style="color:var(--blue-end);text-decoration:underline;">Visit website</a>
+      </div>
     </div>
-</section>
+  </div>
 
- <section>
-    <h2>Stranded on State</h2>
-     <img src="images/sos.png" alt="Stranded on State Logo" style="display: block; margin: 0 auto; max-width: 150px;">
-    <p class="bio">Head of Technology, Jan 2024 - Present</p> 
-    <p>
-        Manage and update the startup's GitHub-based website, utilizing both frontend and backend development to maintain and enhance functionality.
-        <button class="toggle-details" onclick="toggleDetails('stranded-details')">Read More</button>
-    </p>
-<div id="stranded-details" class="details" style="display: none; text-align: left;">
-    <p>
-        At Stranded on State, we showcase college life at UW-Madison through funny, relatable content, providing meaningful entertainment by students, for students.
-    </p>
-    <p>
-        My role involves maintaining the website’s responsiveness, implementing updates to HTML files for dynamic content, and ensuring seamless deployment through GitHub's version control.
-    </p>
-    <p>
-        Explore more about Stranded on State: 
-        <a href="https://strandedonstate.com" target="_blank" style="text-decoration: underline;">Open Website</a>
-    </p>
-    <p>Follow us on social media:</p>
-    <div style="display: flex; gap: 10px;">
-        <a href="https://www.instagram.com/strandedonstate" target="_blank">
-            <img src="images/instagram1.png" alt="Instagram" style="width: 30px; height: 30px;">
-        </a>
-        <a href="https://www.tiktok.com/@strandedonstate" target="_blank">
-            <img src="images/tiktok.png" alt="TikTok" style="width: 30px; height: 30px;">
-        </a>
+  <!-- LLS -->
+  <div class="modal" id="modal-lls">
+    <div class="modal-content">
+      <button class="close-btn" data-close>&times;</button>
+      <h2>Leukemia &amp; Lymphoma Society – Campaign Manager</h2>
+      <ul>
+        <li>❖ Led a seven-week Students of the Year campaign; coordinated 7 events, corporate asks, and social pushes.</li>
+        <li>❖ Raised $27 000 (top 5 % nationally) → awarded regional Citizenship Engagement Scholarship.</li>
+        <li>❖ See the archived campaign page : <a href="https://events.lls.org/mn/mplsSOY20/tlivclaudi" target="_blank" rel="noopener" style="color:var(--blue-end);">link</a></li>
+      </ul>
     </div>
-</div>
+  </div>
 
-</section>
+  <!-- ---------- FOOTER ---------- -->
+  <footer>
+    This website is built with vanilla HTML, CSS, and JavaScript, and deployed through GitHub Pages.
+  </footer>
 
+  <!-- ---------- SCRIPTS ---------- -->
+  <script>
+    /* Modal open / close (same pattern used on projects page) */
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('button[data-modal]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const modal = document.getElementById(btn.dataset.modal);
+          if(modal) modal.classList.add('open');
+        });
+      });
 
-        <section>
-    <h2>The Leukemia & Lymphoma Society</h2>
-    <img src="images/lls.jpg" alt="The Leukemia & Lymphoma Society Logo" style="display: block; margin: 0 auto; max-width: 150px;">
-    <p class="bio">Campaign Manager, Dec 2019 - Feb 2020</p>
-    <p>
-        Ran the campaign for the 2020 Students of the Year Program, a philanthropic leadership initiative. Organized 7 community fundraisers, raising $27,000 in 3 months. Awarded the 2020 Minnesota, North Dakota & South Dakota Citizenship Engagement Scholarship for results.
-        <button class="toggle-details" onclick="toggleDetails('lls-details')">Read More</button>
-    </p>
-    <div id="lls-details" class="details" style="display: none;">
-        <p>
-            The Students of the Year Program is a seven-week initiative where select high school students across the nation participate in a fundraising competition to benefit The Leukemia & Lymphoma Society. As a Campaign Manager, I planned and executed community fundraisers, coordinated donation drives, and engaged with local sponsors. My efforts contributed to a highly successful campaign, achieving $27,000 in funds raised to support LLS's mission.
-        </p>
-        <p>
-            Check out my campaign site: 
-            <a href="https://events.lls.org/mn/mplsSOY20/tlivclaudi" target="_blank">Students of the Year Program</a>
-        </p>
-    </div>
-</section>
+      /* close buttons */
+      document.querySelectorAll('[data-close]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          btn.closest('.modal').classList.remove('open');
+        });
+      });
 
-        
-     </main>
-    <script>
-    function toggleDetails(id) {
-        const details = document.getElementById(id);
-        const button = document.querySelector(`[onclick="toggleDetails('${id}')"]`);
-        
-        // Toggle the display of the details section
-        if (details.style.display === "none" || details.style.display === "") {
-            details.style.display = "block";
-            button.textContent = "Read Less"; // Change button text to "Read Less"
-        } else {
-            details.style.display = "none";
-            button.textContent = "Read More"; // Change button text to "Read More"
+      /* click outside content closes modal */
+      window.addEventListener('click', e => {
+        if(e.target.classList.contains('modal')) e.target.classList.remove('open');
+      });
+
+      /* escape key closes any open modal */
+      document.addEventListener('keydown', e => {
+        if(e.key === 'Escape'){
+          document.querySelectorAll('.modal.open').forEach(m => m.classList.remove('open'));
         }
-    }
-</script>
+      });
+    });
+  </script>
 </body>
 </html>
