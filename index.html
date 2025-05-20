@@ -4,10 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Claudia Otero - Home</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     /* Global Styles */
     * {
@@ -71,6 +69,27 @@
       line-height: 1.6;
       margin-top: 0.5rem;
     }
+    .social {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+    }
+    .social a {
+      width: 48px;
+      height: 48px;
+      border: 2px solid #00e5ff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.3s;
+      font-size: 1.2rem;
+    }
+    .social a:hover {
+      background: #00e5ff;
+      transform: scale(1.1);
+    }
     .hero .image {
       display: flex;
       justify-content: center;
@@ -103,6 +122,9 @@
       .hero .image {
         margin-top: 2rem;
       }
+      .social {
+        justify-content: center;
+      }
     }
   </style>
 </head>
@@ -119,6 +141,11 @@
       <p>
         I’m a Wisconsin–Madison grad with degrees in Data Science, Computer Science, and Art History, and I’m headed to <a href="https://www.mortenson.com/" target="_blank" rel="noopener">Mortenson</a> as a Systems Analyst. I thrive on building new tech, wield analytics to end the trap of the anecdotal, and live by Kaizen principles. Feel free to explore my <a href="projects.html">projects</a> and <a href="workexperience.html">professional experience</a> to see what I’ve been up to.
       </p>
+      <div class="social">
+        <a href="https://www.linkedin.com/in/claudia-otero-250328239" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="mailto:claudia.otero88@outlook.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/claudiaotero88" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      </div>
     </div>
     <div class="image">
       <img src="images/senior.jpg" alt="Claudia Otero Senior Portrait" />
