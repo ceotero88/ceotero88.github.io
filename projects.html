@@ -1,28 +1,59 @@
-<!-- portfolio.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Claudia Otero | Featured Projects</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Claudia Otero – Featured Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root{--blue-start:#007cc2;--blue-end:#00e5ff;--nav-height:72px}
+    *{margin:0;padding:0;box-sizing:border-box;color:#fff;font-family:'Montserrat',sans-serif}
+    html,body{height:100%;background:linear-gradient(120deg,#000,#1a1a1a,#000);background-size:200% 200%;animation:bgShift 15s ease infinite;overflow-x:hidden}
+    @keyframes bgShift{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+
+    nav{position:fixed;top:0;width:100%;height:var(--nav-height);display:flex;align-items:center;justify-content:flex-end;gap:2.5rem;padding:0 2rem;background:linear-gradient(90deg,var(--blue-start),var(--blue-end));backdrop-filter:blur(6px);z-index:20}
+    nav a{text-decoration:none;text-transform:uppercase;font-weight:600;letter-spacing:.5px;transition:opacity .3s}
+    nav a:hover{opacity:.75}
+
+    header{margin-top:calc(var(--nav-height) + 3rem);padding:0 2rem 1rem;text-align:center;max-width:900px;margin-left:auto;margin-right:auto;animation:fadeIn 1s ease forwards .5s;opacity:0}
+    header h1{font-size:clamp(2.6rem,6vw,4rem)}
+
+    .category-title{font-size:1.7rem;margin:3rem 0 1rem 2rem;opacity:.85}
+
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;padding:0 2rem;max-width:1300px;margin:0 auto}
+    .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:1rem;padding:1.6rem 1.4rem;display:flex;flex-direction:column;justify-content:space-between;backdrop-filter:blur(3px);transition:transform .3s,box-shadow .3s}
+    .card:hover{transform:translateY(-6px);box-shadow:0 10px 20px rgba(0,0,0,.4)}
+    .card h3{font-size:1.22rem;margin-bottom:.55rem}
+    .card p{font-size:.88rem;line-height:1.45}
+    .card button{margin-top:1rem;align-self:flex-start;padding:.55rem 1rem;border-radius:.5rem;border:2px solid var(--blue-end);background:transparent;color:var(--blue-end);font-weight:600;cursor:pointer;transition:background .3s,color .3s}
+    .card button:hover{background:var(--blue-end);color:#000}
+
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;padding:1.5rem;z-index:50;visibility:hidden;opacity:0;transition:opacity .3s,visibility .3s}
+    .modal.open{visibility:visible;opacity:1}
+    .modal-content{background:#121212;max-width:900px;max-height:90vh;overflow-y:auto;border-radius:1rem;padding:2rem 2.5rem;position:relative}
+    .modal-content h2{margin-bottom:.9rem}
+    .modal-content ul{margin-left:1.2rem;margin-bottom:1rem}
+    .modal-content li{margin-bottom:.4rem}
+    .modal-content a{color:var(--blue-end)}
+    .close-btn{position:absolute;top:1rem;right:1rem;font-size:1.5rem;background:none;border:none;color:var(--blue-end);cursor:pointer}
+    pre{display:none}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+    footer{padding:2rem 2rem 4rem;text-align:center;font-size:.85rem;opacity:.6}
+  </style>
 </head>
 <body>
-  <!--‑‑‑‑‑ NAVBAR (same spacing as home) ‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑-->
-  <header class="navbar">
-    <a class="logo" href="index.html">CO</a>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Professional Experience</a></li>
-      </ul>
-    </nav>
-  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="workexperience.html">Professional Experience</a>
+  </nav>
 
-  <!--‑‑‑‑‑ FEATURED PROJECTS HEADER ‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑-->
-  <main id="projects">
-    <h1 class="featured-title">Featured Projects</h1>
+  <header>
+    <h1>Featured Projects</h1>
+  </header>
 
     <!--══════════ PREDICTIVE MODELING & ML ══════════-->
     <h2 class="category-title center">Predictive Modeling &amp; Machine Learning</h2>
