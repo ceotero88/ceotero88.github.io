@@ -1,115 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Claudia Otero | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;900&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
-            color: #f0f0f0;
-            font-family: 'Montserrat', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            min-height: 100vh;
-            padding: 40px 20px;
-        }
-
-        nav {
-            width: 100%;
-            text-align: right;
-            padding: 20px 40px;
-            position: absolute;
-            top: 0;
-            right: 0;
-        }
-
-        nav a {
-            color: #f0f0f0;
-            text-decoration: none;
-            margin-left: 30px;
-            font-weight: 600;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #ff6f61;
-        }
-
-        .hero {
-            text-align: center;
-            margin-top: 100px;
-        }
-
-        .hero h1 {
-            font-size: 64px;
-            font-weight: 900;
-            color: #ffffff;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
-            color: #d0d0d0;
-        }
-
-        .profile-pic {
-            margin-top: 50px;
-        }
-
-        .profile-pic img {
-            max-width: 100%;
-            max-height: 600px;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 42px;
-            }
-
-            nav {
-                text-align: center;
-                padding: 20px;
-            }
-
-            nav a {
-                display: block;
-                margin: 10px 0;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claudia Otero - Home</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+    }
+    html, body {
+      height: 100%;
+      background: linear-gradient(120deg, #000000, #1a1a1a, #000000);
+      background-size: 200% 200%;
+      animation: gradientBG 15s ease infinite;
+      overflow-x: hidden;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: flex-end;
+      gap: 2rem;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 10;
+      backdrop-filter: blur(5px);
+    }
+    nav a {
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #00e5ff;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      min-height: 100vh;
+      padding: 0 5rem;
+    }
+    .hero .text {
+      max-width: 600px;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 0.5s;
+      opacity: 0;
+    }
+    .hero .text h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      margin-bottom: 1rem;
+    }
+    .hero .text p {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      margin-top: 0.5rem;
+    }
+    .hero .image {
+      display: flex;
+      justify-content: center;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 1s;
+      opacity: 0;
+    }
+    .hero .image img {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    }
+    .large-image {
+      margin: 2rem 0;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 1.5s;
+      opacity: 0;
+    }
+    .large-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(20px); }
+    }
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 0 2rem;
+      }
+      .hero .image {
+        margin-top: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="workexperience.html">Professional Experience</a>
+  </nav>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="workexperience.html">Professional Experience</a>
-    </nav>
-
-    <div class="hero">
-        <h1>Claudia Otero</h1>
-        <p>Graduated from the University of Wisconsin–Madison with degrees in Data Science, Computer Science, and Art History.<br>
-        Professional experience in machine learning, data analytics, and continuous improvement roles.</p>
+  <section class="hero">
+    <div class="text">
+      <h1>Claudia Otero</h1>
+      <p>
+        I graduated from the University of Wisconsin–Madison with degrees in
+        Data Science, Computer Science, and Art History. I’m passionate about
+        turning data into actionable insights and have worked in Machine
+        Learning, Data Analytics, and Continuous Improvement roles to drive
+        real-world impact.
+      </p>
     </div>
-
-    <div class="profile-pic">
-        <img src="images/senior.jpg" alt="Claudia Otero">
+    <div class="image">
+      <img src="images/profile.jpg" alt="Claudia Otero Portrait" />
     </div>
+  </section>
+
+  <section class="large-image">
+    <img src="images/senior.jpg" alt="Claudia Otero Senior Portrait" />
+  </section>
 
 </body>
 </html>
