@@ -56,9 +56,7 @@
       letter-spacing: 0.5px;
       transition: opacity 0.3s;
     }
-    nav a:hover {
-      opacity: 0.75;
-    }
+    nav a:hover { opacity: 0.75; }
 
     /* --- HERO SECTION --- */
     .hero {
@@ -66,7 +64,7 @@
       grid-template-columns: 1fr 1fr;
       align-items: center;
       min-height: 100vh;
-      padding: calc(var(--nav-height) + 2rem) 5rem 0 5rem; /* top padding to clear nav */
+      padding: calc(var(--nav-height) + 2rem) 5rem 0 5rem;
     }
     .hero .text {
       max-width: 600px;
@@ -82,9 +80,8 @@
       line-height: 1.6;
       margin-top: 0.5rem;
     }
-    .hero {
-  flex: 1 0 auto;
-    }
+    .hero { flex: 1 0 auto; }
+
     /* social buttons */
     .social {
       margin-top: 1.5rem;
@@ -127,16 +124,15 @@
       transform: scale(1.05);
       box-shadow: 0 0 30px rgba(0,0,0,1);
     }
-    footer {
-    flex: 0 0 var(--footer-height);
-    background: linear-gradient(90deg, var(--blue-start), var(--blue-end));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    padding: 0 1rem;
-    text-align: center;
+
+    /* --- FOOTER (now matches projects page) --- */
+    footer{
+      padding: 2rem 2rem 4rem;
+      text-align: center;
+      font-size: .85rem;
+      opacity: .6;
     }
+
     /* --- ANIMATIONS --- */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
@@ -154,12 +150,8 @@
         text-align: center;
         padding: calc(var(--nav-height) + 1.5rem) 1.5rem 0 1.5rem;
       }
-      .hero .image {
-        margin-top: 2rem;
-      }
-      .social {
-        justify-content: center;
-      }
+      .hero .image { margin-top: 2rem; }
+      .social { justify-content: center; }
     }
   </style>
 </head>
@@ -188,7 +180,7 @@
     </div>
   </section>
 
-    <!-- ---------- FOOTER ---------- -->
+  <!-- ---------- FOOTER ---------- -->
   <footer>
     This website is built with vanilla HTML, CSS, and JavaScript, and deployed through GitHub Pages.
   </footer>
