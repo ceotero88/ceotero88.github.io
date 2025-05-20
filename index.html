@@ -79,22 +79,16 @@
       opacity: 0;
     }
     .hero .image img {
-      width: 250px;
-      height: 250px;
-      border-radius: 50%;
+      width: clamp(300px, 40vw, 500px);
+      height: clamp(300px, 40vw, 500px);
+      border-radius: 1.5rem;
       object-fit: cover;
       box-shadow: 0 0 20px rgba(0,0,0,0.8);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .large-image {
-      margin: 2rem 0;
-      animation: fadeIn 1s ease forwards;
-      animation-delay: 1.5s;
-      opacity: 0;
-    }
-    .large-image img {
-      width: 100%;
-      height: auto;
-      display: block;
+    .hero .image img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(0,0,0,1);
     }
     @keyframes fadeIn {
       to { opacity: 1; transform: translateY(0); }
@@ -131,13 +125,8 @@
       </p>
     </div>
     <div class="image">
-      <img src="images/profile.jpg" alt="Claudia Otero Portrait" />
+      <img src="images/senior.jpg" alt="Claudia Otero Senior Portrait" />
     </div>
   </section>
-
-  <section class="large-image">
-    <img src="images/senior.jpg" alt="Claudia Otero Senior Portrait" />
-  </section>
-
 </body>
 </html>
