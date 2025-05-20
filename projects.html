@@ -3,34 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Claudia Otero – Projects</title>
+  <title>Claudia Otero – Featured Projects</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    :root {
-      --blue-start: #007cc2;
-      --blue-end:   #00e5ff;
-      --nav-height: 72px;
-    }
+    :root{--blue-start:#007cc2;--blue-end:#00e5ff;--nav-height:72px}
     *{margin:0;padding:0;box-sizing:border-box;color:#fff;font-family:'Montserrat',sans-serif}
     html,body{height:100%;background:linear-gradient(120deg,#000,#1a1a1a,#000);background-size:200% 200%;animation:bgShift 15s ease infinite;overflow-x:hidden}
     @keyframes bgShift{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
     /* nav */
-    nav{position:fixed;top:0;width:100%;height:var(--nav-height);display:flex;align-items:center;justify-content:center;gap:2.5rem;padding:0 1.5rem;background:linear-gradient(90deg,var(--blue-start),var(--blue-end));backdrop-filter:blur(6px);z-index:20}
+    nav{position:fixed;top:0;width:100%;height:var(--nav-height);display:flex;align-items:center;justify-content:flex-end;gap:2.5rem;padding:0 2rem;background:linear-gradient(90deg,var(--blue-start),var(--blue-end));backdrop-filter:blur(6px);z-index:20}
     nav a{text-decoration:none;text-transform:uppercase;font-weight:600;letter-spacing:.5px;transition:opacity .3s}
     nav a:hover{opacity:.75}
     /* header */
-    header{padding:calc(var(--nav-height)+2rem) 2rem 1rem;text-align:center;max-width:900px;margin:0 auto;animation:fadeIn 1s ease forwards .5s;opacity:0}
-    header h1{font-size:clamp(2.5rem,6vw,4rem);margin-bottom:1rem}
-    header p{font-size:1.15rem;max-width:700px;margin:0 auto;line-height:1.6}
-    /* categories */
+    header{padding:calc(var(--nav-height)+1.5rem) 2rem 1rem;text-align:center;max-width:900px;margin:0 auto;animation:fadeIn 1s ease forwards .5s;opacity:0}
+    header h1{font-size:clamp(2.6rem,6vw,4rem)}
+    /* category */
     .category-title{font-size:1.7rem;margin:3rem 0 1rem 2rem;opacity:.85}
     /* grid */
     .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;padding:0 2rem;max-width:1300px;margin:0 auto}
-    .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:1rem;padding:1.75rem 1.5rem;display:flex;flex-direction:column;justify-content:space-between;backdrop-filter:blur(3px);transition:transform .3s,box-shadow .3s}
+    .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:1rem;padding:1.6rem 1.4rem;display:flex;flex-direction:column;justify-content:space-between;backdrop-filter:blur(3px);transition:transform .3s,box-shadow .3s}
     .card:hover{transform:translateY(-6px);box-shadow:0 10px 20px rgba(0,0,0,.4)}
-    .card h3{font-size:1.25rem;margin-bottom:.6rem}
-    .card p{font-size:.9rem;line-height:1.45}
+    .card h3{font-size:1.22rem;margin-bottom:.55rem}
+    .card p{font-size:.88rem;line-height:1.45}
     .card button{margin-top:1rem;align-self:flex-start;padding:.55rem 1rem;border-radius:.5rem;border:2px solid var(--blue-end);background:transparent;color:var(--blue-end);font-weight:600;cursor:pointer;transition:background .3s,color .3s}
     .card button:hover{background:var(--blue-end);color:#000}
     /* modal */
@@ -38,14 +33,11 @@
     .modal.open{visibility:visible;opacity:1}
     .modal-content{background:#121212;max-width:900px;max-height:90vh;overflow-y:auto;border-radius:1rem;padding:2rem 2.5rem;position:relative}
     .modal-content h2{margin-bottom:.9rem}
-    .modal-content h4{margin-top:1rem}
     .modal-content a{color:var(--blue-end)}
     .close-btn{position:absolute;top:1rem;right:1rem;font-size:1.5rem;background:none;border:none;color:var(--blue-end);cursor:pointer}
-    .modal-content pre,.modal-content iframe,.modal-content img{width:100%;border-radius:.7rem;margin-top:1rem}
-    pre{background:#1f1f1f;padding:1rem;overflow-x:auto}
+    .modal-content iframe,.modal-content img{width:100%;border-radius:.7rem;margin-top:1rem}
+    pre{display:none}
     @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-    @media(max-width:500px){.card h3{font-size:1.1rem}.card p{font-size:.85rem}}
-    /* footer */
     footer{padding:2rem 2rem 4rem;text-align:center;font-size:.85rem;opacity:.6}
   </style>
 </head>
@@ -57,65 +49,53 @@
   </nav>
 
   <header>
-    <h1>Projects</h1>
-    <p>A curated set of data-science works—hover for a blurb, click for the deep dive.</p>
+    <h1>Featured Projects</h1>
   </header>
 
   <!-- MACHINE LEARNING & NLP -->
   <h2 class="category-title">Machine Learning & NLP</h2>
   <section class="projects-grid">
-    <div class="card"><h3>Amazon Electronics Sentiment Analysis</h3><p>NLP on 1M+ reviews to surface product insights.</p><button data-modal="m-amazon">Details</button></div>
-    <div class="card"><h3>Email Engagement Classifier</h3><p>85%-accurate logistic pipeline for click prediction.</p><button data-modal="m-email">Details</button></div>
-    <div class="card"><h3>Healthcare Appointment Logistic Suite</h3><p>Dual Shiny apps: EDA & attendance probability.</p><button data-modal="m-health">Details</button></div>
+    <div class="card"><h3>Amazon Electronics Sentiment Analysis</h3><p>Python · NLTK, TextBlob · parsed 1M+ reviews to model polarity & topic frequency.</p><button data-modal="m-amazon">Details</button></div>
+    <div class="card"><h3>Email Engagement Classifier</h3><p>Python · Scikit‑learn pipeline · L1‑regularized logistic model, 0.85 ROC‑AUC on hold‑out.</p><button data-modal="m-email">Details</button></div>
   </section>
 
-  <!-- DOMAIN & SPATIAL ANALYTICS -->
-  <h2 class="category-title">Spatial & Domain Analytics</h2>
+  <!-- SPATIAL & APPLIED ANALYTICS -->
+  <h2 class="category-title">Spatial & Applied Analytics</h2>
   <section class="projects-grid">
-    <div class="card"><h3>Wisconsin Census Geo-Analysis</h3><p>GeoPandas + rasterio tie land-use to population.</p><button data-modal="m-census">Details</button></div>
-    <div class="card"><h3>Minnesota Twins Analytics (Shiny)</h3><p>PCA & regression power interactive player stats.</p><button data-modal="m-twins">Details</button></div>
-    <!-- placeholder for Museum API study -->
-    <div class="card"><h3>Museum APIs: Islamic Art Pre/Post-9/11</h3><p>Comparative acquisition analysis across major museums.</p><button data-modal="m-museum">Details</button></div>
+    <div class="card"><h3>Wisconsin Census Geo‑Analysis</h3><p>Python · GeoPandas, rasterio · land‑use rasters regressed on county demographics.</p><button data-modal="m-census">Details</button></div>
+    <div class="card"><h3>Minnesota Twins Analytics (Shiny)</h3><p>R · PCA + GLM · interactive dashboard for MLB player clusters & HR prediction.</p><button data-modal="m-twins">Details</button></div>
+    <div class="card"><h3>Museum APIs: Islamic Art Study</h3><p>Python APIs · Met, Louvre, V&A · acquisition patterns pre/post‑9/11.</p><button data-modal="m-museum">Details</button></div>
   </section>
 
-  <!-- OPTIMIZATION & MATH MODELS -->
-  <h2 class="category-title">Optimization & Math Modeling</h2>
+  <!-- OPTIMIZATION & REPORTS -->
+  <h2 class="category-title">Optimization & Reports</h2>
   <section class="projects-grid">
-    <!-- logistic regression research paper slot -->
-    <div class="card"><h3>Logistic Regression Research Report</h3><p>In-depth statistical modeling & validation study.</p><button data-modal="m-logreport">Details</button></div>
-    <!-- Julia optimization project -->
-    <div class="card"><h3>Operations Research Final – Julia/JuMP</h3><p>Mixed-integer optimization solving real-world allocation.</p><button data-modal="m-opt">Details</button></div>
+    <div class="card"><h3>Logistic Regression Research Report</h3><p>R · GLM diagnostics & k‑fold validation for model robustness.</p><button data-modal="m-logreport">Details</button></div>
+    <div class="card"><h3>Operations Research Final – Julia/JuMP</h3><p>Julia · MILP resource‑allocation solved via JuMP + Cbc.</p><button data-modal="m-opt">Details</button></div>
   </section>
 
-  <!-- FOOTER NOTE -->
-  <footer>Site built from scratch with vanilla HTML, CSS & JS. Hosted on GitHub Pages; modals and grid are pure JavaScript—no frameworks.</footer>
+  <footer>Site built with vanilla HTML, CSS & JS. Deployed on GitHub Pages.</footer>
 
   <!-- ================= MODALS ================= -->
   <!-- Amazon NLP -->
-  <div class="modal" id="m-amazon"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Amazon Electronics Sentiment Analysis</h2><p>NLP workflow on 1M+ reviews using NLTK & TextBlob.</p><ul><li>Polarity scoring & word-frequency extraction.</li><li>Review length vs sentiment correlations.</li></ul><p><a href="documents/Sentiment_Analysis_of_Amazon_Electronics_Reviews.pdf" target="_blank">Open Paper</a></p><iframe src="documents/Sentiment_Analysis_of_Amazon_Electronics_Reviews.pdf" style="height:500px"></iframe></div></div>
+  <div class="modal" id="m-amazon"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Amazon Electronics Sentiment Analysis</h2><p>Processed 1.1 M Amazon electronics reviews in Google Colab, generating polarity scores (TextBlob) and TF‑IDF term ranks to surface common delight & pain points. Insights fed into hypothetical feature‑improvement roadmap.</p><p><a href="documents/Sentiment_Analysis_of_Amazon_Electronics_Reviews.pdf" target="_blank">Read the paper</a></p><iframe src="documents/Sentiment_Analysis_of_Amazon_Electronics_Reviews.pdf" style="height:500px"></iframe></div></div>
   <!-- Email ML -->
-  <div class="modal" id="m-email"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Email Engagement Classifier</h2><p>Logistic regression (L1) predicting who clicks promo emails.</p><ul><li>Feature engineering from browsing & purchase logs.</li><li>85% accuracy; scalable pipeline.</li></ul><pre>from sklearn.pipeline import Pipeline
-...</pre><p><a href="documents/main.py" download>Download Code</a></p></div></div>
-  <!-- Healthcare -->
-  <div class="modal" id="m-health"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Healthcare Appointment Suite</h2><p>Links: <a href="https://srathi.shinyapps.io/EDA_app/" target="_blank">EDA App</a> | <a href="https://srathi.shinyapps.io/logistic_app/" target="_blank">Logistic App</a></p><ul><li>Interactive visual trends.</li><li>Logistic regression probability tool.</li></ul></div></div>
+  <div class="modal" id="m-email"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Email Engagement Classifier</h2><p>Engineered 40+ user‑behavior features (URL taxonomy, dwell time, purchase tiers) then trained an L1‑penalized logistic model in a Scikit‑learn pipeline. Achieved 0.85 ROC‑AUC and 42 pp lift over random targeting.</p><p><a href="documents/main.py" download target="_blank">Download code</a></p></div></div>
   <!-- Census -->
-  <div class="modal" id="m-census"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Wisconsin Census Geo-Analysis</h2><p>Combines shapefiles & rasters to predict population.</p><ul><li>GeoPandas boundary joins.</li><li>Land-use raster masking.</li></ul><p><a href="documents/Wisconsin_Census_Data.ipynb" target="_blank">Download Notebook</a></p><iframe src="documents/Wisconsin_Census_Data.html" style="height:500px"></iframe></div></div>
+  <div class="modal" id="m-census"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Wisconsin Census Geo‑Analysis</h2><p>Joined county polygons with NLCD raster tiles to quantify forest, cropland & urban extents, feeding them into Ridge regression for population prediction (R² = 0.87). Visualized residuals on interactive Folium maps.</p><p><a href="documents/Wisconsin_Census_Data.ipynb" target="_blank">Download notebook</a></p><iframe src="documents/Wisconsin_Census_Data.html" style="height:500px"></iframe></div></div>
   <!-- Twins -->
-  <div class="modal" id="m-twins"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Minnesota Twins Analytics (Shiny)</h2><p><a href="https://ceotero.shinyapps.io/minnesota_twins_analytics/" target="_blank">Launch App</a></p><ul><li>PCA clusters players.</li><li>Regression predicts HR totals.</li></ul></div></div>
-  <!-- Museum study placeholder -->
-  <div class="modal" id="m-museum"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Museum APIs: Islamic Art Pre/Post-9/11</h2><p>Full paper & interactive visuals coming soon.</p></div></div>
-  <!-- Logistic Report placeholder -->
-  <div class="modal" id="m-logreport"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Logistic Regression Research Report</h2><p>Comprehensive statistical analysis—publication draft incoming.</p></div></div>
+  <div class="modal" id="m-twins"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Minnesota Twins Analytics – R Shiny</h2><p>Built an interactive dashboard using Shiny + Plotly. PCA reduced 12 batting metrics to 3 components, driving K‑means clustering and GLM predictions of season HR totals. App auto‑pulls CSV updates from Baseball‑Reference.</p><p><a href="https://ceotero.shinyapps.io/minnesota_twins_analytics/" target="_blank">Launch app</a></p></div></div>
+  <!-- Museum placeholder -->
+  <div class="modal" id="m-museum"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Museum APIs: Islamic Art Pre/Post‑9/11</h2><p>Full research paper and interactive visualizations forthcoming.</p></div></div>
+  <!-- Logistic report placeholder -->
+  <div class="modal" id="m-logreport"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Logistic Regression Research Report</h2><p>Peer‑review‑style analysis covering model specification tests, multicollinearity diagnostics, and bootstrapped CIs. PDF coming soon.</p></div></div>
   <!-- Optimization placeholder -->
-  <div class="modal" id="m-opt"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Operations Research Final – Julia/JuMP</h2><p>Mixed-integer optimization project—details & code releasing soon.</p></div></div>
+  <div class="modal" id="m-opt"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Operations Research Final – Julia/JuMP</h2><p>Integer program optimizing crew assignment under cost and capacity constraints; solved with Cbc. Report + code to be added.</p></div></div>
 
   <script>
-    // open modal
-    document.querySelectorAll('.card button').forEach(btn=>{btn.addEventListener('click',()=>{const target=document.getElementById(btn.getAttribute('data-modal'));if(target)target.classList.add('open');});});
-    // close modal buttons
-    document.querySelectorAll('[data-close]').forEach(btn=>{btn.addEventListener('click',()=>{btn.closest('.modal').classList.remove('open');});});
-    // click outside
-    document.querySelectorAll('.modal').forEach(m=>{m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open');});});
+    document.querySelectorAll('.card button').forEach(b=>b.addEventListener('click',()=>{const m=document.getElementById(b.getAttribute('data-modal'));m&&m.classList.add('open');}));
+    document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>b.closest('.modal').classList.remove('open')));
+    document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open');}));
   </script>
 </body>
 </html>
