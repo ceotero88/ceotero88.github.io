@@ -15,6 +15,7 @@
       color: #fff;
       font-family: 'Montserrat', sans-serif;
     }
+
     html, body {
       height: 100%;
       background: linear-gradient(120deg, #000000, #1a1a1a, #000000);
@@ -22,58 +23,75 @@
       animation: gradientBG 15s ease infinite;
       overflow-x: hidden;
     }
+
     @keyframes gradientBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+
+    /* Navigation Bar */
     nav {
+      --nav-height: 70px;
       position: fixed;
       top: 0;
       width: 100%;
+      height: var(--nav-height);
       padding: 1rem 2rem;
       display: flex;
       justify-content: flex-end;
       gap: 2rem;
-      background: rgba(0, 0, 0, 0.5);
+      background: linear-gradient(90deg, #00e5ff 0%, #0066ff 100%);
       z-index: 10;
       backdrop-filter: blur(5px);
     }
+
     nav a {
+      color: #000;
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
+      text-transform: uppercase;
       transition: color 0.3s;
     }
+
     nav a:hover {
-      color: #00e5ff;
+      color: #ffffff;
     }
+
+    /* Hero Section */
     .hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
       min-height: 100vh;
-      padding: 0 5rem;
+      padding: calc(var(--nav-height) + 2rem) 5rem 0;
     }
+
     .hero .text {
       max-width: 600px;
       animation: fadeIn 1s ease forwards;
       animation-delay: 0.5s;
       opacity: 0;
     }
+
     .hero .text h1 {
       font-size: clamp(3rem, 8vw, 6rem);
       margin-bottom: 1rem;
     }
+
     .hero .text p {
       font-size: 1.25rem;
       line-height: 1.6;
       margin-top: 0.5rem;
     }
+
+    /* Social Icons */
     .social {
       margin-top: 1.5rem;
       display: flex;
       gap: 1rem;
     }
+
     .social a {
       width: 48px;
       height: 48px;
@@ -85,11 +103,16 @@
       text-decoration: none;
       transition: background 0.3s, transform 0.3s;
       font-size: 1.2rem;
+      color: #00e5ff;
     }
+
     .social a:hover {
       background: #00e5ff;
+      color: #000;
       transform: scale(1.1);
     }
+
+    /* Hero Image */
     .hero .image {
       display: flex;
       justify-content: center;
@@ -97,30 +120,37 @@
       animation-delay: 1s;
       opacity: 0;
     }
+
     .hero .image img {
       width: clamp(300px, 40vw, 500px);
       height: clamp(300px, 40vw, 500px);
       border-radius: 1.5rem;
       object-fit: cover;
-      box-shadow: 0 0 20px rgba(0,0,0,0.8);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     .hero .image img:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 30px rgba(0,0,0,1);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 1);
     }
+
+    /* Animations */
     @keyframes fadeIn {
       to { opacity: 1; transform: translateY(0); }
       from { opacity: 0; transform: translateY(20px); }
     }
+
+    /* Mobile Adjustments */
     @media (max-width: 768px) {
+      nav {
+        justify-content: center;
+        padding: 0.75rem 1.5rem;
+      }
       .hero {
         grid-template-columns: 1fr;
         text-align: center;
-        padding: 0 2rem;
-      }
-      .hero .image {
-        margin-top: 2rem;
+        padding: calc(var(--nav-height) + 1.5rem) 2rem 2rem;
       }
       .social {
         justify-content: center;
