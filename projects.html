@@ -11,15 +11,19 @@
     *{margin:0;padding:0;box-sizing:border-box;color:#fff;font-family:'Montserrat',sans-serif}
     html,body{height:100%;background:linear-gradient(120deg,#000,#1a1a1a,#000);background-size:200% 200%;animation:bgShift 15s ease infinite;overflow-x:hidden}
     @keyframes bgShift{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+
     /* nav */
     nav{position:fixed;top:0;width:100%;height:var(--nav-height);display:flex;align-items:center;justify-content:flex-end;gap:2.5rem;padding:0 2rem;background:linear-gradient(90deg,var(--blue-start),var(--blue-end));backdrop-filter:blur(6px);z-index:20}
     nav a{text-decoration:none;text-transform:uppercase;font-weight:600;letter-spacing:.5px;transition:opacity .3s}
     nav a:hover{opacity:.75}
+
     /* header */
-    header{margin-top:calc(var(--nav-height) + 1.5rem);padding:0 2rem 1rem;text-align:center;max-width:900px;margin-left:auto;margin-right:auto;animation:fadeIn 1s ease forwards .5s;opacity:0}
+    header{margin-top:calc(var(--nav-height) + 3rem);padding:0 2rem 1rem;text-align:center;max-width:900px;margin-left:auto;margin-right:auto;animation:fadeIn 1s ease forwards .5s;opacity:0}
     header h1{font-size:clamp(2.6rem,6vw,4rem)}
+
     /* category */
     .category-title{font-size:1.7rem;margin:3rem 0 1rem 2rem;opacity:.85}
+
     /* grid */
     .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;padding:0 2rem;max-width:1300px;margin:0 auto}
     .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:1rem;padding:1.6rem 1.4rem;display:flex;flex-direction:column;justify-content:space-between;backdrop-filter:blur(3px);transition:transform .3s,box-shadow .3s}
@@ -28,6 +32,7 @@
     .card p{font-size:.88rem;line-height:1.45}
     .card button{margin-top:1rem;align-self:flex-start;padding:.55rem 1rem;border-radius:.5rem;border:2px solid var(--blue-end);background:transparent;color:var(--blue-end);font-weight:600;cursor:pointer;transition:background .3s,color .3s}
     .card button:hover{background:var(--blue-end);color:#000}
+
     /* modal */
     .modal{position:fixed;inset:0;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;padding:1.5rem;z-index:50;visibility:hidden;opacity:0;transition:opacity .3s,visibility .3s}
     .modal.open{visibility:visible;opacity:1}
@@ -37,7 +42,9 @@
     .close-btn{position:absolute;top:1rem;right:1rem;font-size:1.5rem;background:none;border:none;color:var(--blue-end);cursor:pointer}
     .modal-content iframe,.modal-content img{width:100%;border-radius:.7rem;margin-top:1rem}
     pre{display:none}
+
     @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
     footer{padding:2rem 2rem 4rem;text-align:center;font-size:.85rem;opacity:.6}
   </style>
 </head>
@@ -52,49 +59,55 @@
     <h1>Featured Projects</h1>
   </header>
 
-  <!-- MACHINE LEARNING & NLP -->
-  <h2 class="category-title">Machine Learning & NLP</h2>
+  <!-- PREDICTIVE MODELING & ML -->
+  <h2 class="category-title">Predictive Modeling & Machine Learning</h2>
   <section class="projects-grid">
-    <div class="card"><h3>Amazon Electronics Sentiment Analysis</h3><p>Python · NLTK, TextBlob · parsed 1M+ reviews—polarity scoring & TF‑IDF topic mining.</p><button data-modal="m-amazon">Details</button></div>
-    <div class="card"><h3>Email Engagement Classifier</h3><p>Python · Scikit‑learn · 40‑feature L1 logistic pipeline, 0.85 ROC‑AUC.</p><button data-modal="m-email">Details</button></div>
+    <div class="card"><h3>Amazon Electronics Sentiment Analysis</h3><p>Python · NLTK, TextBlob · 1M‑review polarity & TF‑IDF topic pipeline.</p><button data-modal="m-amazon">Details</button></div>
+    <div class="card"><h3>Email Engagement Classifier</h3><p>Python · Scikit‑learn · 40‑feature L1 logistic pipeline, ROC‑AUC 0.85.</p><button data-modal="m-email">Details</button></div>
+    <div class="card"><h3>Logistic Regression – NFL Pass Completions</h3><p>Python · LassoCV feature search, 4‑variable model hits 70% accuracy.</p><button data-modal="m-logreport">Details</button></div>
+    <div class="card"><h3>Minnesota Twins Analytics (Shiny)</h3><p>R · PCA + GLM · interactive player clustering & HR prediction.</p><button data-modal="m-twins">Details</button></div>
   </section>
 
-  <!-- SPATIAL & APPLIED ANALYTICS -->
-  <h2 class="category-title">Spatial & Applied Analytics</h2>
+  <!-- SPATIAL & CULTURAL ANALYTICS -->
+  <h2 class="category-title">Spatial & Cultural Analytics</h2>
   <section class="projects-grid">
-    <div class="card"><h3>Wisconsin Census Geo‑Analysis</h3><p>Python · GeoPandas, rasterio · Ridge model R² 0.87 on land‑use vs population.</p><button data-modal="m-census">Details</button></div>
-    <div class="card"><h3>Minnesota Twins Analytics (Shiny)</h3><p>R · PCA + GLM · interactive MLB performance clustering & HR prediction.</p><button data-modal="m-twins">Details</button></div>
-    <div class="card"><h3>Museum APIs: Islamic Art Study</h3><p>Python · REST APIs · acquisition trends pre/post‑9/11 across major museums.</p><button data-modal="m-museum">Details</button></div>
+    <div class="card"><h3>Wisconsin Census Geo‑Analysis</h3><p>Python · GeoPandas, rasterio · Ridge model R² 0.87 on land‑use vs pop.</p><button data-modal="m-census">Details</button></div>
+    <div class="card"><h3>Museum APIs: Islamic Art Study</h3><p>Python · REST APIs · 3 museums, 48‑year acquisition trend analysis.</p><button data-modal="m-museum">Details</button></div>
   </section>
 
-  <!-- OPTIMIZATION & REPORTS -->
-  <h2 class="category-title">Optimization & Reports</h2>
+  <!-- OPTIMIZATION & OPERATIONS RESEARCH -->
+  <h2 class="category-title">Optimization & Operations Research</h2>
   <section class="projects-grid">
-    <div class="card"><h3>Logistic Regression – NFL Pass Completions</h3><p>Python · LassoCV feature search—4‑feature model hits 70% accuracy.</p><button data-modal="m-logreport">Details</button></div>
-    <div class="card"><h3>Airport Baggage Carousel Scheduling</h3><p>Julia · JuMP MILP & two‑stage heuristic minimize passenger wait.</p><button data-modal="m-opt">Details</button></div>
+    <div class="card"><h3>Airport Baggage Carousel Scheduling</h3><p>Julia · JuMP MILP + two‑stage heuristic minimize passenger wait.</p><button data-modal="m-opt">Details</button></div>
   </section>
 
   <footer>Site built with vanilla HTML, CSS & JS. Deployed on GitHub Pages.</footer>
 
-  <!-- ================= MODALS ================= -->
+  <!-- =============== MODALS =============== -->
   <!-- Amazon NLP -->
-  <div class="modal" id="m-amazon"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Amazon Electronics Sentiment Analysis</h2><p>Processed 1.1 M Amazon electronics reviews in Google Colab. Pipelines: tokenization (NLTK), polarity & subjectivity (TextBlob), TF‑IDF term extraction. Visual dashboards ranked top complaint & praise keywords and quantified review‑length bias on ratings.</p><p><a href="documents/Sentiment_Analysis_of_Amazon_Electronics_Reviews.pdf" target="_blank">Read the paper</a></p><iframe src="documents/Sentiment_Analysis_of_Amazon_Electronics_Reviews.pdf" style="height:500px"></iframe></div></div>
+  <div class="modal" id="m-amazon"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Amazon Electronics Sentiment Analysis</h2><p>Tokenized 1.1 M Amazon reviews with NLTK, computed polarity & subjectivity via TextBlob, ranked TF‑IDF terms, and built Dash dashboards to reveal sentiment & length bias.</p><p><a href="documents/Sentiment_Analysis_of_Amazon_Electronics_Reviews.pdf" target="_blank">Read the paper</a></p><iframe src="documents/Sentiment_Analysis_of_Amazon_Electronics_Reviews.pdf" style="height:500px"></iframe></div></div>
+
   <!-- Email ML -->
-  <div class="modal" id="m-email"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Email Engagement Classifier</h2><p>Scikit‑learn pipeline: StandardScaler → LogisticRegression(solver="saga", penalty="l1"). Feature set blends browsing‑path n‑grams, dwell statistics, demographic buckets, and purchase tiers. 10‑fold CV AUC 0.84; lift curve shows 42 pp gain at top decile targeting.</p><p><a href="documents/main.py" download target="_blank">Download code</a></p></div></div>
-  <!-- Census -->
-  <div class="modal" id="m-census"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Wisconsin Census Geo‑Analysis</h2><p>Ingested county shapefiles plus 30 m NLCD raster tiles. Masked rasters per county, aggregated land‑class areas, then fit Ridge regression predicting 2020 population. Residual heat‑map flagged fast‑growing exurbs. Folium + Leaflet for interactive choropleth.</p><p><a href="documents/Wisconsin_Census_Data.ipynb" target="_blank">Download notebook</a></p><iframe src="documents/Wisconsin_Census_Data.html" style="height:500px"></iframe></div></div>
+  <div class="modal" id="m-email"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Email Engagement Classifier</h2><p>Scikit‑learn pipeline: StandardScaler → LogisticRegression(solver="saga", penalty="l1"). 40 engineered features from browsing paths & purchase logs. 10‑fold AUC 0.84; lift curve gains 42 pp at top decile.</p><p><a href="documents/main.py" download target="_blank">Download code</a></p></div></div>
+
+  <!-- Logistic Regression -->
+  <div class="modal" id="m-logreport"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Analyzing NFL Pass Completion – Logistic Regression</h2><p>NFL Big Data Bowl 2025: permutation importance + LassoCV → 4‑feature model (passLength, timeToThrow, coverage, tackleBox). Test precision 71%, recall 91%, F1 80%. Visualizes completion‑probability decay per yard.</p><p><a href="documents/Stat_451_Final_Report_Claudia.pdf" target="_blank">Download full report</a></p></div></div>
+
   <!-- Twins -->
-  <div class="modal" id="m-twins"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Minnesota Twins Analytics – R Shiny</h2><p>Seasons 2000‑2024 scrape → PCA (FactoMineR) reduces 12 batting stats. K‑means clusters players; GLM predicts HR totals. Shiny + Plotly + ggthemes deliver interactive scatter & radar charts autorefreshed via GitHub Actions.</p><p><a href="https://ceotero.shinyapps.io/minnesota_twins_analytics/" target="_blank">Launch app</a></p></div></div>
-  <!-- Museum placeholder -->
-  <div class="modal" id="m-museum"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Museum APIs: Islamic Art Pre/Post‑9/11</h2><p>Research paper and D3 timelines coming soon.</p></div></div>
-  <!-- Logistic report modal -->
-  <div class="modal" id="m-logreport"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Analyzing NFL Pass Completion – Logistic Regression</h2><p>NFL Big Data Bowl 2025 dataset (8 704 plays). Pipeline: permutation importance → LassoCV feature subset search → 4‑feature logistic model (passLength, timeToThrow, coverage, tackleBox). Test metrics: 71% precision, 91% recall, F1 80%. Findings quantify completion probability decay with pass distance and coverage scheme.</p><p><a href="documents/Stat_451_Final_Report_Claudia.pdf" target="_blank">Download full report</a></p></div></div>
-  <!-- Optimization modal -->
-  <div class="modal" id="m-opt"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Airport Baggage Carousel Scheduling – Julia/JuMP</h2><p>Formulated integrated MILP (~60k binaries) minimizing passenger‑weighted wait, solved in 6 s with Gurobi. Two‑stage decomposition (assignment + LP schedule) matches optimum 15% faster. Fairness variant bounds max wait at 58 min via min‑max extension.</p><p><a href="documents/CourseProjectClaudiaOtero (1).html" target="_blank">Open HTML report</a></p></div></div>
+  <div class="modal" id="m-twins"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Minnesota Twins Analytics – R Shiny</h2><p>Scraped seasons 2000‑2024; PCA (FactoMineR) compresses 12 stats; K‑means clusters hitters; GLM predicts HR totals. Deployed on Shiny with Plotly radar charts.</p><p><a href="https://ceotero.shinyapps.io/minnesota_twins_analytics/" target="_blank">Launch app</a></p></div></div>
+
+  <!-- Census -->
+  <div class="modal" id="m-census"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Wisconsin Census Geo‑Analysis</h2><p>County shapefiles + 30 m NLCD rasters masked & aggregated to land‑class areas. Ridge regression predicts 2020 population (R² 0.87). Folium choropleths visualize residuals.</p><p><a href="documents/Wisconsin_Census_Data.ipynb" target="_blank">Download notebook</a></p><iframe src="documents/Wisconsin_Census_Data.html" style="height:500px"></iframe></div></div>
+
+  <!-- Museum APIs Study -->
+  <div class="modal" id="m-museum"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Museum APIs: Islamic Art Pre/Post‑9/11</h2><p>Queried REST and GitHub APIs from The Met, Louvre, and V&A. Python (requests, pandas, matplotlib) analyzed 18 000 objects, comparing acquisition volume, origin, and metadata tags across 1977–2000 vs 2001–2024. Visuals reveal 34% post‑9/11 acquisition surge and tag shift from Qur'an/Calligraphy to Portrait/Amulet narratives.</p><p><a href="documents/Museum APIs_ Islamic Art Study.pdf" target="_blank">Download study</a></p></div></div>
+
+  <!-- Optimization -->
+  <div class="modal" id="m-opt"><div class="modal-content"><button class="close-btn" data-close>&times;</button><h2>Airport Baggage Carousel Scheduling – Julia/JuMP</h2><p>Integrated MILP (~60k binaries) minimizes passenger‑weighted wait; solved in 6 s with Gurobi. Two‑stage decomposition matches optimum 15% faster. Fairness extension bounds max wait to 58 min via min‑max variable.</p><p><a href="documents/CourseProjectClaudiaOtero (1).html" target="_blank">Open HTML report</a></p></div></div>
 
   <script>
-    document.querySelectorAll('.card button').forEach(b=>b.addEventListener('click',()=>{const m=document.getElementById(b.getAttribute('data-modal'));m&&m.classList.add('open');}));
-    document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>b.closest('.modal').classList.remove('open')));
+    document.querySelectorAll('.card button').forEach(btn=>btn.addEventListener('click',()=>{const m=document.getElementById(btn.getAttribute('data-modal'));m&&m.classList.add('open');}));
+    document.querySelectorAll('[data-close]').forEach(btn=>btn.addEventListener('click',()=>btn.closest('.modal').classList.remove('open')));
     document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open');}));
   </script>
 </body>
