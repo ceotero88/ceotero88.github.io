@@ -82,6 +82,9 @@
       line-height: 1.6;
       margin-top: 0.5rem;
     }
+    .hero {
+  flex: 1 0 auto;
+    }
     /* social buttons */
     .social {
       margin-top: 1.5rem;
@@ -124,7 +127,16 @@
       transform: scale(1.05);
       box-shadow: 0 0 30px rgba(0,0,0,1);
     }
-
+    footer {
+    flex: 0 0 var(--footer-height);
+    background: linear-gradient(90deg, var(--blue-start), var(--blue-end));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    padding: 0 1rem;
+    text-align: center;
+    }
     /* --- ANIMATIONS --- */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
