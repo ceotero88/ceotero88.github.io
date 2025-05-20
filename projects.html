@@ -1,651 +1,481 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Claudia Otero</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
-<style>
-    body {
-        font-family: 'Montserrat', sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        font-size: 16px;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claudia Otero – Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ------------- THEME ------------- */
+    :root {
+      --blue-start: #007cc2;
+      --blue-end: #00e5ff;
+      --nav-height: 72px;
     }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+    }
+    html, body {
+      height: 100%;
+      background: linear-gradient(120deg, #000000, #1a1a1a, #000000);
+      background-size: 200% 200%;
+      animation: bgShift 15s ease infinite;
+      overflow-x: hidden;
+    }
+    @keyframes bgShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ------------- NAV ------------- */
     nav {
-        width: 100%; /* Adjusted for mobile view */
-        background-color: #333;
-        color: white;
-        display: flex;
-        flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-        padding: 10px; /* Reduced padding for mobile view */
-        box-sizing: border-box;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1000;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      padding: 0 1.5rem;
+      background: linear-gradient(90deg, var(--blue-start), var(--blue-end));
+      z-index: 20;
+      backdrop-filter: blur(6px);
     }
     nav a {
-        color: white;
-        text-decoration: none;
-        margin: 5px;
-        font-size: 1em; /* Reduced font size for better fit */
-        overflow-wrap: break-word; /* Handle long text gracefully */
-        flex: 1 1 auto; /* Allow items to grow and shrink as needed */
-        text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: opacity 0.3s;
     }
-    nav a:hover {
-        color: #ff9800;
-    }
-    main {
-        margin-top: 60px; /* Leave space for the nav bar */
-        padding: 20px;
-        overflow-y: auto;
-    }
+    nav a:hover { opacity: 0.75; }
+
+    /* ------------- HEADER ------------- */
     header {
-        text-align: center;
-        padding: 20px;
-        background-color: #f8f9fa;
-        border-bottom: 2px solid #ddd;
+      padding: calc(var(--nav-height) + 2rem) 2rem 2rem;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      animation: fadeIn 1s ease forwards 0.5s;
+      opacity: 0;
     }
-    header h1 {
-        margin: 0;
-        font-size: 1.5em; /* Adjusted for mobile screens */
-    }
-    section {
-        margin: 20px 0;
-        padding: 20px;
-        background-color: #f4f4f4;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    section h2 {
-        margin-top: 0;
-        text-align: center;
-        font-size: 1.5em; /* Adjusted for smaller screens */
-        color: #333;
-    }
-    .project {
-        margin: 40px 0;
-    }
-    .project h3 {
-        margin-bottom: 15px;
-        font-size: 1.2em; /* Adjusted for mobile */
-    }
-    .project p {
-        margin: 10px 0;
-    }
-    .project a {
-        color: #0073e6;
-        text-decoration: none;
-    }
-    .project a:hover {
-        text-decoration: underline;
-    }
-    .toggle-details {
-        display: block;
-        width: 100%;
-        text-align: center;
-        background-color: white; /* Dark grey to match the palette */
-        color: #333;
-        border: 2px solid #333;
-        padding: 10px 15px;
-        font-size: 14px; /* Adjusted for mobile */
-        cursor: pointer;
-        margin-top: 10px;
-        margin-bottom: 30px;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-    }
-    .toggle-details:hover {
-        background-color: #555; /* Slightly lighter grey for hover effect */
-    }
-    .details {
-        margin-top: 15px;
-        padding: 15px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        background-color: #f9f9f9;
-        display: none;
-    }
-    img {
-        max-width: 100%; /* Ensure images scale within their container */
-        height: auto;
-        margin-top: 10px;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-iframe {
-    width: 100%; /* Ensure iframes scale with the container */
-    max-width: 100%; /* Prevents the iframe from exceeding container width */
-    height: 400px; /* Adjust height as needed */
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    overflow: auto; /* Allow horizontal scrolling inside the iframe */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS devices */
-    touch-action: pan-x pan-y; /* Allow panning in both directions */
-}
+    header h1 { font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 1rem; }
+    header p { font-size: 1.2rem; line-height: 1.6; max-width: 700px; margin: 0 auto; }
 
-
-
-.project-preview-container {
-    width: 100%;
-    overflow-x: auto; /* Enable horizontal scrolling for wide content */
-    max-width: 100%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-
-    pre {
-        max-width: 100%; /* Ensure code blocks scale within container */
-        overflow-x: auto; /* Allow horizontal scrolling for long lines */
-        background-color: #f4f4f4;
-        border: 1px solid #ccc;
-        padding: 10px;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        touch-action: pan-x;
+    /* ------------- PROJECT GRID ------------- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1300px;
+      margin: 0 auto 4rem;
     }
-    .iframe-container {
-    overflow-x: auto; /* Enable scrolling inside the container */
-    width: 100%; /* Ensure container spans the full width */
-    max-width: 100%; /* Prevent the container from exceeding the viewport width */
-    height: 400px; /* Match the iframe height */
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    -webkit-overflow-scrolling: touch;
-}
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 1rem;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      backdrop-filter: blur(3px);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+    }
+    .card h3 { font-size: 1.3rem; margin-bottom: 0.75rem; }
+    .card p { font-size: 0.95rem; line-height: 1.5; }
+    .card button {
+      margin-top: 1.25rem;
+      align-self: flex-start;
+      padding: 0.6rem 1.1rem;
+      border-radius: 0.5rem;
+      border: 2px solid var(--blue-end);
+      background: transparent;
+      color: var(--blue-end);
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+    .card button:hover {
+      background: var(--blue-end);
+      color: #000;
+    }
 
-</style>
+    /* ------------- MODAL ------------- */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      z-index: 50;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+    .modal.open { visibility: visible; opacity: 1; }
+    .modal-content {
+      background: #121212;
+      max-width: 900px;
+      max-height: 90vh;
+      overflow-y: auto;
+      border-radius: 1rem;
+      padding: 2rem 2.5rem;
+      position: relative;
+    }
+    .modal-content h2 { margin-bottom: 1rem; }
+    .modal-content h4 { margin-top: 1.25rem; }
+    .close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--blue-end);
+      cursor: pointer;
+    }
+    .modal-content a { color: var(--blue-end); }
+    .modal-content pre, .modal-content iframe, .modal-content img {
+      width: 100%;
+      border-radius: 0.75rem;
+      margin-top: 1rem;
+    }
+    pre { background: #1f1f1f; padding: 1rem; overflow-x: auto; }
 
+    /* --- ANIMATION --- */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
-
+    @media (max-width: 500px) {
+      .card h3 { font-size: 1.1rem; }
+      .card p  { font-size: 0.9rem; }
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="workexperience.html">Work Experience</a>
-    </nav>
-    <main>
-        <header>
-            <h1>Projects</h1>
-            <p>This page showcases a collection of some of my favorite work, including coursework, Shiny apps, and personal projects.</p>
-        </header>
+  <!-- NAV -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="workexperience.html">Professional Experience</a>
+  </nav>
 
-<section>
-    <h2>Coursework</h2>
+  <!-- HEADER -->
+  <header>
+    <h1>Projects</h1>
+    <p>A curated selection of coursework, Shiny apps, and personal builds. Click any card for the full story.</p>
+  </header>
 
-    <!-- Sentiment Analysis Project -->
-    <div class="project">
-        <h3>Sentiment Analysis of Amazon Electronics Reviews</h3>
-        <p>
-            Leveraged Python, NLP techniques, and libraries like NLTK and TextBlob to analyze customer satisfaction for Amazon electronics, focusing on review patterns and sentiment trends.
-            <button class="toggle-details" onclick="toggleDetails('amazon-analysis')">Read More</button>
-        </p>
-        <div id="amazon-analysis" class="details" style="display: none;">
-            <h4>Objective:</h4>
-            <p>
-                To analyze customer sentiment for Amazon electronics using NLP techniques, uncovering key patterns in satisfaction, complaints, and review length impacts on ratings.
-            </p>
-            <h4>Tech Stack:</h4>
-            <ul>
-                <li>Languages: Python</li>
-                <li>Libraries: NLTK, TextBlob</li>
-                <li>Platform: Google Colab</li>
-            </ul>
-            <h4>Key Components:</h4>
-            <ul>
-                <li>Text Analysis: Sentiment scoring using TextBlob to evaluate polarity and word frequency analysis for common themes.</li>
-                <li>Statistical Insights: Highlighted correlations between review length and sentiment trends.</li>
-                <li>Scalability: Efficiently processed over 1 million reviews for actionable insights.</li>
-            </ul>
-            <h4>Conclusion:</h4>
-            <p>
-                The analysis reveals actionable insights for manufacturers and retailers, including feature improvements and marketing strategies aligned with customer feedback.
-            </p>
-                    <p>
-            <a href="documents/Sentiment_Analysis_of_Amazon_Electronics_Reviews.pdf" target="_blank">Open Paper PDF</a>
-        </p>
-            <h4>Paper Preview:</h4>
+  <!-- PROJECT GRID -->
+  <section class="projects-grid">
 
-<iframe 
-    src="documents/Sentiment_Analysis_of_Amazon_Electronics_Reviews.pdf" 
-    style="width: 100%; height: 500px;">
-</iframe>
-
-
-        </div>
+    <!-- Amazon Sentiment -->
+    <div class="card">
+      <h3>Amazon Electronics Sentiment Analysis</h3>
+      <p>Natural‑language dive into 1M+ Amazon electronics reviews with Python & NLP.</p>
+      <button data-modal="modal-amazon">Details</button>
     </div>
 
-
-    <div class="project">
-    <h3>Predicting Email Engagement Using Machine Learning</h3>
-    <p>
-        Developed a machine learning classifier in Python to predict user engagement with promotional emails based on browsing and purchasing history. Achieved 85% accuracy using feature engineering and a logistic regression pipeline.
-        <button class="toggle-details" onclick="toggleDetails('selling-tvs')">Read More</button>
-    </p>
-
-    <div id="selling-tvs" class="details" style="display: none;">
-        <h4>Objective:</h4>
-        <p>
-            To predict user interest in promotional emails for targeted marketing, leveraging historical browsing and purchasing data to minimize customer annoyance and improve engagement rates.
-        </p>
-        <h4>Tech Stack:</h4>
-        <ul>
-            <li>Languages: Python</li>
-            <li>Libraries: Scikit-learn, Pandas, NumPy</li>
-            <li>Techniques: Logistic Regression with L1 penalty, Pipeline Model</li>
-        </ul>
-        <h4>Key Components:</h4>
-        <ul>
-            <li>
-                Data Integration: Combined user demographic and activity data with browsing history for feature extraction.
-            </li>
-            <li>
-                Feature Engineering: Extracted meaningful features from URL browsing data, such as visit duration and page types.
-            </li>
-            <li>
-                Machine Learning Pipeline: Created a pipeline with StandardScaler for data preprocessing and Logistic Regression for classification.
-            </li>
-            <li>
-                Performance Metrics: Achieved over 85% accuracy on test datasets through iterative model optimization.
-            </li>
-        </ul>
-        <h4>Conclusion:</h4>
-        <p>
-            This project demonstrates the effectiveness of combining user activity data with machine learning techniques to predict customer engagement, providing actionable insights for targeted email marketing campaigns. The scalable pipeline allows for future integration of additional features and models.
-        </p>
-            <p>
-        <a href="documents/main.py" target="_blank" download>Download Python File</a>
-    </p>
-        <h4>Code Preview:</h4>
-        <pre style="background-color: #f4f4f4; border: 1px solid #ccc; padding: 10px; max-height: 400px; overflow-y: scroll;">
-
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LogisticRegression
-from sklearn.base import BaseEstimator, ClassifierMixin
-import pandas as pd
-import numpy as np
-
-class UserPredictor(BaseEstimator, ClassifierMixin):
-    def __init__(self):
-        """Initialize the predictive model with scaling and logistic regression using L1 penalty."""
-        self.model = Pipeline([
-            ('scaler', StandardScaler()),
-            ('log_reg', LogisticRegression(C=0.5, penalty='l1', solver='saga'))  # L1 penalty with SAGA solver
-        ])
-
-    def fit(self, X_users, X_logs, y):
-        """Fit the model using user and log data. Prepare features and fit the logistic regression model."""
-        data = self.prepare_features(X_users, X_logs)
-        self.model.fit(data, y['clicked'])
-
-    def predict(self, X_users, X_logs):
-        """Predict whether users will click the email based on prepared features."""
-        data = self.prepare_features(X_users, X_logs)
-        return self.model.predict(data)
-    
-    def prepare_features(self, X_users, X_logs):
-        """Prepare and return features for modeling, including URL-based features."""
-        features = X_users[['id', 'past_purchase_amt']].copy()
-        
-        # Analyze URL visits
-        X_logs['product_type'] = X_logs['url'].apply(lambda x: x.split('/')[-1].split('.')[0])
-        url_features = pd.get_dummies(X_logs['product_type']).groupby(X_logs['id']).sum()
-        
-        # Time and log data features
-        log_summary = X_logs.groupby('id').agg({
-            'duration': ['sum', 'mean', 'std', 'min', 'max'],
-            'url': 'count'
-        })
-        log_summary.columns = ['_'.join(col).strip() for col in log_summary.columns.values]
-        log_summary.reset_index(inplace=True)
-        
-        data = pd.merge(features, log_summary, on='id', how='left')
-        data = pd.merge(data, url_features, on='id', how='left').fillna(0)
-        return data
-        </pre>
-        <p>
-        </p>
+    <!-- Email Engagement ML -->
+    <div class="card">
+      <h3>Email Engagement Classifier</h3>
+      <p>Logistic‑regression pipeline predicting click‑throughs with 85% accuracy.</p>
+      <button data-modal="modal-email">Details</button>
     </div>
-</div>
 
-
-   <!-- Wisconsin Census Data Project -->
-<div class="project">
-    <h3>Wisconsin Census Data Analysis</h3>
-    <p>
-        Used Python geospatial libraries like GeoPandas and rasterio to analyze population and land-use trends in Wisconsin, employing regression models and statistical tests.
-        <button class="toggle-details" onclick="toggleDetails('census')">Read More</button>
-    </p>
-
-    <div id="census" class="details" style="display: none;">
-        <h4>Objective:</h4>
-        <p>
-            To analyze Wisconsin census data, predicting population using features like housing units and land use, with advanced geospatial and statistical methods.
-        </p>
-        <h4>Tech Stack:</h4>
-        <ul>
-            <li>Languages: Python</li>
-            <li>Libraries: GeoPandas, rasterio, matplotlib, seaborn</li>
-            <li>Tools: Jupyter Notebook</li>
-        </ul>
-        <h4>Key Components:</h4>
-        <ul>
-            <li>Data Sources: counties.geojson, tracts.shp, counties_tracts.db, and land.zip.</li>
-            <li>Statistical Testing: CV testing (R² and explained variance score) to evaluate and compare model performance across datasets.</li>
-            <li>Regression Models: Predicting population using housing unit and land-use data.</li>
-            <li>Visualization: Created scatter plots, boxplots, and geographic maps to illustrate findings.</li>
-            <li>Raster Analysis: Used masking and cell counting techniques to quantify land-use types within county boundaries, linking them to demographic features.</li>
-        </ul>
-        <h4>Conclusion:</h4>
-        <p>
-            This project provides valuable insights for urban planning, showcasing the potential of combining geospatial data with statistical models.
-        </p>
-            <p>
-        <a href="documents/Wisconsin_Census_Data.ipynb" target="_blank">Download Jupyter Notebook</a>
-    </p>
-        <h4>Code Preview:</h4>
-        <div class="iframe-container">
-            <iframe src="documents/Wisconsin_Census_Data.html"></iframe>
-        </div>
-
+    <!-- Wisconsin Census -->
+    <div class="card">
+      <h3>Wisconsin Census Geo‑Analysis</h3>
+      <p>GeoPandas + rasterio to link land‑use patterns with population change.</p>
+      <button data-modal="modal-census">Details</button>
     </div>
-</div>
 
-
-    <!-- Minnesota Traffic Analysis Project -->
-    <div class="project">
-        <h3>Weather-Driven Traffic Analysis</h3>
-        <p>
-            Conducted an RStudio analysis to explore the impact of weather on traffic volume on Minnesota's Interstate-94, using Welch's T-tests and data visualizations.
-            <button class="toggle-details" onclick="toggleDetails('traffic-volume')">Read More</button>
-        </p>
-
-        <div id="traffic-volume" class="details" style="display: none;">
-            <h4>Objective:</h4>
-            <p>
-                To analyze how different weather conditions impact traffic volume, using statistical testing to identify significant patterns.
-            </p>
-            <h4>Tech Stack:</h4>
-            <ul>
-                <li>Languages: R</li>
-                <li>Tools: RStudio, Google API Key</li>
-            </ul>
-            <h4>Key Components:</h4>
-            <ul>
-                <li>Statistical Testing: Welch's T-tests to compare traffic volumes under snowy, clear, cloudy, and partly sunny conditions.</li>
-                <li>Data Visualization: Histograms, boxplots, and interactive charts illustrating trends.</li>
-                <li>Geographic Analysis: Mapped weather-specific traffic data using geographic roles.</li>
-            </ul>
-            <h4>Conclusion:</h4>
-            <p>
-                The analysis reveals actionable insights into how weather influences traffic patterns, informing urban planning and driver behavior studies.
-            </p>
-                    <p>
-            <a href="documents/MinnesotaInterstateTrafficVolume.html" target="_blank">Open HTML File</a>
-        </p>
-            <h4>Project Preview:</h4>
-            <iframe src="documents/MinnesotaInterstateTrafficVolume.html" style="width: 400%; height: 300px; border: 1px solid #ccc; border-radius: 8px; margin-top: 10px;"></iframe>
-        </div>
-        </div>
-
-    <!-- COVID-19 Tableau Dashboard -->
-    <div class="project">
-        <h3>Interactive COVID-19 Tableau Dashboard</h3>
-        <p>
-            Built a Tableau dashboard to map global COVID-19 cases by country and time zone, featuring interactive filters and geographic insights to highlight trends.
-            <button class="toggle-details" onclick="toggleDetails('covid')">Read More</button>
-        </p>
-        <div id="covid" class="details" style="display: none;">
-            <h4>Objective:</h4>
-            <p>
-                To visualize global COVID-19 case trends by country and time zone, providing interactive insights for comparative analysis.
-            </p>
-            <h4>Tech Stack:</h4>
-            <ul>
-                <li>Software: Tableau</li>
-                <li>Features: Interactive filters, geographic mapping</li>
-            </ul>
-            <h4>Key Components:</h4>
-            <ul>
-                <li>Visualization: World map with circle sizes representing total cases and time zones color-coded for quick interpretation.</li>
-                <li>Filters: Dropdown filters for narrowing data by specific time zones.</li>
-                <li>Insights: Identified trends related to population density and policy responses across time zones.</li>
-            </ul>
-            <h4>Conclusion:</h4>
-            <p>
-                This dashboard showcases the potential of interactive visualization for large-scale datasets, offering valuable public health insights.
-            </p>
-            <h4>Dashboard:</h4>
-            <img src="images/tableau.png" alt="COVID-19 Tableau Dashboard">
-        </div>
-        <div>
-
-
-</section>
-
-<section>
-    <h2>Shiny Web Apps</h2>
-
-<!-- Minnesota Twins Analytics -->
-<div class="project">
-    <h3>Minnesota Twins Analytics</h3>
-    <p>
-        An interactive app for visualizing Minnesota Twins' player performance, focusing on key statistics like Home Runs, Batting Average, and RBIs across seasons.
-    </p>
-    <p>
-        <a href="https://ceotero.shinyapps.io/minnesota_twins_analytics/" target="_blank">Open Application</a>
-        <button class="toggle-details" onclick="toggleDetails('twins')">Read More</button>
-    </p>
-    <div id="twins" class="details">
-        <h4>Objective:</h4>
-        <p>
-            To provide an interactive platform for analyzing Minnesota Twins' player performance trends, using advanced statistical techniques to uncover insights.
-        </p>
-        <h4>Key Components:</h4>
-        <ul>
-            <li>
-                Regression Analysis: Predicts home runs for a given season based on player statistics like Batting Average, RBIs, Hits, and Runs.
-            </li>
-            <li>
-                PCA (Principal Component Analysis): Reduces high-dimensional player performance data into key components, helping identify top performers and performance clusters.
-            </li>
-            <li>
-                Interactive Visualizations: Plotly charts and tables with zoom and hover features for detailed exploration of yearly player statistics.
-            </li>
-            <li>
-                Branded Interface: Styled in Minnesota Twins colors for a cohesive and professional look.
-            </li>
-        </ul>
+    <!-- Traffic Weather -->
+    <div class="card">
+      <h3>Weather‑Driven Traffic Volume</h3>
+      <p>RStudio stats reveal how snow, clouds & sun shift I‑94 flow.</p>
+      <button data-modal="modal-traffic">Details</button>
     </div>
-</div>
 
-
-<!-- Healthcare Appointment Analysis -->
-<div class="project">
-    <h3>Healthcare Appointment Analysis</h3>
-    <p>
-        A dual-application tool leveraging interactive visualizations and predictive analytics to understand patient no-show trends and influencing factors.
-    </p>
-    <p>
-        <a href="https://srathi.shinyapps.io/EDA_app/" target="_blank">Open Analysis Application</a> | 
-        <a href="https://srathi.shinyapps.io/logistic_app/" target="_blank">Open Logistic Regression Application</a>
-        <button class="toggle-details" onclick="toggleDetails('appointment-analysis')">Read More</button>
-    </p>
-    <div id="appointment-analysis" class="details">
-        <h4>Logistic Regression Application:</h4>
-        <p>
-            An interactive platform utilizing a logistic regression model to predict the probability of patients attending their appointments. 
-        </p>
-        <h5>Key Features:</h5>
-        <ul>
-            <li>Input Panel:
-                <ul>
-                    <li>Demographics: Dropdowns for gender and neighborhood, numeric input for age.</li>
-                    <li>Health Conditions: Checkboxes for binary conditions such as Scholarship, Hypertension, and Alcoholism.</li>
-                </ul>
-            </li>
-            <li>Output Panel:
-                <ul>
-                    <li>Probability Visualization: Dynamic bar chart displaying predicted attendance probabilities based on user inputs.</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h4>Analysis Application:</h4>
-        <p>
-            A visualization-focused tool analyzing seasonal, demographic, and health condition trends affecting no-show rates.
-        </p>
-        <h5>Key Features:</h5>
-        <ul>
-            <li>Health Conditions Analysis: Compare no-show probabilities for various health conditions using logistic regression outputs.</li>
-            <li>Seasonal Trends: Line plots highlighting month-wise no-show rates for targeted scheduling improvements.</li>
-            <li>Demographic Trends: Grouped line plots showing no-show rates across age and gender cohorts.</li>
-        </ul>
+    <!-- COVID Tableau -->
+    <div class="card">
+      <h3>Interactive COVID‑19 Dashboard</h3>
+      <p>Tableau world map with time‑zone filters for case trends.</p>
+      <button data-modal="modal-covid">Details</button>
     </div>
-</div>
 
+    <!-- Twins Shiny -->
+    <div class="card">
+      <h3>Minnesota Twins Analytics (Shiny)</h3>
+      <p>ML & PCA underpin an interactive look at Twins batting stats.</p>
+      <button data-modal="modal-twins">Details</button>
+    </div>
+
+    <!-- Healthcare Appointments -->
+    <div class="card">
+      <h3>Healthcare Appointment Insights (Shiny)</h3>
+      <p>Dual‑app suite: EDA + logistic model for no‑show prediction.</p>
+      <button data-modal="modal-health">Details</button>
+    </div>
 
     <!-- Pokémon Stat Explorer -->
-    <div class="project">
-        <h3>Pokémon Stat Explorer</h3>
-        <p>
-            A dynamic app for exploring Pokémon stats, comparing Attack and Defense attributes across types, generations, and rarity.
-        </p>
-        <p>
-            <a href="https://ceotero.shinyapps.io/pokemon_shiny_app/" target="_blank">Open Application</a>
-            <button class="toggle-details" onclick="toggleDetails('pokemon')">Read More</button>
-        </p>
-        <div id="pokemon" class="details">
-            <h4>Objective:</h4>
-            <p>
-                To provide Pokémon enthusiasts with an interactive tool for visualizing Pokémon stats and understanding how attributes vary by type, generation, and rarity.
-            </p>
-            <h4>Key Components:</h4>
-            <ul>
-                <li>Customizable filters for type and generation, enabling specific or comparative analysis.</li>
-                <li>Legendary Pokémon Comparison: Distinguish between Legendary and Non-Legendary stats.</li>
-                <li>Interactive Visualizations: Compare Attack and Defense stats across generations and types.</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-
-<section>
-    <h2>Personal Projects</h2>
-
-    <!-- Arduino Sound Sensor LED Control -->
-    <div class="project">
-        <h3>Arduino Sound Sensor LED Control</h3>
-        <p>
-            A circuit designed to change an LED's color based on sound levels using an Arduino, sound sensor, and C++ programming.
-            <button class="toggle-details" onclick="toggleDetails('arduino')">Read More</button>
-        </p>
-        <div id="arduino" class="details">
-            <h4>Objective:</h4>
-            <p>
-                To design and build a dynamic circuit that converts sound levels into responsive LED color changes, demonstrating a hands-on approach to signal processing and embedded systems.
-            </p>
-            <h4>Personal Connection:</h4>
-            <p>
-                This project combines my interest in electronics and creative problem-solving. It allowed me to experiment with the practical applications of sensors and microcontrollers while bringing together my passion for visual feedback systems.
-            </p>
-            <h4>Key Components:</h4>
-            <ul>
-                <li>Hardware: Arduino Uno, sound sensor, RGB LED, breadboard, resistors, and jumper wires.</li>
-                <li>Programming: C++ code using Arduino IDE to map sound levels to RGB values.</li>
-                <li>Signal Processing: Functions like <code>analogRead()</code> and <code>analogWrite()</code> to capture sound data and control LED outputs dynamically.</li>
-                <li>Circuit Design: Resistors to protect the LED and solid jumper connections for seamless operation.</li>
-            </ul>
-            <img src="images/arduino.jpg" alt="Arduino Sound Sensor Circuit">
-        </div>
+    <div class="card">
+      <h3>Pokémon Stat Explorer (Shiny)</h3>
+      <p>Interactive Dashboards comparing Attack vs. Defense across gens.</p>
+      <button data-modal="modal-pokemon">Details</button>
     </div>
 
-    <!-- Choose Your Own Adventure App -->
-    <div class="project">
-        <h3>Choose Your Own Adventure App</h3>
-        <p>
-            A Python-based interactive app that lets users embark on a fun journey between Minneapolis and Madison, exploring city highlights along the way.
-            
-        </p>
-        <p>
-            <a href="https://choose-your-adventure-sk2s.onrender.com/" target="_blank">Open Application</a>
-            <button class="toggle-details" onclick="toggleDetails('adventure')">Read More</button>
-        </p>
-        <div id="adventure" class="details">
-            <h4>Objective:</h4>
-            <p>
-                To create a fun and interactive app that highlights key landmarks and entertainment options in Minneapolis and Madison while using technical frameworks to engage users.
-            </p>
-            <h4>Personal Connection:</h4>
-            <p>
-                As someone who has roots in Minneapolis and attends university in Madison, I wanted to showcase these cities’ unique offerings. This project allowed me to share my love for both places while honing my technical skills in data visualization and interactivity.
-            </p>
-            <h4>Key Components:</h4>
-            <ul>
-                <li>Framework: Built with Python using the Dash framework for a dynamic, web-based experience.</li>
-                <li>Map Visualizations: Integrated Plotly for interactive maps highlighting city locations.</li>
-                <li>Dynamic Content: Included storytelling elements like a randomly generated "adventure poem" to add creativity to the technical framework.</li>
-                <li>Deployment: Hosted on Render for accessibility and performance.</li>
-            </ul>
-        </div>
+    <!-- Arduino LED -->
+    <div class="card">
+      <h3>Arduino Sound‑Reactive LED</h3>
+      <p>Embedded C++ circuit that paints LEDs with volume levels.</p>
+      <button data-modal="modal-arduino">Details</button>
     </div>
 
-    <!-- Personal Website Development -->
-    <div class="project">
-        <h3>Personal Website Development</h3>
-        <p>
-            A custom-built portfolio website showcasing my projects, created with HTML and CSS, hosted on GitHub, and connected to a personalized domain.
-            <button class="toggle-details" onclick="toggleDetails('website')">Read More</button>
-        </p>
-        <div id="website" class="details">
-            <h4>Objective:</h4>
-            <p>
-                To design and deploy a professional portfolio website that highlights my technical projects and skills in an accessible and visually appealing format.
-            </p>
-            <h4>Personal Connection:</h4>
-            <p>
-                This project represents my journey in web development, showcasing not just my technical growth but also my commitment to presenting my work in a polished and organized way. It’s a space where I can share my creativity and achievements.
-            </p>
-            <h4>Key Components:</h4>
-            <ul>
-                <li>Languages: Built with HTML and CSS for structure and styling.</li>
-                <li>Responsive Design: Optimized for viewing across devices with a seamless user experience.</li>
-                <li>Dynamic Features: Includes collapsible "Read More" sections, downloadable project files, and embedded images.</li>
-                <li>Hosting: Deployed via GitHub Pages with a custom domain (<a href="https://claudiaotero.com" target="_blank">claudiaotero.com</a>).</li>
-                <li>Version Control: Used GitHub for iterative improvements and project tracking.</li>
-            </ul>
-        </div>
+    <!-- Choose Adventure -->
+    <div class="card">
+      <h3>Choose‑Your‑Own‑Adventure Web App</h3>
+      <p>Python Dash journey between Minneapolis & Madison.</p>
+      <button data-modal="modal-adventure">Details</button>
     </div>
-</section>
 
-    </main>
-    <script>
-    function toggleDetails(id) {
-        const details = document.getElementById(id);
-        const button = document.querySelector(`[onclick="toggleDetails('${id}')"]`);
-        
-        // Toggle the display of the details section
-        if (details.style.display === "none" || details.style.display === "") {
-            details.style.display = "block";
-            button.textContent = "Read Less"; // Change button text to "Read Less"
-        } else {
-            details.style.display = "none";
-            button.textContent = "Read More"; // Change button text to "Read More"
-        }
-    }
-</script>
+    <!-- Personal Website -->
+    <div class="card">
+      <h3>Portfolio Website (This Site)</h3>
+      <p>Custom HTML/CSS build deployed via GitHub Pages.</p>
+      <button data-modal="modal-website">Details</button>
+    </div>
+
+  </section>
+
+  <!-- ------------- MODALS ------------- -->
+  <!-- Amazon Modal -->
+  <div class="modal" id="modal-amazon">
+    <div class="modal-content">
+      <button class="close-btn" data-close>&times;</button>
+      <h2>Sentiment Analysis of Amazon Electronics Reviews</h2>
+      <h4>Objective</h4>
+      <p>Uncover satisfaction patterns & pain points across 1M+ Amazon electronics reviews using NLP.</p>
+      <h4>Tech Stack</h4>
+      <ul>
+        <li>Python (Google Colab)</li>
+        <li>Libraries: NLTK, TextBlob</li>
+      </ul>
+      <h4>Highlights</h4>
+      <ul>
+        <li>Polarity scores via TextBlob, word‑frequency insights.</li>
+        <li>Correlation between review length & rating sentiment.</li>
+        <li>Actionable findings for product teams.</li>
+      </ul>
+      <p><a href="documents/Sentiment_Analysis_of_Amazon_Electronics_Reviews.pdf" target="_blank">Open Paper PDF</a></p>
+      <iframe src="documents/Sentiment_Analysis_of_Amazon_Electronics_Reviews.pdf" style="height:500px"></iframe>
+    </div>
+  </div>
+
+  <!-- Email Modal -->
+  <div class="modal" id="modal-email">
+    <div class="modal-content">
+      <button class="close-btn" data-close>&times;</button>
+      <h2>Predicting Email Engagement Using Machine Learning</h2>
+      <h4>Objective</h4>
+      <p>Target promotional emails by predicting click‑through likelihood from browsing & purchase data.</p>
+      <h4>Tech Stack</h4>
+      <ul>
+        <li>Python – Scikit‑learn, Pandas</li>
+        <li>Logistic Regression (L1, SAGA) inside Pipeline</li>
+      </ul>
+      <h4>Key Components</h4>
+      <ul>
+        <li>Rich feature engineering from URL paths & visit stats.</li>
+        <li>85% test accuracy, scalable pipeline.</li>
+      </ul>
+      <p><a href="documents/main.py" download target="_blank">Download Python File</a></p>
+      <pre>from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegression
+...</pre>
+    </div>
+  </div>
+
+  <!-- Census Modal -->
+  <div class="modal" id="modal-census">
+    <div class="modal-content">
+      <button class="close-btn" data-close>&times;</button>
+      <h2>Wisconsin Census Data Analysis</h2>
+      <h4>Objective</h4>
+      <p>Blend housing, land‑use & raster layers to predict population county‑wide.</p>
+      <h4>Tech Stack</h4>
+      <ul>
+        <li>Python – GeoPandas, rasterio, seaborn</li>
+      </ul>
+      <h4>Highlights</h4>
+      <ul>
+        <li>Masked rasters to quantify land categories per county.</li>
+        <li>Regression models with CV R² & EVS metrics.</li>
+      </ul>
+      <p><a href="documents/Wisconsin_Census_Data.ipynb" target="_blank">Download Notebook</a></p>
+      <iframe src="documents/Wisconsin_Census_Data.html" style="height:500px"></iframe>
+    </div>
+  </div>
+
+  <!-- Traffic Modal -->
+  <div class="modal" id="modal-traffic">
+    <div class="modal-content">
+      <button class="close-btn" data-close>&times;</button>
+      <h2>Weather‑Driven Traffic Analysis</h2>
+      <h4>Objective</h4>
+      <p>Identify how snow, clear skies & clouds shift traffic volume on I‑94.</p>
+      <h4>Tech Stack</h4>
+      <ul>
+        <li>R – Welch’s T‑tests, ggplot2</li>
+      </ul>
+      <h4>Highlights</h4>
+      <ul>
+        <li>Stat‑sig differences in volume under varying weather.</li>
+        <li>Interactive HTML report with maps & charts.</li>
+      </ul>
+      <p><a href="documents/MinnesotaInterstateTrafficVolume.html" target="_blank">Open HTML Report</a></p>
+      <iframe src="documents/MinnesotaInterstateTrafficVolume.html" style="height:300px"></iframe>
+    </div>
+  </div>
+
+  <!-- COVID Modal -->
+  <div class="modal" id="modal-covid">
+    <div class="modal-content">
+      <button class="close-btn" data-close>&times;</button>
+      <h2>Interactive COVID‑19 Tableau Dashboard</h2>
+      <h4>Objective</h4>
+      <p>Visualize case counts across time zones with interactive filters.</p>
+      <h4>Platform</h4>
+      <p>Tableau</p>
+      <img src="images/tableau.png" alt="COVID‑19 Tableau Dashboard" />
+    </div>
+  </div>
+
+  <!-- Twins Modal -->
+  <div class="modal" id="modal-twins">
+    <div class="modal-content">
+      <button class="close-btn" data-close>&times;</button>
+      <h2>Minnesota Twins Analytics – Shiny App</h2>
+      <p><a href="https://ceotero.shinyapps.io/minnesota_twins_analytics/" target="_blank">Launch App</a></p>
+      <h4>Highlights</h4>
+      <ul>
+        <li>PCA compresses high‑dim stats into player clusters.</li>
+        <li>Regression model predicts HRs from BA, RBIs & Runs.</li>
+        <li>Plotly‑powered interactive visuals in Twins colors.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Healthcare Modal -->
+  <div class="modal" id="modal-health">
+    <div class="modal-content">
+      <button class="close-btn" data-close>&times;</button>
+      <h2>Healthcare Appointment Analysis – Shiny Suite</h2>
+      <p>
+        Analysis App: <a href="https://srathi.shinyapps.io/EDA_app/" target="_blank">Open</a> |
+        Logistic App: <a href="https://srathi.shinyapps.io/logistic_app/" target="_blank">Open</a>
+      </p>
+      <h4>Features</h4>
+      <ul>
+        <li>Predict attendance probability with logistic regression.</li>
+        <li>Seasonal & demographic trend exploration.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Pokémon Modal -->
+  <div class="modal" id="modal-pokemon">
+    <div class="modal-content">
+      <button class="close-btn" data-close>&times;</button>
+      <h2>Pokémon Stat Explorer – Shiny App</h2>
+      <p><a href="https://ceotero.shinyapps.io/pokemon_shiny_app/" target="_blank">Launch App</a></p>
+      <ul>
+        <li>Filter by type, gen & rarity.</li>
+        <li>Compare legendary vs non‑legendary stats.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Arduino Modal -->
+  <div class="modal" id="modal-arduino">
+    <div class="modal-content">
+      <button class="close-btn" data-close>&times;</button>
+      <h2>Arduino Sound Sensor LED Control</h2>
+      <h4>Objective</h4>
+      <p>Turn sound levels into dynamic RGB color via Arduino Uno.</p>
+      <h4>Key Components</h4>
+      <ul>
+        <li>Hardware: Arduino, sound sensor, RGB LED.</li>
+        <li>C++ logic maps analog sound amplitude to hue.</li>
+      </ul>
+      <img src="images/arduino.jpg" alt="Arduino circuit" />
+    </div>
+  </div>
+
+  <!-- Adventure Modal -->
+  <div class="modal" id="modal-adventure">
+    <div class="modal-content">
+      <button class="close-btn" data-close>&times;</button>
+      <h2>Choose Your Own Adventure – Dash App</h2>
+      <p><a href="https://choose-your-adventure-sk2s.onrender.com/" target="_blank">Launch App</a></p>
+      <ul>
+        <li>Interactive maps of Minneapolis & Madison.
+        <li>Randomized poetry generator for narrative flair.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Website Modal -->
+  <div class="modal" id="modal-website">
+    <div class="modal-content">
+      <button class="close-btn" data-close>&times;</button>
+      <h2>Personal Portfolio Website</h2>
+      <p>The code you’re browsing now! Built with vanilla HTML/CSS and deployed via GitHub Pages at <a href="https://claudiaotero.com" target="_blank">claudiaotero.com</a>.</p>
+      <ul>
+        <li>Responsive dark theme.
+        <li>Dynamic JS modals & animations.
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Open modal
+    document.querySelectorAll('.card button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = document.getElementById(btn.getAttribute('data-modal'));
+        if (target) target.classList.add('open');
+      });
+    });
+    // Close modal
+    document.querySelectorAll('[data-close]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.closest('.modal').classList.remove('open');
+      });
+    });
+    // Close on outside click
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.addEventListener('click', e => {
+        if (e.target === modal) modal.classList.remove('open');
+      });
+    });
+  </script>
 </body>
 </html>
