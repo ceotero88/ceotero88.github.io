@@ -36,107 +36,74 @@
 
   <style>
     /* ---------- THEME VARIABLES ---------- */
-    :root{
-      --nav-height:72px;
-      --bg-grad-start:#000;
-      --bg-grad-mid:#1a1a1a;
-      --bg-grad-end:#000;
-      --text-color:#fff;
-      --link-hover:rgba(255,255,255,.75);
-      --blue-start:#007cc2;
-      --blue-end:#00e5ff;
+    :root {
+      --nav-height: 72px;
+      /* dark theme (default) */
+      --bg-grad-start:#000; --bg-grad-mid:#1a1a1a; --bg-grad-end:#000;
+      --text-color:#fff; --link-hover:rgba(255,255,255,.75);
+      --blue-start:#007cc2; --blue-end:#00e5ff;
       --social-border:var(--blue-end);
     }
     body.light{
-      --bg-grad-start:#fff;
-      --bg-grad-mid:#e9f3ff;
-      --bg-grad-end:#fff;
-      --text-color:#000;
-      --link-hover:rgba(0,0,0,.6);
-      --blue-start:#ffb400;
-      --blue-end:#ffd400;
+      --bg-grad-start:#fff; --bg-grad-mid:#e9f3ff; --bg-grad-end:#fff;
+      --text-color:#000; --link-hover:rgba(0,0,0,.6);
+      --blue-start:#ffb400; --blue-end:#ffd400;
       --social-border:var(--blue-start);
     }
 
     /* ---------- GLOBAL ---------- */
-    *{margin:0;padding:0;box-sizing:border-box;color:var(--text-color);font-family:'Montserrat',sans-serif;}
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;color:var(--text-color);}
     html,body{
       height:100%;
       background:linear-gradient(120deg,var(--bg-grad-start),var(--bg-grad-mid),var(--bg-grad-end));
-      background-size:200% 200%;
-      animation:gradientBG 15s ease infinite;
+      background-size:200% 200%;animation:gradientBG 15s ease infinite;
       overflow-x:hidden;
     }
-    @keyframes gradientBG{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+    @keyframes gradientBG{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 
     /* ---------- NAV ---------- */
     nav{
       position:fixed;top:0;width:100%;height:var(--nav-height);
-      padding:0 2rem;
-      display:flex;align-items:center;justify-content:flex-end;gap:2.5rem;
-      background:linear-gradient(90deg,var(--blue-start),var(--blue-end));
-      z-index:10;
-      backdrop-filter:blur(6px);
+      padding:0 2rem;display:flex;align-items:center;justify-content:flex-end;
+      gap:2.5rem;background:linear-gradient(90deg,var(--blue-start),var(--blue-end));
+      backdrop-filter:blur(6px);z-index:10;
     }
     nav a{text-decoration:none;font-weight:600;text-transform:uppercase;letter-spacing:.5px;transition:opacity .3s;}
     nav a:hover{opacity:var(--link-hover);}
-
-    /* theme button */
-    #theme-toggle{
-      background:transparent;border:none;cursor:pointer;
-      font-size:1.25rem;display:flex;align-items:center;justify-content:center;
-      width:42px;height:42px;border-radius:50%;
-      transition:transform .3s;
-    }
-    #theme-toggle:hover{transform:scale(1.2);}
+    #theme-toggle{background:none;border:none;cursor:pointer;font-size:1.2rem;
+                  display:flex;align-items:center;color:var(--text-color);transition:transform .3s;}
+    #theme-toggle:hover{transform:scale(1.2)}
 
     /* ---------- HERO ---------- */
-    .hero{
-      display:grid;grid-template-columns:1fr 1fr;align-items:center;
-      min-height:100vh;
-      padding:calc(var(--nav-height) + 2rem) 5rem 0 5rem;
-    }
+    .hero{display:grid;grid-template-columns:1fr 1fr;align-items:center;
+          min-height:100vh;padding:calc(var(--nav-height)+2rem) 5rem 0;}
     .hero .text{max-width:600px;animation:fadeIn 1s ease .5s forwards;opacity:0;}
     .hero .text h1{font-size:clamp(3rem,8vw,6rem);margin-bottom:1rem;}
     .hero .text p{font-size:1.25rem;line-height:1.6;margin-top:.5rem;}
 
-    /* social */
     .social{margin-top:1.5rem;display:flex;gap:1rem;}
-    .social a{
-      width:48px;height:48px;border:2px solid var(--social-border);border-radius:50%;
-      display:flex;align-items:center;justify-content:center;text-decoration:none;
-      transition:background .3s,transform .3s;font-size:1.2rem;
-    }
-    .social a:hover{background:var(--social-border);transform:scale(1.1);color:#000;}
+    .social a{width:48px;height:48px;border:2px solid var(--social-border);border-radius:50%;
+              display:flex;align-items:center;justify-content:center;text-decoration:none;
+              transition:background .3s,transform .3s;font-size:1.2rem;}
+    .social a:hover{background:var(--social-border);transform:scale(1.1);color:#000}
 
-    /* hero image */
     .hero .image{display:flex;justify-content:center;animation:fadeIn 1s ease 1s forwards;opacity:0;}
-    .hero .image img{
-      width:clamp(300px,40vw,500px);height:clamp(300px,40vw,500px);
-      border-radius:1.5rem;object-fit:cover;
-      box-shadow:0 0 20px rgba(0,0,0,.8);
-      transition:transform .3s,box-shadow .3s;
-    }
+    .hero .image img{width:clamp(300px,40vw,500px);height:clamp(300px,40vw,500px);
+                     border-radius:1.5rem;object-fit:cover;box-shadow:0 0 20px rgba(0,0,0,.8);
+                     transition:transform .3s,box-shadow .3s;}
     .hero .image img:hover{transform:scale(1.05);box-shadow:0 0 30px rgba(0,0,0,1);}
 
     /* ---------- FOOTER ---------- */
     footer{padding:2rem 2rem 4rem;text-align:center;font-size:.85rem;opacity:.6;}
 
     /* ---------- ANIMATIONS ---------- */
-    @keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
     /* ---------- RESPONSIVE ---------- */
-    @media(max-width: 768px){
-      nav{
-        padding-left:calc(1rem + env(safe-area-inset-left));
-        padding-right:calc(1rem + env(safe-area-inset-right));
-        justify-content:space-between;   /* keeps button fully visible */
-        gap:1rem;
-      }
-      .hero{
-        grid-template-columns:1fr;text-align:center;
-        padding:calc(var(--nav-height) + 1.5rem) 1.5rem 0;
-      }
+    @media(max-width:768px){
+      nav{padding:0 1rem;justify-content:center;gap:1.25rem;}
+      nav a{font-size:.875rem;}
+      .hero{grid-template-columns:1fr;text-align:center;padding:calc(var(--nav-height)+1.5rem) 1.5rem 0;}
       .hero .image{margin-top:2rem;}
       .social{justify-content:center;}
     }
@@ -144,14 +111,11 @@
 </head>
 <body>
   <nav>
+    <!-- links first, toggle last -->
     <a href="index.html">Home</a>
     <a href="projects.html">Projects</a>
     <a href="workexperience.html">Professional Experience</a>
-
-    <!-- theme button now right-aligned -->
-    <button id="theme-toggle" aria-label="Toggle dark/light mode">
-      <i class="fas fa-sun"></i>
-    </button>
+    <button id="theme-toggle" aria-label="Toggle dark/light mode"><i class="fas fa-moon"></i></button>
   </nav>
 
   <section class="hero">
@@ -182,20 +146,20 @@
 
   <!-- ---------- THEME SCRIPT ---------- -->
   <script>
-    const btn  = document.getElementById('theme-toggle');
-    const sun  = 'fas fa-sun';
-    const moon = 'fas fa-moon';
+    const btn = document.getElementById('theme-toggle');
+    const sun = 'fas fa-sun', moon = 'fas fa-moon';
 
+    /* init from storage */
     if(localStorage.getItem('theme') === 'light'){
       document.body.classList.add('light');
-      btn.firstElementChild.className = moon;
+      btn.firstElementChild.className = sun;
     }
 
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', () =>{
       document.body.classList.toggle('light');
       const isLight = document.body.classList.contains('light');
-      btn.firstElementChild.className = isLight ? moon : sun;
-      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      btn.firstElementChild.className = isLight ? sun : moon;
+      localStorage.setItem('theme', isLight ? 'light':'dark');
     });
   </script>
 </body>
