@@ -36,18 +36,18 @@
 
   <style>
     /* ---------- THEME VARIABLES ---------- */
-    :root {
-      --nav-height: 72px;
-      /* dark theme (default) */
-      --bg-grad-start:#000; --bg-grad-mid:#1a1a1a; --bg-grad-end:#000;
-      --text-color:#fff; --link-hover:rgba(255,255,255,.75);
-      --blue-start:#007cc2; --blue-end:#00e5ff;
+    :root{
+      --nav-height:72px;
+      /* dark = default */
+      --bg-grad-start:#000;--bg-grad-mid:#1a1a1a;--bg-grad-end:#000;
+      --text-color:#fff;--link-hover:rgba(255,255,255,.75);
+      --blue-start:#007cc2;--blue-end:#00e5ff;
       --social-border:var(--blue-end);
     }
     body.light{
-      --bg-grad-start:#fff; --bg-grad-mid:#e9f3ff; --bg-grad-end:#fff;
-      --text-color:#000; --link-hover:rgba(0,0,0,.6);
-      --blue-start:#ffb400; --blue-end:#ffd400;
+      --bg-grad-start:#fff;--bg-grad-mid:#e9f3ff;--bg-grad-end:#fff;
+      --text-color:#000;--link-hover:rgba(0,0,0,.6);
+      --blue-start:#ffb400;--blue-end:#ffd400;
       --social-border:var(--blue-start);
     }
 
@@ -66,7 +66,7 @@
       position:fixed;top:0;width:100%;height:var(--nav-height);
       padding:0 2rem;display:flex;align-items:center;justify-content:flex-end;
       gap:2.5rem;background:linear-gradient(90deg,var(--blue-start),var(--blue-end));
-      backdrop-filter:blur(6px);z-index:10;
+      backdrop-filter:blur(6px);z-index:10;white-space:nowrap;
     }
     nav a{text-decoration:none;font-weight:600;text-transform:uppercase;letter-spacing:.5px;transition:opacity .3s;}
     nav a:hover{opacity:var(--link-hover);}
@@ -101,9 +101,17 @@
 
     /* ---------- RESPONSIVE ---------- */
     @media(max-width:768px){
-      nav{padding:0 1rem;justify-content:center;gap:1.25rem;}
-      nav a{font-size:.875rem;}
-      .hero{grid-template-columns:1fr;text-align:center;padding:calc(var(--nav-height)+1.5rem) 1.5rem 0;}
+      nav{
+        padding:0 .75rem;           /* tighter side padding  */
+        gap:.8rem;                  /* tighter gap           */
+        justify-content:center;     /* keep centered         */
+        height:var(--nav-height);   /* still 72px            */
+      }
+      nav a{font-size:.75rem;}      /* smaller text so one-line fit */
+      .hero{
+        grid-template-columns:1fr;text-align:center;
+        padding:calc(var(--nav-height)+1.5rem) 1.5rem 0;
+      }
       .hero .image{margin-top:2rem;}
       .social{justify-content:center;}
     }
@@ -111,7 +119,6 @@
 </head>
 <body>
   <nav>
-    <!-- links first, toggle last -->
     <a href="index.html">Home</a>
     <a href="projects.html">Projects</a>
     <a href="workexperience.html">Professional Experience</a>
@@ -157,9 +164,9 @@
 
     btn.addEventListener('click', () =>{
       document.body.classList.toggle('light');
-      const isLight = document.body.classList.contains('light');
-      btn.firstElementChild.className = isLight ? sun : moon;
-      localStorage.setItem('theme', isLight ? 'light':'dark');
+      const light = document.body.classList.contains('light');
+      btn.firstElementChild.className = light ? sun : moon;
+      localStorage.setItem('theme', light ? 'light' : 'dark');
     });
   </script>
 </body>
