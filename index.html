@@ -64,12 +64,15 @@
       position:fixed;top:0;width:100%;min-height:var(--nav-height);
       padding:0 2rem;display:flex;align-items:center;justify-content:flex-end;
       gap:2.5rem;background:linear-gradient(90deg,var(--blue-start),var(--blue-end));
-      backdrop-filter:blur(6px);z-index:10;flex-wrap:wrap;
+      backdrop-filter:blur(6px);z-index:10;
     }
     nav a{text-decoration:none;font-weight:600;text-transform:uppercase;letter-spacing:.5px;transition:opacity .3s;}
     nav a:hover{opacity:var(--link-hover);}
-    #theme-toggle{background:none;border:none;cursor:pointer;font-size:1.2rem;
-                 display:flex;align-items:center;transition:transform .3s;}
+
+    #theme-toggle{
+      background:none;border:none;cursor:pointer;font-size:1.2rem;
+      display:flex;align-items:center;transition:transform .3s;
+    }
     #theme-toggle:hover{transform:scale(1.2)}
 
     /* ---------- HERO ---------- */
@@ -104,10 +107,17 @@
     @media(max-width:768px){
       nav{padding:0 1rem;justify-content:center;gap:1rem;}
       nav a{font-size:.8rem;}
+
+      /* Remove toggle from flex flow & float it just below nav */
+      #theme-toggle{
+        position:fixed;top:calc(var(--nav-height) + .6rem);right:1rem;
+        transform:none; /* override hover scale origin change */
+        z-index:11;
+      }
+
       .hero{
         grid-template-columns:1fr;text-align:center;
-        /* +2rem ensures title clears a wrapped nav */
-        padding:calc(var(--nav-height) + 4rem) 1.5rem 0;
+        padding:calc(var(--nav-height) + 4rem) 1.5rem 0; /* extra top-room for floating toggle */
       }
       .hero .image{margin-top:2rem;}
       .social{justify-content:center;}
@@ -119,6 +129,7 @@
     <a href="index.html">Home</a>
     <a href="projects.html">Projects</a>
     <a href="workexperience.html">Professional Experience</a>
+    <!-- same button, will float via media query on small screens -->
     <button id="theme-toggle" aria-label="Toggle dark/light mode"><i class="fas fa-moon"></i></button>
   </nav>
 
