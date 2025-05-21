@@ -36,110 +36,154 @@
 
   <style>
     /* ---------- THEME VARIABLES ---------- */
-    :root{
+    :root {
       --nav-height: 72px;
-      /* dark theme */
-      --bg-grad-start:#000;  --bg-grad-mid:#1a1a1a; --bg-grad-end:#000;
-      --text-color:#fff;     --link-hover:rgba(255,255,255,.75);
-      --blue-start:#007cc2;  --blue-end:#00e5ff;
-      --social-border:var(--blue-end);
+      /* dark theme (default) */
+      --bg-grad-start: #000000;
+      --bg-grad-mid:   #1a1a1a;
+      --bg-grad-end:   #000000;
+      --text-color:    #ffffff;
+      --link-hover:    rgba(255,255,255,.75);
+      --blue-start:    #007cc2;
+      --blue-end:      #00e5ff;
+      --social-border: var(--blue-end);
     }
-    body.light{
-      --bg-grad-start:#fff;  --bg-grad-mid:#e9f3ff; --bg-grad-end:#fff;
-      --text-color:#000;     --link-hover:rgba(0,0,0,.6);
-      --blue-start:#ffb400;  --blue-end:#ffd400;
-      --social-border:var(--blue-start);
+    /* light overrides */
+    body.light {
+      --bg-grad-start: #ffffff;
+      --bg-grad-mid:   #e9f3ff;
+      --bg-grad-end:   #ffffff;
+      --text-color:    #000000;
+      --link-hover:    rgba(0,0,0,.6);
+      --blue-start:    #ffb400;
+      --blue-end:      #ffd400;
+      --social-border: var(--blue-start);
     }
 
     /* ---------- GLOBAL ---------- */
-    *{margin:0;padding:0;box-sizing:border-box;color:var(--text-color);
-      font-family:'Montserrat',sans-serif;}
-    html,body{
-      height:100%;
-      background:linear-gradient(120deg,var(--bg-grad-start),
-                                          var(--bg-grad-mid),
-                                          var(--bg-grad-end));
-      background-size:200% 200%;
-      animation:gradientBG 15s ease infinite;
-      overflow-x:hidden;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      color: var(--text-color);
+      font-family: 'Montserrat', sans-serif;
     }
-    @keyframes gradientBG{
-      0%{background-position:0 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0 50%}
+
+    html, body {
+      height: 100%;
+      background: linear-gradient(120deg,
+                  var(--bg-grad-start),
+                  var(--bg-grad-mid),
+                  var(--bg-grad-end));
+      background-size: 200% 200%;
+      animation: gradientBG 15s ease infinite;
+      overflow-x: hidden;
+    }
+    @keyframes gradientBG {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     /* ---------- NAV ---------- */
-    nav{
-      position:fixed;top:0;left:0;right:0;
-      height:calc(var(--nav-height) + env(safe-area-inset-top));
-      padding-top:env(safe-area-inset-top);
-      padding-left:calc(2rem + env(safe-area-inset-left));
-      padding-right:calc(2rem + env(safe-area-inset-right));
-      display:flex;align-items:center;justify-content:flex-end;
-      gap:2.5rem;
-      background:linear-gradient(90deg,var(--blue-start),var(--blue-end));
-      backdrop-filter:blur(6px);z-index:10;
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: var(--nav-height);
+      padding: 0 calc(2rem + env(safe-area-inset-right)) 0 calc(2rem + env(safe-area-inset-left));
+      display: flex;
+      align-items: center;
+      justify-content: center;          /* links stay centered */
+      gap: 2.5rem;
+      background: linear-gradient(90deg, var(--blue-start), var(--blue-end));
+      z-index: 10;
+      backdrop-filter: blur(6px);
     }
-    nav a{
-      text-decoration:none;font-weight:600;text-transform:uppercase;
-      letter-spacing:.5px;transition:opacity .3s;
+    nav a {
+      text-decoration: none;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: opacity 0.3s;
     }
-    nav a:hover{opacity:var(--link-hover);}
+    nav a:hover { opacity: var(--link-hover); }
 
-    /* theme toggle */
-    #theme-toggle{
-      background:transparent;border:none;cursor:pointer;
-      font-size:1.25rem;display:flex;align-items:center;
-      transition:transform .3s;color:var(--text-color);
+    /* theme toggle button */
+    #theme-toggle {
+      position: absolute;                    /* keeps it clear of flex centering */
+      left: calc(1rem + env(safe-area-inset-left));
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px; height: 44px;             /* Apple HIG tap-target */
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .3s;
+      color: var(--text-color);
     }
-    #theme-toggle:hover{transform:scale(1.2)}
+    #theme-toggle:hover { transform: translateY(-50%) scale(1.2); }
 
     /* ---------- HERO ---------- */
-    .hero{
-      display:grid;grid-template-columns:1fr 1fr;
-      align-items:center;
-      min-height:100vh;
-      padding:calc(env(safe-area-inset-top) + var(--nav-height) + 2rem) 5rem 0;
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      min-height: 100vh;
+      padding: calc(var(--nav-height) + 2rem) 5rem 0 5rem;
     }
-    .hero .text{max-width:600px;animation:fadeIn 1s ease .5s forwards;opacity:0}
-    .hero .text h1{font-size:clamp(3rem,8vw,6rem);margin-bottom:1rem;}
-    .hero .text p{font-size:1.25rem;line-height:1.6;margin-top:.5rem;}
+    .hero .text { max-width: 600px; animation: fadeIn 1s ease .5s forwards; opacity: 0; }
+    .hero .text h1 { font-size: clamp(3rem, 8vw, 6rem); margin-bottom: 1rem; }
+    .hero .text p  { font-size: 1.25rem; line-height: 1.6; margin-top: .5rem; }
 
-    .social{margin-top:1.5rem;display:flex;gap:1rem;}
-    .social a{
-      width:48px;height:48px;border:2px solid var(--social-border);
-      border-radius:50%;display:flex;align-items:center;justify-content:center;
-      text-decoration:none;transition:background .3s,transform .3s;
-      font-size:1.2rem;color:var(--text-color);
+    /* social buttons */
+    .social { margin-top: 1.5rem; display: flex; gap: 1rem; }
+    .social a {
+      width: 48px; height: 48px;
+      border: 2px solid var(--social-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      transition: background .3s, transform .3s;
+      font-size: 1.2rem;
+      color: var(--text-color);
     }
-    .social a:hover{background:var(--social-border);transform:scale(1.1);color:#000;}
-
-    .hero .image{display:flex;justify-content:center;
-                 animation:fadeIn 1s ease 1s forwards;opacity:0;}
-    .hero .image img{
-      width:clamp(300px,40vw,500px);height:clamp(300px,40vw,500px);
-      border-radius:1.5rem;object-fit:cover;
-      box-shadow:0 0 20px rgba(0,0,0,.8);
-      transition:transform .3s,box-shadow .3s;
+    .social a:hover {
+      background: var(--social-border);
+      transform: scale(1.1);
+      color: #000;
     }
-    .hero .image img:hover{transform:scale(1.05);box-shadow:0 0 30px rgba(0,0,0,1);}
 
-    footer{padding:2rem 2rem 4rem;text-align:center;font-size:.85rem;opacity:.6;}
+    /* hero image */
+    .hero .image { display: flex; justify-content: center;
+                   animation: fadeIn 1s ease 1s forwards; opacity: 0; }
+    .hero .image img {
+      width: clamp(300px, 40vw, 500px);
+      height: clamp(300px, 40vw, 500px);
+      border-radius: 1.5rem;
+      object-fit: cover;
+      box-shadow: 0 0 20px rgba(0,0,0,.8);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .hero .image img:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(0,0,0,1); }
 
-    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}
-                      to  {opacity:1;transform:translateY(0)}}
+    /* ---------- FOOTER ---------- */
+    footer { padding: 2rem 2rem 4rem; text-align: center; font-size:.85rem; opacity:.6; }
+
+    /* ---------- ANIMATIONS ---------- */
+    @keyframes fadeIn { from{opacity:0; transform:translateY(20px);}
+                        to  {opacity:1; transform:translateY(0);} }
 
     /* ---------- RESPONSIVE ---------- */
-    @media(max-width:768px){
-      nav{justify-content:center;}
-      #theme-toggle{font-size:1rem;}                 /* smaller icon */
-      .hero{
-        grid-template-columns:1fr;text-align:center;
-        padding:calc(env(safe-area-inset-top)+var(--nav-height)+1.5rem) 1.5rem 0;
-      }
-      .hero .image{margin-top:2rem;}
-      .social{justify-content:center;}
+    @media (max-width: 768px){
+      .hero{ grid-template-columns:1fr; text-align:center;
+             padding: calc(var(--nav-height) + 1.5rem) 1.5rem 0; }
+      .hero .image{ margin-top:2rem; }
+      .social{ justify-content:center; }
     }
   </style>
 </head>
@@ -158,21 +202,21 @@
     <div class="text">
       <h1>Claudia Otero</h1>
       <p>
-        I’m a Wisconsin–Madison grad with degrees in Data Science, Computer Science, and Art History, 
-        and I’m headed to <a href="https://www.mortenson.com/" target="_blank" rel="noopener">Mortenson</a> 
-        as a Systems Analyst. I thrive on building new tech, wield analytics to end the trap of the anecdotal, 
-        and live by Kaizen principles. Feel free to explore my <a href="projects.html">projects</a> and 
+        I’m a Wisconsin–Madison grad with degrees in Data Science, Computer Science, and Art History, and I’m headed to 
+        <a href="https://www.mortenson.com/" target="_blank" rel="noopener">Mortenson</a> as a Systems Analyst. 
+        I thrive on building new tech, wield analytics to end the trap of the anecdotal, and live by Kaizen principles. 
+        Feel free to explore my <a href="projects.html">projects</a> and 
         <a href="workexperience.html">professional experience</a> to see what I’ve been up to.
       </p>
       <div class="social">
-        <a href="https://www.linkedin.com/in/claudia-otero-250328239" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.linkedin.com/in/claudia-otero-250328239" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         <a href="mailto:claudia.otero88@outlook.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-        <a href="https://github.com/claudiaotero88" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://github.com/claudiaotero88" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
       </div>
     </div>
 
     <div class="image">
-      <img src="images/senior.jpg" alt="Claudia Otero Senior Portrait">
+      <img src="images/senior.jpg" alt="Claudia Otero Senior Portrait" />
     </div>
   </section>
 
@@ -182,21 +226,24 @@
 
   <!-- ---------- THEME SCRIPT ---------- -->
   <script>
-    const btn  = document.getElementById('theme-toggle');
-    const sun  = 'fas fa-sun';
-    const moon = 'fas fa-moon';
+    const btn   = document.getElementById('theme-toggle');
+    const nav   = document.querySelector('nav');
+    const sun   = 'fas fa-sun';
+    const moon  = 'fas fa-moon';
 
-    /* init */
-    if(localStorage.getItem('theme')==='light'){
+    /* initialise from localStorage */
+    if(localStorage.getItem('theme') === 'light'){
       document.body.classList.add('light');
+      nav.classList.add('light');
       btn.firstElementChild.className = moon;
     }
 
-    btn.addEventListener('click',()=>{
+    btn.addEventListener('click', () => {
       document.body.classList.toggle('light');
+      nav.classList.toggle('light');
       const isLight = document.body.classList.contains('light');
       btn.firstElementChild.className = isLight ? moon : sun;
-      localStorage.setItem('theme', isLight ? 'light':'dark');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
     });
   </script>
 </body>
