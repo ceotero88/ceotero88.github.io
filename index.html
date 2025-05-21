@@ -14,78 +14,79 @@
   <meta property="og:image:width"  content="1200">
   <meta property="og:image:height" content="630">
 
-  <meta name="description" content="Claudia Otero, University of Wisconsin-Madison graduate, Data Scientist and incoming Systems Analyst at Mortenson." />
+  <meta name="description" content="Claudia Otero – Data Scientist & Systems Analyst." />
 
   <!-- Structured data -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Claudia Otero",
-    "alumniOf": "University of Wisconsin-Madison",
-    "jobTitle": "Data Scientist & Systems Analyst",
-    "worksFor": { "@type": "Organization", "name": "Mortenson" },
-    "url": "https://claudiaotero.com"
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Claudia Otero",
+    "alumniOf":"University of Wisconsin-Madison",
+    "jobTitle":"Data Scientist & Systems Analyst",
+    "worksFor":{"@type":"Organization","name":"Mortenson"},
+    "url":"https://claudiaotero.com"
   }
   </script>
 
-  <title>Claudia Otero - Home</title>
+  <title>Claudia Otero – Home</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
     /* ---------- THEME VARIABLES ---------- */
     :root{
       --nav-height:72px;
-      /* dark = default */
+      /* dark theme (default) */
       --bg-grad-start:#000;--bg-grad-mid:#1a1a1a;--bg-grad-end:#000;
-      --text-color:#fff;--link-hover:rgba(255,255,255,.75);
-      --blue-start:#007cc2;--blue-end:#00e5ff;
-      --social-border:var(--blue-end);
+      --text:#fff;--link-hover:rgba(255,255,255,.75);
+      --blue-start:#007cc2;--blue-end:#00e5ff;--social:#00e5ff;
     }
     body.light{
       --bg-grad-start:#fff;--bg-grad-mid:#e9f3ff;--bg-grad-end:#fff;
-      --text-color:#000;--link-hover:rgba(0,0,0,.6);
-      --blue-start:#ffb400;--blue-end:#ffd400;
-      --social-border:var(--blue-start);
+      --text:#000;--link-hover:rgba(0,0,0,.6);
+      --blue-start:#ffb400;--blue-end:#ffd400;--social:#ffb400;
     }
 
     /* ---------- GLOBAL ---------- */
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;color:var(--text-color);}
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;color:var(--text);}
     html,body{
       height:100%;
       background:linear-gradient(120deg,var(--bg-grad-start),var(--bg-grad-mid),var(--bg-grad-end));
       background-size:200% 200%;animation:gradientBG 15s ease infinite;
       overflow-x:hidden;
     }
-    @keyframes gradientBG{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    @keyframes gradientBG{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
 
     /* ---------- NAV ---------- */
     nav{
-      position:fixed;top:0;width:100%;height:var(--nav-height);
+      position:fixed;top:0;width:100%;min-height:var(--nav-height);
       padding:0 2rem;display:flex;align-items:center;justify-content:flex-end;
       gap:2.5rem;background:linear-gradient(90deg,var(--blue-start),var(--blue-end));
-      backdrop-filter:blur(6px);z-index:10;white-space:nowrap;
+      backdrop-filter:blur(6px);z-index:10;flex-wrap:wrap;
     }
     nav a{text-decoration:none;font-weight:600;text-transform:uppercase;letter-spacing:.5px;transition:opacity .3s;}
     nav a:hover{opacity:var(--link-hover);}
     #theme-toggle{background:none;border:none;cursor:pointer;font-size:1.2rem;
-                  display:flex;align-items:center;color:var(--text-color);transition:transform .3s;}
+                 display:flex;align-items:center;transition:transform .3s;}
     #theme-toggle:hover{transform:scale(1.2)}
 
     /* ---------- HERO ---------- */
-    .hero{display:grid;grid-template-columns:1fr 1fr;align-items:center;
-          min-height:100vh;padding:calc(var(--nav-height)+2rem) 5rem 0;}
+    .hero{
+      display:grid;grid-template-columns:1fr 1fr;justify-content:center;column-gap:5rem;
+      align-items:center;min-height:100vh;
+      padding:calc(var(--nav-height) + 2rem) 5rem 0;
+    }
     .hero .text{max-width:600px;animation:fadeIn 1s ease .5s forwards;opacity:0;}
     .hero .text h1{font-size:clamp(3rem,8vw,6rem);margin-bottom:1rem;}
     .hero .text p{font-size:1.25rem;line-height:1.6;margin-top:.5rem;}
 
     .social{margin-top:1.5rem;display:flex;gap:1rem;}
-    .social a{width:48px;height:48px;border:2px solid var(--social-border);border-radius:50%;
+    .social a{width:48px;height:48px;border:2px solid var(--social);border-radius:50%;
               display:flex;align-items:center;justify-content:center;text-decoration:none;
               transition:background .3s,transform .3s;font-size:1.2rem;}
-    .social a:hover{background:var(--social-border);transform:scale(1.1);color:#000}
+    .social a:hover{background:var(--social);transform:scale(1.1);color:#000}
 
     .hero .image{display:flex;justify-content:center;animation:fadeIn 1s ease 1s forwards;opacity:0;}
     .hero .image img{width:clamp(300px,40vw,500px);height:clamp(300px,40vw,500px);
@@ -101,16 +102,12 @@
 
     /* ---------- RESPONSIVE ---------- */
     @media(max-width:768px){
-      nav{
-        padding:0 .75rem;           /* tighter side padding  */
-        gap:.8rem;                  /* tighter gap           */
-        justify-content:center;     /* keep centered         */
-        height:var(--nav-height);   /* still 72px            */
-      }
-      nav a{font-size:.75rem;}      /* smaller text so one-line fit */
+      nav{padding:0 1rem;justify-content:center;gap:1rem;}
+      nav a{font-size:.8rem;}
       .hero{
         grid-template-columns:1fr;text-align:center;
-        padding:calc(var(--nav-height)+1.5rem) 1.5rem 0;
+        /* +2rem ensures title clears a wrapped nav */
+        padding:calc(var(--nav-height) + 4rem) 1.5rem 0;
       }
       .hero .image{margin-top:2rem;}
       .social{justify-content:center;}
@@ -143,7 +140,7 @@
     </div>
 
     <div class="image">
-      <img src="images/senior.jpg" alt="Claudia Otero Senior Portrait" />
+      <img src="images/senior.jpg" alt="Claudia Otero Senior Portrait">
     </div>
   </section>
 
@@ -153,20 +150,20 @@
 
   <!-- ---------- THEME SCRIPT ---------- -->
   <script>
-    const btn = document.getElementById('theme-toggle');
-    const sun = 'fas fa-sun', moon = 'fas fa-moon';
+    const btn=document.getElementById('theme-toggle');
+    const sun='fas fa-sun',moon='fas fa-moon';
 
-    /* init from storage */
-    if(localStorage.getItem('theme') === 'light'){
+    /* init */
+    if(localStorage.getItem('theme')==='light'){
       document.body.classList.add('light');
-      btn.firstElementChild.className = sun;
+      btn.firstElementChild.className=sun;
     }
 
-    btn.addEventListener('click', () =>{
+    btn.addEventListener('click',()=>{
       document.body.classList.toggle('light');
-      const light = document.body.classList.contains('light');
-      btn.firstElementChild.className = light ? sun : moon;
-      localStorage.setItem('theme', light ? 'light' : 'dark');
+      const isLight=document.body.classList.contains('light');
+      btn.firstElementChild.className=isLight?sun:moon;
+      localStorage.setItem('theme',isLight?'light':'dark');
     });
   </script>
 </body>
