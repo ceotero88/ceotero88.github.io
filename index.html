@@ -1,142 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="canonical" href="https://claudiaotero.com/">
 
   <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Claudia Otero – Data Scientist & Analyst">
-  <meta property="og:url" content="https://claudiaotero.com/">
-  <meta property="og:image" content="https://claudiaotero.com/images/senior.jpg">
+  <meta property="og:type"            content="website">
+  <meta property="og:title"           content="Claudia Otero – Data Scientist & Analyst">
+  <meta property="og:url"             content="https://claudiaotero.com/">
+  <meta property="og:image"           content="https://claudiaotero.com/images/senior.jpg">
+  <meta property="og:image:type"      content="image/jpeg">
+  <meta property="og:image:width"     content="1200">
+  <meta property="og:image:height"    content="630">
 
-  <meta name="description" content="Claudia Otero – Data Scientist & Systems Analyst.">
+  <meta name="description" content="Claudia Otero, University of Wisconsin-Madison graduate, Data Scientist and incoming Systems Analyst at Mortenson." />
 
-  <!-- Schema -->
+  <!-- Structured-data -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Person","name":"Claudia Otero",
-   "alumniOf":"University of Wisconsin-Madison",
-   "jobTitle":"Data Scientist & Systems Analyst",
-   "worksFor":{"@type":"Organization","name":"Mortenson"},
-   "url":"https://claudiaotero.com"}
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Claudia Otero",
+    "alumniOf":"University of Wisconsin-Madison",
+    "jobTitle":"Data Scientist & Systems Analyst",
+    "worksFor":{"@type":"Organization","name":"Mortenson"},
+    "url":"https://claudiaotero.com"
+  }
   </script>
 
-  <title>Claudia Otero – Home</title>
+  <title>Claudia Otero - Home</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-  /* ---------- THEME VARIABLES ---------- */
-  :root{
-    --nav-height:72px;
-    /* dark theme (default) */
-    --bg-grad-start:#000;--bg-grad-mid:#1a1a1a;--bg-grad-end:#000;
-    --text:#fff;--link-hover:rgba(255,255,255,.75);
-    --blue-start:#007cc2;--blue-end:#00e5ff;--social:#00e5ff;
-  }
-  body.light{
-    /* darker white gradient for visibility */
-    --bg-grad-start:#f5f5f5;--bg-grad-mid:#e2e2e2;--bg-grad-end:#f5f5f5;
-    --text:#000;--link-hover:rgba(0,0,0,.6);
-    --blue-start:#d7263d;--blue-end:#ff5f5f;--social:#d7263d;
-  }
+    /* ---------- THEME VARIABLES ---------- */
+    :root{
+      --nav-height:72px;
+      /* dark theme (default) */
+      --bg-grad-start:#000000;
+      --bg-grad-mid:  #1a1a1a;
+      --bg-grad-end:  #000000;
+      --text-color:   #ffffff;
+      --link-hover:   rgba(255,255,255,.75);
+      --blue-start:   #007cc2;
+      --blue-end:     #00e5ff;
+      --social-border:var(--blue-end);
+    }
+    /* light overrides (desktop only) */
+    body.light{
+      --bg-grad-start:#ffffff;
+      --bg-grad-mid:  #f2f2f2;
+      --bg-grad-end:  #e6e6e6;
+      --text-color:   #000000;
+      --link-hover:   rgba(0,0,0,.6);
+      --blue-start:   #b40000;   /* red gradient */
+      --blue-end:     #ff4d4d;
+      --social-border:var(--blue-end);
+    }
 
-  /* ---------- GLOBAL ---------- */
-  *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;color:var(--text);}
-  html,body{
-    height:100%;
-    background:linear-gradient(120deg,var(--bg-grad-start),var(--bg-grad-mid),var(--bg-grad-end));
-    background-size:200% 200%;animation:gradientBG 15s ease infinite;
-    overflow-x:hidden;
-  }
-  @keyframes gradientBG{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+    /* ---------- GLOBAL ---------- */
+    *{
+      margin:0; padding:0; box-sizing:border-box;
+      color:var(--text-color);
+      font-family:'Montserrat',sans-serif;
+    }
+    html,body{
+      height:100%;
+      background:linear-gradient(120deg,var(--bg-grad-start),var(--bg-grad-mid),var(--bg-grad-end));
+      background-size:200% 200%;
+      animation:gradientBG 15s ease infinite;
+      overflow-x:hidden;
+    }
+    @keyframes gradientBG{
+      0%{background-position:0% 50%;}
+      50%{background-position:100% 50%;}
+      100%{background-position:0% 50%;}
+    }
 
-  /* ---------- NAV ---------- */
-  nav{
-    position:fixed;top:0;width:100%;min-height:var(--nav-height);
-    padding:0 2rem;display:flex;align-items:center;justify-content:flex-end;
-    gap:2.5rem;background:linear-gradient(90deg,var(--blue-start),var(--blue-end));
-    backdrop-filter:blur(6px);z-index:10;
-  }
-  nav a{text-decoration:none;font-weight:600;text-transform:uppercase;letter-spacing:.5px;transition:opacity .3s;}
-  nav a:hover{opacity:var(--link-hover);}
+    /* ---------- NAV ---------- */
+    nav{
+      position:fixed; top:0; width:100%; height:var(--nav-height);
+      padding:0 2rem;
+      display:flex; align-items:center; justify-content:flex-end; gap:2.5rem;
+      background:linear-gradient(90deg,var(--blue-start),var(--blue-end));
+      z-index:10; backdrop-filter:blur(6px);
+    }
+    nav a{
+      text-decoration:none; font-weight:600; text-transform:uppercase;
+      letter-spacing:.5px; transition:opacity .3s;
+    }
+    nav a:hover{opacity:var(--link-hover);}
 
-  /* ---------- TOGGLE ---------- */
-  #theme-toggle{
-    background:none;border:none;cursor:pointer;font-size:1.2rem;
-    display:flex;align-items:center;transition:transform .3s;
-  }
-  #theme-toggle:hover{transform:scale(1.2)}
-  /* desktop placement */
-  #theme-toggle{
-    position:fixed;top:calc((var(--nav-height) - 48px)/2);right:2rem;z-index:11;
-  }
-
-  /* ---------- HERO ---------- */
-  .hero{
-    display:grid;grid-template-columns:1fr 1fr;column-gap:5rem;align-items:center;
-    min-height:100vh;padding:calc(var(--nav-height) + 2rem) 5rem 0;
-  }
-  .hero .text{max-width:600px;animation:fadeIn 1s ease .5s forwards;opacity:0;}
-  .hero .text h1{font-size:clamp(3rem,8vw,6rem);margin-bottom:1rem;}
-  .hero .text p{font-size:1.25rem;line-height:1.6;margin-top:.5rem;}
-
-  .social{margin-top:1.5rem;display:flex;gap:1rem;}
-  .social a{width:48px;height:48px;border:2px solid var(--social);border-radius:50%;
-            display:flex;align-items:center;justify-content:center;text-decoration:none;
-            transition:background .3s,transform .3s;font-size:1.2rem;}
-  .social a:hover{background:var(--social);transform:scale(1.1);color:#000}
-
-  .hero .image{display:flex;justify-content:center;animation:fadeIn 1s ease 1s forwards;opacity:0;}
-  .hero .image img{width:clamp(300px,40vw,500px);height:clamp(300px,40vw,500px);
-                   border-radius:1.5rem;object-fit:cover;box-shadow:0 0 20px rgba(0,0,0,.8);
-                   transition:transform .3s,box-shadow .3s;}
-  .hero .image img:hover{transform:scale(1.05);box-shadow:0 0 30px rgba(0,0,0,1);}
-
-  /* ---------- FOOTER ---------- */
-  footer{padding:2rem 2rem 4rem;text-align:center;font-size:.85rem;opacity:.6;}
-
-  /* ---------- ANIMATIONS ---------- */
-  @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-
-  /* ---------- RESPONSIVE ---------- */
-  @media(max-width:768px){
-    nav{padding:0 1rem;justify-content:center;gap:1rem;}
-    nav a{font-size:.8rem;}
-
-    /* toggle BELOW bar & scrolls away */
+    /* theme toggle button (hidden on mobile via media-query) */
     #theme-toggle{
-      position:relative;            /* not fixed on mobile */
-      top:0;right:0;margin:.4rem 1rem 0 auto;display:block;
+      background:transparent; border:none; cursor:pointer;
+      font-size:1.25rem; display:flex; align-items:center;
+      transition:transform .3s; color:var(--text-color);
     }
+    #theme-toggle:hover{transform:scale(1.2);}
 
+    /* ---------- HERO ---------- */
     .hero{
-      grid-template-columns:1fr;text-align:center;
-      padding:calc(var(--nav-height) + 3rem) 1.5rem 0;  /* smaller gap */
+      display:grid; grid-template-columns:1fr 1fr; align-items:center;
+      min-height:100vh; padding:calc(var(--nav-height) + 2rem) 5rem 0;
     }
-    .hero .image{margin-top:2rem;}
-    .social{justify-content:center;}
-  }
+    .hero .text{max-width:600px; animation:fadeIn 1s ease .5s forwards; opacity:0;}
+    .hero .text h1{font-size:clamp(3rem,8vw,6rem); margin-bottom:1rem;}
+    .hero .text p {font-size:1.25rem; line-height:1.6; margin-top:.5rem;}
+
+    /* social */
+    .social{margin-top:1.5rem; display:flex; gap:1rem;}
+    .social a{
+      width:48px;height:48px; border:2px solid var(--social-border);
+      border-radius:50%; display:flex; align-items:center; justify-content:center;
+      text-decoration:none; transition:background .3s,transform .3s; font-size:1.2rem;
+      color:var(--text-color);
+    }
+    .social a:hover{background:var(--social-border);transform:scale(1.1);color:#000;}
+
+    /* hero image */
+    .hero .image{display:flex; justify-content:center; animation:fadeIn 1s ease 1s forwards; opacity:0;}
+    .hero .image img{
+      width:clamp(300px,40vw,500px); height:clamp(300px,40vw,500px);
+      border-radius:1.5rem; object-fit:cover;
+      box-shadow:0 0 20px rgba(0,0,0,.8);
+      transition:transform .3s, box-shadow .3s;
+    }
+    .hero .image img:hover{transform:scale(1.05);box-shadow:0 0 30px rgba(0,0,0,1);}
+
+    /* ---------- FOOTER ---------- */
+    footer{padding:2rem 2rem 4rem; text-align:center; font-size:.85rem; opacity:.6;}
+
+    /* ---------- ANIMATIONS ---------- */
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+    /* ---------- RESPONSIVE ---------- */
+    @media(max-width:768px){
+      nav{padding:0 1rem;justify-content:center;}
+      #theme-toggle{display:none;}               /* 1️⃣ hide toggle on mobile */
+      .hero{grid-template-columns:1fr;text-align:center;padding:calc(var(--nav-height)+1.5rem) 1.5rem 0;}
+      .hero .image{margin-top:2rem;}
+      .social{justify-content:center;}
+    }
   </style>
 </head>
 <body>
   <nav>
+    <button id="theme-toggle" aria-label="Toggle dark/light mode"><i class="fas fa-sun"></i></button>
     <a href="index.html">Home</a>
     <a href="projects.html">Projects</a>
     <a href="workexperience.html">Professional Experience</a>
   </nav>
 
-  <!-- Toggle now outside nav so it scrolls away on mobile -->
-  <button id="theme-toggle" aria-label="Toggle dark/light mode"><i class="fas fa-moon"></i></button>
-
   <section class="hero">
     <div class="text">
       <h1>Claudia Otero</h1>
       <p>
-        I’m a Wisconsin–Madison grad with degrees in Data Science, Computer Science, and Art History, 
-        and I’m headed to <a href="https://www.mortenson.com/" target="_blank" rel="noopener">Mortenson</a> as a Systems Analyst. 
+        I’m a Wisconsin–Madison grad with degrees in Data Science, Computer Science, and Art History, and I’m headed to 
+        <a href="https://www.mortenson.com/" target="_blank" rel="noopener">Mortenson</a> as a Systems Analyst. 
         I thrive on building new tech, wield analytics to end the trap of the anecdotal, and live by Kaizen principles. 
         Feel free to explore my <a href="projects.html">projects</a> and 
         <a href="workexperience.html">professional experience</a> to see what I’ve been up to.
@@ -149,7 +172,7 @@
     </div>
 
     <div class="image">
-      <img src="images/senior.jpg" alt="Claudia Otero Senior Portrait">
+      <img src="images/senior.jpg" alt="Claudia Otero Senior Portrait" />
     </div>
   </section>
 
@@ -159,21 +182,34 @@
 
   <!-- ---------- THEME SCRIPT ---------- -->
   <script>
-    const btn=document.getElementById('theme-toggle');
-    const sun='fas fa-sun',moon='fas fa-moon';
+    const btn  = document.getElementById('theme-toggle');
+    const nav  = document.querySelector('nav');
+    const sun  = 'fas fa-sun';
+    const moon = 'fas fa-moon';
 
-    /* initial state */
-    if(localStorage.getItem('theme')==='light'){
-      document.body.classList.add('light');
-      btn.firstElementChild.className=sun;
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+    /* Mobile: force dark, hide toggle */
+    if(isMobile){
+      document.body.classList.remove('light');
+      localStorage.setItem('theme','dark');
+      btn.style.display = 'none';
+    }else{
+      /* Desktop – initialise from storage */
+      if(localStorage.getItem('theme') === 'light'){
+        document.body.classList.add('light');
+        nav.classList.add('light');
+        btn.firstElementChild.className = moon;
+      }
+
+      btn.addEventListener('click', () => {
+        document.body.classList.toggle('light');
+        nav.classList.toggle('light');
+        const isLight = document.body.classList.contains('light');
+        btn.firstElementChild.className = isLight ? moon : sun;
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      });
     }
-
-    btn.addEventListener('click',()=>{
-      document.body.classList.toggle('light');
-      const isLight=document.body.classList.contains('light');
-      btn.firstElementChild.className=isLight?sun:moon;
-      localStorage.setItem('theme',isLight?'light':'dark');
-    });
   </script>
 </body>
 </html>
