@@ -15,73 +15,45 @@
     :root{
       --nav-height:72px;
 
-      /* dark */
-      --bg-grad-start:#000;
-      --bg-grad-mid:#1a1a1a;
-      --bg-grad-end:#000;
-      --text-color:#fff;
-      --link-hover:rgba(255,255,255,.75);
-      --blue-start:#007cc2;
-      --blue-end:#00e5ff;
+      /* dark (default) */
+      --bg-grad-start:#000;  --bg-grad-mid:#1a1a1a; --bg-grad-end:#000;
+      --text-color:#fff;     --link-hover:rgba(255,255,255,.75);
+      --blue-start:#007cc2;  --blue-end:#00e5ff;
       --modal-bg:#121212;
+      --social-border:var(--blue-end);
     }
-
-    /* light (desktop only) */
     body.light{
-      --bg-grad-start:#ffffff;
-      --bg-grad-mid:#bbbbbb;
-      --bg-grad-end:#989898;
-      --text-color:#000;
-      --link-hover:rgba(0,0,0,.6);
-      --blue-start:#b40000;     /* Badger-red gradient */
-      --blue-end:#ff4d4d;
+      --bg-grad-start:#ffffff; --bg-grad-mid:#bbbbbb; --bg-grad-end:#989898;  /* unused but kept */
+      --text-color:#000;       --link-hover:rgba(0,0,0,.6);
+      --blue-start:#b40000;    --blue-end:#ff4d4d;
       --modal-bg:#f8f8f8;
+      --social-border:var(--blue-end);
     }
 
     /* ---------- BASE ---------- */
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;color:var(--text-color);}
-    html,body{
-      height:100%;
+    *{margin:0;padding:0;box-sizing:border-box;color:var(--text-color);font-family:'Montserrat',sans-serif;}
+    html,body{height:100%;overflow-x:hidden;position:relative;}
+
+    /* dark gradient only when NOT light */
+    body:not(.light){
       background:linear-gradient(120deg,var(--bg-grad-start),var(--bg-grad-mid),var(--bg-grad-end));
       background-size:200% 200%;
       animation:bgShift 15s ease infinite;
-      overflow-x:hidden;
     }
-    @keyframes bgShift{
-      0%{background-position:0 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0 50%}
-    }
+    body.light{background:#ffffff;}
 
-    /* --- LIGHT-MODE STAR OVERLAY ------------ */
-    body.light{position:relative;}
-    body.light::before{
-      content:'';
-      position:fixed;inset:0;z-index:-1;
-      background:
-        radial-gradient(circle at 2px 2px,#ff7575 2px,transparent 3px);
-      background-size:140px 140px;
-      mix-blend-mode:multiply;
-      opacity:.35;
-      animation:panStars 40s linear infinite;
-      pointer-events:none;
-    }
-    @keyframes panStars{
-      from{transform:translateX(0)}
-      to  {transform:translateX(-140px)}
-    }
+    @keyframes bgShift{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
 
     /* ---------- NAV ---------- */
     nav{
       position:fixed;top:0;width:100%;height:var(--nav-height);
-      padding:0 2rem;
-      display:flex;align-items:center;justify-content:flex-end;gap:2.5rem;
+      padding:0 2rem;display:flex;align-items:center;justify-content:flex-end;gap:2.5rem;
       background:linear-gradient(90deg,var(--blue-start),var(--blue-end));
       backdrop-filter:blur(6px);z-index:20;
     }
     nav a{
-      text-decoration:none;text-transform:uppercase;font-weight:600;
-      letter-spacing:.5px;transition:opacity .3s;
+      text-decoration:none;text-transform:uppercase;font-weight:600;letter-spacing:.5px;
+      transition:opacity .3s;
     }
     nav a:hover{opacity:var(--link-hover);}
 
@@ -97,15 +69,13 @@
     header{
       margin-top:calc(var(--nav-height) + 3rem);
       padding:0 2rem 1rem;
-      text-align:center;max-width:900px;margin-inline:auto;
+      text-align:center;
+      max-width:900px;margin-left:auto;margin-right:auto;
       opacity:0;animation:fadeIn 1s ease .5s forwards;
     }
     header h1{font-size:clamp(2.6rem,6vw,4rem);}
 
-    @keyframes fadeIn{
-      from{opacity:0;transform:translateY(20px);}
-      to  {opacity:1;transform:translateY(0);}
-    }
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 
     /* ---------- SECTIONS ---------- */
     .category-title{
@@ -113,7 +83,7 @@
     }
     .projects-grid{
       display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:2rem;padding:0 2rem;max-width:1300px;margin-inline:auto;
+      gap:2rem;padding:0 2rem;max-width:1300px;margin:0 auto;
     }
 
     /* ---------- CARDS ---------- */
@@ -126,24 +96,19 @@
       backdrop-filter:blur(3px);
       transition:transform .3s,box-shadow .3s;
     }
-    .card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 10px 20px rgba(0,0,0,.4);
-    }
+    .card:hover{transform:translateY(-6px);box-shadow:0 10px 20px rgba(0,0,0,.4);}
     .card h3{font-size:1.22rem;margin-bottom:.55rem;line-height:1.3;}
-    .card p {font-size:.88rem;line-height:1.45;}
+    .card p{font-size:.88rem;line-height:1.45;}
     .card button{
-      margin-top:1rem;align-self:flex-start;padding:.55rem 1rem;
-      border-radius:.5rem;border:2px solid var(--blue-end);
-      background:transparent;color:var(--blue-end);
+      margin-top:1rem;align-self:flex-start;padding:.55rem 1rem;border-radius:.5rem;
+      border:2px solid var(--blue-end);background:transparent;color:var(--blue-end);
       font-weight:600;cursor:pointer;transition:background .3s,color .3s;
     }
     .card button:hover{background:var(--blue-end);color:#000;}
 
     /* ---------- MODALS ---------- */
     .modal{
-      position:fixed;inset:0;
-      background:rgba(0,0,0,.85);
+      position:fixed;inset:0;background:rgba(0,0,0,.85);
       display:flex;align-items:center;justify-content:center;
       padding:1.5rem;z-index:50;
       visibility:hidden;opacity:0;transition:opacity .3s,visibility .3s;
@@ -165,14 +130,34 @@
 
     footer{padding:2rem 2rem 4rem;text-align:center;font-size:.85rem;opacity:.6;}
 
-    /* ---------- MOBILE FIX ---------- */
+    /* ---------- MOBILE ---------- */
     @media(max-width:768px){
       nav{padding:0 1rem;justify-content:center;}
       .projects-grid{padding:0 1.5rem;}
     }
+
+    /* ---------- LIGHT-MODE STAR ANIMATION ---------- */
+    .light #stars{
+      position:fixed;inset:0;z-index:-1;pointer-events:none;
+    }
+    .star{
+      position:absolute;width:8px;height:8px;border-radius:50%;background:var(--blue-end);
+      animation:float 8s linear infinite;
+    }
+    @keyframes float{
+      0%{transform:translateY(100vh) scale(.5);opacity:0;}
+      25%{opacity:.8;}
+      50%{transform:translateY(50vh) scale(1);}
+      75%{opacity:.6;}
+      100%{transform:translateY(-10vh) scale(.3);opacity:0;}
+    }
   </style>
 </head>
+
 <body>
+  <!-- star container for light mode -->
+  <div id="stars"></div>
+
   <!-- ---------- NAV ---------- -->
   <nav>
     <button id="theme-toggle" aria-label="Toggle dark/light mode"><i class="fas fa-sun"></i></button>
@@ -188,31 +173,28 @@
     <!--══════════ PREDICTIVE MODELING & ML ══════════-->
     <h2 class="category-title">Predictive Modeling &amp; Machine Learning</h2>
     <section class="projects-grid">
-      <!-- Amazon -->
+      <!-- cards unchanged -->
       <div class="card">
         <h3>Amazon Electronics Sentiment Analysis</h3>
         <p>Developed an NLP pipeline in Python to analyze 1.1 million Amazon electronics reviews using NLTK and TextBlob, extracting sentiment trends and feature-level insights for e-commerce optimization.</p>
         <button data-modal="modal-amazon">Details</button>
       </div>
 
-      <!-- Email -->
       <div class="card">
         <h3>Email Engagement Classifier</h3>
         <p>Built a Scikit-learn pipeline with StandardScaler and L1-regularized Logistic Regression (SAGA solver) on 40 engineered features from user logs to predict email click-throughs.</p>
         <button data-modal="modal-email">Details</button>
       </div>
 
-      <!-- NFL -->
       <div class="card">
         <h3>NFL Pass Completion Logistic Model</h3>
-        <p>Implemented Logistic Regression on 8,704 NFL Big Data Bowl plays, selecting four key features via LassoCV to predict pass completions and evaluated precision/recall.</p>
+        <p>Implemented Logistic Regression on 8,704 NFL Big Data Bowl plays, selecting four key features via LassoCV to predict pass completions, and evaluated precision/recall.</p>
         <button data-modal="modal-nfl">Details</button>
       </div>
 
-      <!-- Twins -->
       <div class="card">
         <h3>Minnesota Twins Performance Explorer</h3>
-        <p>Created an R Shiny app using the Lahman database, applying PCA (FactoMineR) and GLM for HR prediction, and deploying interactive Plotly radar charts for player clustering and forecasts.</p>
+        <p>Created an R Shiny app using Lahman database, applying PCA (FactoMineR) and GLM for HR prediction, and deploying interactive Plotly radar charts for player clustering and forecasts.</p>
         <button data-modal="modal-twins">Details</button>
       </div>
     </section>
@@ -220,17 +202,15 @@
     <!--══════════ SPATIAL & CULTURAL ANALYTICS ══════════-->
     <h2 class="category-title">Spatial &amp; Cultural Analytics</h2>
     <section class="projects-grid">
-      <!-- Census -->
       <div class="card">
         <h3>Wisconsin Census Geo-Analysis</h3>
-        <p>Used GeoPandas, rasterio, and SciPy to mask NLCD rasters and train Ridge models predicting county population (R² 0.87); visualized residuals with Folium choropleths.</p>
+        <p>Used GeoPandas, rasterio, and SciPy to mask NLCD rasters and train Ridge models predicting county population and visualized residuals via Folium choropleths.</p>
         <button data-modal="modal-census">Details</button>
       </div>
 
-      <!-- Museum -->
       <div class="card">
         <h3>Museum APIs: Islamic Art Study</h3>
-        <p>Queried REST &amp; GitHub APIs (Met, Louvre, V&amp;A) in Python to analyze 18 000 acquisitions over 48 years, visualizing volume and metadata-tag shifts with matplotlib.</p>
+        <p>Queried REST &amp; GitHub APIs (Met, Louvre, V&amp;A) in Python to analyze 18,000 acquisitions over 48 years, visualizing volume and metadata tag shifts with matplotlib.</p>
         <button data-modal="modal-museum">Details</button>
       </div>
     </section>
@@ -282,8 +262,8 @@
       <h2>NFL Pass Completion Logistic Model</h2>
       <ul>
         <li><strong>Tech:</strong> Python • Scikit-learn • LassoCV • Matplotlib</li>
-        <li><strong>Data:</strong> 8 704 plays from 2025 NFL Big Data Bowl</li>
-        <li><strong>Results:</strong> 70.5 % accuracy • 71.2 % precision • 91.5 % recall</li>
+        <li><strong>Data:</strong> 8,704 plays from 2025 NFL Big Data Bowl</li>
+        <li><strong>Results:</strong> 70.5% accuracy • 71.2% precision • 91.5% recall</li>
         <li><strong>Download:</strong> <a href="documents/Stat_451_Final_Report_Claudia.pdf">Final Report</a></li>
       </ul>
     </div>
@@ -324,8 +304,8 @@
       <h2>Museum APIs: Islamic Art Study</h2>
       <ul>
         <li><strong>Tech:</strong> Python • Requests • matplotlib • seaborn</li>
-        <li><strong>Data:</strong> 18 000 acquisitions from Met/Louvre/V&amp;A APIs (1977–2024)</li>
-        <li><strong>Results:</strong> +34 % post-9/11 acquisitions; major tag shifts</li>
+        <li><strong>Data:</strong> 18,000 acquisitions from Met/Louvre/V&amp;A APIs (1977–2024)</li>
+        <li><strong>Results:</strong> +34% post-9/11 acquisitions; major tag shifts</li>
         <li><strong>Download:</strong> <a href="documents/Museum APIs_ Islamic Art Study.pdf">Full Paper</a></li>
       </ul>
     </div>
@@ -339,7 +319,7 @@
       <ul>
         <li><strong>Tech:</strong> Julia • JuMP • Gurobi • CSV • DataFrames</li>
         <li><strong>Data:</strong> Synthetic flights &amp; carousel windows</li>
-        <li><strong>Results:</strong> MILP solves in 6 s; two-stage 15 % faster; max-wait bound 58 min</li>
+        <li><strong>Results:</strong> MILP solves in 6 s; two-stage 15% faster; max-wait bound 58 min</li>
         <li><strong>Download:</strong> <a href="documents/CourseProjectClaudiaOtero (1).html">Course Project Report</a></li>
       </ul>
     </div>
@@ -351,34 +331,54 @@
 
   <!-- ---------- SCRIPTS ---------- -->
   <script>
-    /* ---------- THEME TOGGLE (shared) ---------- */
     const tBtn = document.getElementById('theme-toggle');
-    const sun  = 'fas fa-sun', moon = 'fas fa-moon';
-    const touch = window.matchMedia('(pointer:coarse)').matches || innerWidth < 1024;
+    const sun  = 'fas fa-sun';
+    const moon = 'fas fa-moon';
+    const stars = document.getElementById('stars');
+    const isTouch = window.matchMedia('(pointer:coarse)').matches || innerWidth < 1024;
 
-    if(touch){
+    if(isTouch){
       document.body.classList.remove('light');
       localStorage.setItem('theme','dark');
     }else{
       if(localStorage.getItem('theme') === 'light'){
         document.body.classList.add('light');
         tBtn.firstElementChild.className = moon;
+        generateStars();
       }
-      tBtn.addEventListener('click', ()=>{
+      tBtn.addEventListener('click',()=>{
         document.body.classList.toggle('light');
         const isLight = document.body.classList.contains('light');
         tBtn.firstElementChild.className = isLight ? moon : sun;
         localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        stars.innerHTML = '';
+        if(isLight) generateStars();
       });
     }
 
-    /* ---------- MODAL OPEN / CLOSE ---------- */
+    function generateStars(){
+      for(let i=0;i<70;i++){
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.left = Math.random()*100 + 'vw';
+        star.style.animationDuration = 6 + Math.random()*6 + 's';
+        stars.appendChild(star);
+      }
+    }
+
+    /* -------- MODAL HANDLERS -------- */
     document.querySelectorAll('button[data-modal]').forEach(btn=>{
       btn.addEventListener('click',()=>document.getElementById(btn.dataset.modal)?.classList.add('open'));
     });
-    document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>b.closest('.modal').classList.remove('open')));
-    window.addEventListener('click',e=>{if(e.target.classList.contains('modal')) e.target.classList.remove('open');});
-    document.addEventListener('keydown',e=>{if(e.key==='Escape') document.querySelectorAll('.modal.open').forEach(m=>m.classList.remove('open'));});
+    document.querySelectorAll('[data-close]').forEach(b=>{
+      b.addEventListener('click',()=>b.closest('.modal').classList.remove('open'));
+    });
+    window.addEventListener('click',e=>{
+      if(e.target.classList.contains('modal')) e.target.classList.remove('open');
+    });
+    document.addEventListener('keydown',e=>{
+      if(e.key==='Escape') document.querySelectorAll('.modal.open').forEach(m=>m.classList.remove('open'));
+    });
   </script>
 </body>
 </html>
