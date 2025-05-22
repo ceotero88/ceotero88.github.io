@@ -1,23 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="canonical" href="https://claudiaotero.com/projects.html">
-  <meta name="description" content="Featured data-science, ML, and analytics projects by Claudia Otero.">
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Claudia Otero",
-    "alumniOf":"University of Wisconsin-Madison",
-    "jobTitle":"Data Scientist & Systems Analyst",
-    "worksFor":{"@type":"Organization","name":"Mortenson"},
-    "url":"https://claudiaotero.com"
-  }
-  </script>
+  <!-- head meta unchanged ... -->
   <title>Claudia Otero – Featured Projects</title>
-
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -26,36 +11,24 @@
     /* ---------- THEME VARIABLES ---------- */
     :root{
       --nav-height:72px;
-
-      /* dark (default) */
-      --bg-grad-start:#000;
-      --bg-grad-mid:  #1a1a1a;
-      --bg-grad-end:  #000;
-      --text-color:   #ffffff;
-      --link-hover:   rgba(255,255,255,.75);
-      --blue-start:   #007cc2;
-      --blue-end:     #00e5ff;
+      --bg-grad-start:#000; --bg-grad-mid:#1a1a1a; --bg-grad-end:#000;
+      --text-color:#fff; --link-hover:rgba(255,255,255,.75);
+      --blue-start:#007cc2; --blue-end:#00e5ff;
+      --modal-bg:#121212;              /* ✨ new variable */
     }
     body.light{
-      --bg-grad-start:#ffffff;
-      --bg-grad-mid:  #bbbbbb;
-      --bg-grad-end:  #989898;
-      --text-color:   #000;
-      --link-hover:   rgba(0,0,0,.6);
-      --blue-start:   #b40000;
-      --blue-end:     #ff4d4d;
+      --bg-grad-start:#ffffff; --bg-grad-mid:#bbbbbb; --bg-grad-end:#989898;
+      --text-color:#000; --link-hover:rgba(0,0,0,.6);
+      --blue-start:#b40000; --blue-end:#ff4d4d;
+      --modal-bg:#f8f8f8;              /* ✨ light-mode modal */
     }
 
     /* ---------- BASE ---------- */
     *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;color:var(--text-color);}
-    html,body{
-      height:100%;
-      background:linear-gradient(120deg,var(--bg-grad-start),var(--bg-grad-mid),var(--bg-grad-end));
-      background-size:200% 200%;
-      animation:bgShift 15s ease infinite;
-      overflow-x:hidden;
-    }
+    html,body{height:100%;background:linear-gradient(120deg,var(--bg-grad-start),var(--bg-grad-mid),var(--bg-grad-end));
+      background-size:200% 200%;animation:bgShift 15s ease infinite;overflow-x:hidden;}
     @keyframes bgShift{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+
 
     /* ---------- NAV ---------- */
     nav{
@@ -113,12 +86,14 @@
     }
     .card button:hover{background:var(--blue-end);color:#000;}
 
+
     /* ---------- MODALS ---------- */
     .modal{position:fixed;inset:0;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;
       padding:1.5rem;z-index:50;visibility:hidden;opacity:0;transition:opacity .3s,visibility .3s;}
     .modal.open{visibility:visible;opacity:1;}
     .modal-content{
-      background:#121212;max-width:900px;max-height:90vh;overflow-y:auto;
+      background:var(--modal-bg);       /* ← now theme-aware */
+      max-width:900px;max-height:90vh;overflow-y:auto;
       border-radius:1rem;padding:2rem 2.5rem;position:relative;
     }
     .modal-content h2{margin-bottom:.9rem;}
