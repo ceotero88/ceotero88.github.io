@@ -31,13 +31,14 @@
 
   <title>Claudia Otero - Home</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
     /* ---------- THEME VARIABLES ---------- */
     :root{
       --nav-height:72px;
+
       /* dark theme (default) */
       --bg-grad-start:#000000;
       --bg-grad-mid:  #1a1a1a;
@@ -51,21 +52,17 @@
     /* light overrides (desktop only) */
     body.light{
       --bg-grad-start:#ffffff;
-      --bg-grad-mid:  #f2f2f2;
-      --bg-grad-end:  #e6e6e6;
+      --bg-grad-mid:  #d0d0d0;   /* 2️⃣ darker contrast */
+      --bg-grad-end:  #b0b0b0;
       --text-color:   #000000;
       --link-hover:   rgba(0,0,0,.6);
-      --blue-start:   #b40000;   /* red gradient */
+      --blue-start:   #b40000;   /* Badger red */
       --blue-end:     #ff4d4d;
       --social-border:var(--blue-end);
     }
 
     /* ---------- GLOBAL ---------- */
-    *{
-      margin:0; padding:0; box-sizing:border-box;
-      color:var(--text-color);
-      font-family:'Montserrat',sans-serif;
-    }
+    *{margin:0;padding:0;box-sizing:border-box;color:var(--text-color);font-family:'Montserrat',sans-serif;}
     html,body{
       height:100%;
       background:linear-gradient(120deg,var(--bg-grad-start),var(--bg-grad-mid),var(--bg-grad-end));
@@ -81,73 +78,67 @@
 
     /* ---------- NAV ---------- */
     nav{
-      position:fixed; top:0; width:100%; height:var(--nav-height);
-      padding:0 2rem;
-      display:flex; align-items:center; justify-content:flex-end; gap:2.5rem;
+      position:fixed;top:0;width:100%;height:var(--nav-height);
+      padding:0 2rem;display:flex;align-items:center;justify-content:flex-end;gap:2.5rem;
       background:linear-gradient(90deg,var(--blue-start),var(--blue-end));
-      z-index:10; backdrop-filter:blur(6px);
+      z-index:10;backdrop-filter:blur(6px);
     }
-    nav a{
-      text-decoration:none; font-weight:600; text-transform:uppercase;
-      letter-spacing:.5px; transition:opacity .3s;
-    }
+    nav a{text-decoration:none;font-weight:600;text-transform:uppercase;letter-spacing:.5px;transition:opacity .3s;}
     nav a:hover{opacity:var(--link-hover);}
 
-    /* theme toggle button (hidden on mobile via media-query) */
     #theme-toggle{
-      background:transparent; border:none; cursor:pointer;
-      font-size:1.25rem; display:flex; align-items:center;
-      transition:transform .3s; color:var(--text-color);
+      background:transparent;border:none;cursor:pointer;font-size:1.25rem;
+      display:flex;align-items:center;color:var(--text-color);transition:transform .3s;
     }
     #theme-toggle:hover{transform:scale(1.2);}
 
     /* ---------- HERO ---------- */
     .hero{
-      display:grid; grid-template-columns:1fr 1fr; align-items:center;
-      min-height:100vh; padding:calc(var(--nav-height) + 2rem) 5rem 0;
+      display:grid;grid-template-columns:1fr 1fr;align-items:center;min-height:100vh;
+      padding:calc(var(--nav-height) + 2rem) 5rem 0;
     }
-    .hero .text{max-width:600px; animation:fadeIn 1s ease .5s forwards; opacity:0;}
-    .hero .text h1{font-size:clamp(3rem,8vw,6rem); margin-bottom:1rem;}
-    .hero .text p {font-size:1.25rem; line-height:1.6; margin-top:.5rem;}
+    .hero .text{max-width:600px;animation:fadeIn 1s ease .5s forwards;opacity:0;}
+    .hero .text h1{font-size:clamp(3rem,8vw,6rem);margin-bottom:1rem;}
+    .hero .text p {font-size:1.25rem;line-height:1.6;margin-top:.5rem;}
 
-    /* social */
-    .social{margin-top:1.5rem; display:flex; gap:1rem;}
+    .social{margin-top:1.5rem;display:flex;gap:1rem;}
     .social a{
-      width:48px;height:48px; border:2px solid var(--social-border);
-      border-radius:50%; display:flex; align-items:center; justify-content:center;
-      text-decoration:none; transition:background .3s,transform .3s; font-size:1.2rem;
-      color:var(--text-color);
+      width:48px;height:48px;border:2px solid var(--social-border);border-radius:50%;
+      display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1.2rem;
+      transition:background .3s,transform .3s;color:var(--text-color);
     }
     .social a:hover{background:var(--social-border);transform:scale(1.1);color:#000;}
 
-    /* hero image */
-    .hero .image{display:flex; justify-content:center; animation:fadeIn 1s ease 1s forwards; opacity:0;}
+    .hero .image{display:flex;justify-content:center;animation:fadeIn 1s ease 1s forwards;opacity:0;}
     .hero .image img{
-      width:clamp(300px,40vw,500px); height:clamp(300px,40vw,500px);
-      border-radius:1.5rem; object-fit:cover;
-      box-shadow:0 0 20px rgba(0,0,0,.8);
-      transition:transform .3s, box-shadow .3s;
+      width:clamp(300px,40vw,500px);height:clamp(300px,40vw,500px);
+      border-radius:1.5rem;object-fit:cover;box-shadow:0 0 20px rgba(0,0,0,.8);
+      transition:transform .3s,box-shadow .3s;
     }
     .hero .image img:hover{transform:scale(1.05);box-shadow:0 0 30px rgba(0,0,0,1);}
 
     /* ---------- FOOTER ---------- */
-    footer{padding:2rem 2rem 4rem; text-align:center; font-size:.85rem; opacity:.6;}
+    footer{padding:2rem 2rem 4rem;text-align:center;font-size:.85rem;opacity:.6;}
 
-    /* ---------- ANIMATIONS ---------- */
     @keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 
     /* ---------- RESPONSIVE ---------- */
     @media(max-width:768px){
       nav{padding:0 1rem;justify-content:center;}
-      #theme-toggle{display:none;}               /* 1️⃣ hide toggle on mobile */
-      .hero{grid-template-columns:1fr;text-align:center;padding:calc(var(--nav-height)+1.5rem) 1.5rem 0;}
+      .hero{grid-template-columns:1fr;text-align:center;
+            padding:calc(var(--nav-height) + 2rem) 1.5rem 0;} /* 1️⃣ extra top padding */
       .hero .image{margin-top:2rem;}
       .social{justify-content:center;}
+    }
+    /* hide toggle on *any* coarse-pointer (touch) devices */
+    @media(pointer:coarse){
+      #theme-toggle{display:none;}
     }
   </style>
 </head>
 <body>
   <nav>
+    <!-- theme button visible only on desktop -->
     <button id="theme-toggle" aria-label="Toggle dark/light mode"><i class="fas fa-sun"></i></button>
     <a href="index.html">Home</a>
     <a href="projects.html">Projects</a>
@@ -172,7 +163,7 @@
     </div>
 
     <div class="image">
-      <img src="images/senior.jpg" alt="Claudia Otero Senior Portrait" />
+      <img src="images/senior.jpg" alt="Claudia Otero Senior Portrait">
     </div>
   </section>
 
@@ -183,28 +174,24 @@
   <!-- ---------- THEME SCRIPT ---------- -->
   <script>
     const btn  = document.getElementById('theme-toggle');
-    const nav  = document.querySelector('nav');
     const sun  = 'fas fa-sun';
     const moon = 'fas fa-moon';
 
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    /* Detect phones/tablets with coarse pointer (touch) */
+    const isTouchDevice = window.matchMedia('(pointer:coarse)').matches;
 
-    /* Mobile: force dark, hide toggle */
-    if(isMobile){
+    if(isTouchDevice){
+      /* Always dark on phones/tablets */
       document.body.classList.remove('light');
       localStorage.setItem('theme','dark');
-      btn.style.display = 'none';
     }else{
-      /* Desktop – initialise from storage */
+      /* Desktop behaviour */
       if(localStorage.getItem('theme') === 'light'){
         document.body.classList.add('light');
-        nav.classList.add('light');
         btn.firstElementChild.className = moon;
       }
-
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click',()=>{
         document.body.classList.toggle('light');
-        nav.classList.toggle('light');
         const isLight = document.body.classList.contains('light');
         btn.firstElementChild.className = isLight ? moon : sun;
         localStorage.setItem('theme', isLight ? 'light' : 'dark');
