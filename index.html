@@ -39,7 +39,7 @@
     :root{
       --nav-height:72px;
 
-      /* dark theme (default) */
+      /* dark (default) */
       --bg-grad-start:#000000;
       --bg-grad-mid:  #1a1a1a;
       --bg-grad-end:  #000000;
@@ -52,8 +52,8 @@
     /* light overrides (desktop only) */
     body.light{
       --bg-grad-start:#ffffff;
-      --bg-grad-mid:  #d0d0d0;   /* 2️⃣ darker contrast */
-      --bg-grad-end:  #b0b0b0;
+      --bg-grad-mid:  #bbbbbb;   /* 2️⃣ darker for visibility */
+      --bg-grad-end:  #989898;
       --text-color:   #000000;
       --link-hover:   rgba(0,0,0,.6);
       --blue-start:   #b40000;   /* Badger red */
@@ -71,9 +71,9 @@
       overflow-x:hidden;
     }
     @keyframes gradientBG{
-      0%{background-position:0% 50%;}
+      0%{background-position:0 50%;}
       50%{background-position:100% 50%;}
-      100%{background-position:0% 50%;}
+      100%{background-position:0 50%;}
     }
 
     /* ---------- NAV ---------- */
@@ -81,13 +81,13 @@
       position:fixed;top:0;width:100%;height:var(--nav-height);
       padding:0 2rem;display:flex;align-items:center;justify-content:flex-end;gap:2.5rem;
       background:linear-gradient(90deg,var(--blue-start),var(--blue-end));
-      z-index:10;backdrop-filter:blur(6px);
+      backdrop-filter:blur(6px);z-index:10;
     }
     nav a{text-decoration:none;font-weight:600;text-transform:uppercase;letter-spacing:.5px;transition:opacity .3s;}
     nav a:hover{opacity:var(--link-hover);}
 
     #theme-toggle{
-      background:transparent;border:none;cursor:pointer;font-size:1.25rem;
+      background:none;border:none;cursor:pointer;font-size:1.25rem;
       display:flex;align-items:center;color:var(--text-color);transition:transform .3s;
     }
     #theme-toggle:hover{transform:scale(1.2);}
@@ -97,8 +97,8 @@
       display:grid;grid-template-columns:1fr 1fr;align-items:center;min-height:100vh;
       padding:calc(var(--nav-height) + 2rem) 5rem 0;
     }
-    .hero .text{max-width:600px;animation:fadeIn 1s ease .5s forwards;opacity:0;}
-    .hero .text h1{font-size:clamp(3rem,8vw,6rem);margin-bottom:1rem;}
+    .hero .text{max-width:600px;opacity:0;animation:fadeIn 1s ease .5s forwards;}
+    .hero .text h1{font-size:clamp(3rem,8vw,6rem);margin-bottom:1rem;opacity:0;animation:fadeIn 1s ease .6s forwards;} /* 1️⃣ drop-in */
     .hero .text p {font-size:1.25rem;line-height:1.6;margin-top:.5rem;}
 
     .social{margin-top:1.5rem;display:flex;gap:1rem;}
@@ -109,7 +109,7 @@
     }
     .social a:hover{background:var(--social-border);transform:scale(1.1);color:#000;}
 
-    .hero .image{display:flex;justify-content:center;animation:fadeIn 1s ease 1s forwards;opacity:0;}
+    .hero .image{display:flex;justify-content:center;opacity:0;animation:fadeIn 1s ease 1s forwards;}
     .hero .image img{
       width:clamp(300px,40vw,500px);height:clamp(300px,40vw,500px);
       border-radius:1.5rem;object-fit:cover;box-shadow:0 0 20px rgba(0,0,0,.8);
@@ -125,20 +125,21 @@
     /* ---------- RESPONSIVE ---------- */
     @media(max-width:768px){
       nav{padding:0 1rem;justify-content:center;}
-      .hero{grid-template-columns:1fr;text-align:center;
-            padding:calc(var(--nav-height) + 2rem) 1.5rem 0;} /* 1️⃣ extra top padding */
+      .hero{
+        grid-template-columns:1fr;text-align:center;
+        padding:calc(var(--nav-height) + 3rem) 1.5rem 0;   /* ensures name not clipped */
+      }
       .hero .image{margin-top:2rem;}
       .social{justify-content:center;}
     }
-    /* hide toggle on *any* coarse-pointer (touch) devices */
-    @media(pointer:coarse){
+    /* Hide toggle for any touch / small-screen devices */
+    @media(pointer:coarse), (max-width:1023px){
       #theme-toggle{display:none;}
     }
   </style>
 </head>
 <body>
   <nav>
-    <!-- theme button visible only on desktop -->
     <button id="theme-toggle" aria-label="Toggle dark/light mode"><i class="fas fa-sun"></i></button>
     <a href="index.html">Home</a>
     <a href="projects.html">Projects</a>
@@ -149,10 +150,10 @@
     <div class="text">
       <h1>Claudia Otero</h1>
       <p>
-        I’m a Wisconsin–Madison grad with degrees in Data Science, Computer Science, and Art History, and I’m headed to 
-        <a href="https://www.mortenson.com/" target="_blank" rel="noopener">Mortenson</a> as a Systems Analyst. 
-        I thrive on building new tech, wield analytics to end the trap of the anecdotal, and live by Kaizen principles. 
-        Feel free to explore my <a href="projects.html">projects</a> and 
+        I’m a Wisconsin–Madison grad with degrees in Data Science, Computer Science, and Art History, and I’m headed to
+        <a href="https://www.mortenson.com/" target="_blank" rel="noopener">Mortenson</a> as a Systems Analyst.
+        I thrive on building new tech, wield analytics to end the trap of the anecdotal, and live by Kaizen principles.
+        Feel free to explore my <a href="projects.html">projects</a> and
         <a href="workexperience.html">professional experience</a> to see what I’ve been up to.
       </p>
       <div class="social">
@@ -177,15 +178,14 @@
     const sun  = 'fas fa-sun';
     const moon = 'fas fa-moon';
 
-    /* Detect phones/tablets with coarse pointer (touch) */
-    const isTouchDevice = window.matchMedia('(pointer:coarse)').matches;
+    /* consider pointer + width for rock-solid mobile detection */
+    const isTouchDevice = window.matchMedia('(pointer:coarse)').matches || window.innerWidth < 1024;
 
     if(isTouchDevice){
-      /* Always dark on phones/tablets */
+      /* always dark on phones / tablets */
       document.body.classList.remove('light');
       localStorage.setItem('theme','dark');
     }else{
-      /* Desktop behaviour */
       if(localStorage.getItem('theme') === 'light'){
         document.body.classList.add('light');
         btn.firstElementChild.className = moon;
