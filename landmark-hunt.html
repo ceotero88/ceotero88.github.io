@@ -1,0 +1,121 @@
+<!--  landmark-hunt.html  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Landmark Hunt</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <!-- Google Font (optional, matches rest of site) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ---------- LAYOUT ---------- */
+    html,body{height:100%;margin:0;font-family:Montserrat,sans-serif}
+    #map{height:100%;width:100%}
+
+    /* ---------- HUD ---------- */
+    #hud{
+      position:absolute;top:1rem;left:50%;transform:translateX(-50%);
+      padding:.55rem 1.2rem;border-radius:.8rem;
+      backdrop-filter:blur(6px);
+      background:rgba(255,255,255,.20);
+      font-weight:600;pointer-events:none;
+    }
+    body.light #hud{background:rgba(0,0,0,.15);color:#000}
+
+    /* ---------- RIPPLE ---------- */
+    .ripple{
+      position:absolute;border:2px solid #ff4d4d;border-radius:50%;
+      pointer-events:none;animation:rip 0.6s ease-out forwards
+    }
+    @keyframes rip{from{transform:scale(0);opacity:.9}to{transform:scale(3);opacity:0}}
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <div id="hud">Loading&hellip;</div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <script>
+  /* ------------------------------------------------------------------ *
+   | 1)  INITIALISE MAP (Mapbox tiles over Leaflet)                      |
+   * ------------------------------------------------------------------ */
+  const map = L.map('map').setView([43.0731, -89.4012], 14);     // center on UW campus
+
+  L.tileLayer(
+    'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2VvdGVybyIsImEiOiJjbWF5cXgzbDkwYmN3MnVwbTIzanRpMmNiIn0.kAxLa5M3Tk5NJRnBVXobKg',
+    {
+      id:'mapbox/light-v10',             // nice neutral style; swap for other Mapbox IDs if you like
+      tileSize:512, zoomOffset:-1,
+      attribution:'&copy; Mapbox &amp; OpenStreetMap'
+    }
+  ).addTo(map);
+
+  /* ------------------------------------------------------------------ *
+   | 2)  LANDMARK DATA  (replace / extend as needed)                     |
+   * ------------------------------------------------------------------ */
+  const spots = [
+    { name:'Red Gym',             coords:[43.0718,-89.4065] },
+    { name:'Memorial Union Terrace', coords:[43.0755,-89.4041] },
+    { name:'Bascom Hall',         coords:[43.0733,-89.4059] },
+    { name:'Camp Randall Arch',   coords:[43.0699,-89.4113] },
+    { name:'Babcock Hall Dairy',  coords:[43.0775,-89.4092] },
+    { name:'Allen Centennial Garden', coords:[43.0764,-89.4089] }
+  ];
+
+  /* ------------------------------------------------------------------ *
+   | 3)  GAME STATE & HUD                                                |
+   * ------------------------------------------------------------------ */
+  let current, round = 0, score = 0;
+  const hud = document.getElementById('hud');
+
+  function nextRound(){
+    current = spots[round++ % spots.length];
+    hud.textContent = `Find “${current.name}” (${round}/${spots.length})  —  Score: ${score}`;
+  }
+  nextRound();
+
+  /* ------------------------------------------------------------------ *
+   | 4)  CLICK HANDLER                                                   |
+   * ------------------------------------------------------------------ */
+  map.on('click', e=>{
+    /* 4a  visual ripple */
+    const rip = document.createElement('div');
+    rip.className='ripple';
+    rip.style.left = e.containerPoint.x+'px';
+    rip.style.top  = e.containerPoint.y+'px';
+    document.body.append(rip);
+    setTimeout(()=>rip.remove(),600);
+
+    /* 4b  distance & points */
+    const dist = map.distance(e.latlng, L.latLng(current.coords));   // metres
+    const pts  = Math.max(0, Math.round(1000 - dist));               // simple linear scoring
+    score += pts;
+
+    /* 4c  feedback popup */
+    const pop = L.popup({closeButton:false,autoClose:true,offset:[0,-10]})
+      .setLatLng(e.latlng)
+      .setContent(`+${pts} pts`)
+      .openOn(map);
+    setTimeout(()=>map.closePopup(pop),800);
+
+    /* 4d  advance */
+    nextRound();
+  });
+
+  /* ------------------------------------------------------------------ *
+   | 5)  THEME  :  dark/light matches rest of site                       |
+   * ------------------------------------------------------------------ */
+  const isTouch = matchMedia('(pointer:coarse)').matches || innerWidth<1024;
+  if(!isTouch){
+    const saved = localStorage.getItem('theme');
+    if(saved==='light'){ document.body.classList.add('light'); }
+  }
+  </script>
+</body>
+</html>
