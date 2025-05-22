@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- head meta unchanged ... -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="canonical" href="https://claudiaotero.com/workexperience.html">
   <title>Claudia Otero – Professional Experience</title>
+
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -10,34 +14,50 @@
     /* ---------- THEME VARIABLES ---------- */
     :root{
       --nav-height:72px;
-      --bg-grad-start:#000; --bg-grad-mid:#1a1a1a; --bg-grad-end:#000;
-      --text-color:#fff; --link-hover:rgba(255,255,255,.75);
-      --blue-start:#007cc2; --blue-end:#00e5ff;
-      --modal-bg:#121212;              /* ✨ new variable */
+
+      /* dark (default) */
+      --bg-grad-start:#000;  --bg-grad-mid:#1a1a1a; --bg-grad-end:#000;
+      --text-color:#fff;     --link-hover:rgba(255,255,255,.75);
+      --blue-start:#007cc2;  --blue-end:#00e5ff;
+      --modal-bg:#121212;
+      --social-border:var(--blue-end);
     }
     body.light{
-      --bg-grad-start:#ffffff; --bg-grad-mid:#bbbbbb; --bg-grad-end:#989898;
-      --text-color:#000; --link-hover:rgba(0,0,0,.6);
-      --blue-start:#b40000; --blue-end:#ff4d4d;
-      --modal-bg:#f8f8f8;              /* ✨ light-mode modal */
+      --bg-grad-start:#ffffff; --bg-grad-mid:#bbbbbb; --bg-grad-end:#989898; /* not used but retained */
+      --text-color:#000;       --link-hover:rgba(0,0,0,.6);
+      --blue-start:#b40000;    --blue-end:#ff4d4d;
+      --modal-bg:#f8f8f8;
+      --social-border:var(--blue-end);
     }
 
     /* ---------- BASE ---------- */
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;color:var(--text-color);}
-    html,body{height:100%;background:linear-gradient(120deg,var(--bg-grad-start),var(--bg-grad-mid),var(--bg-grad-end));
-      background-size:200% 200%;animation:bgShift 15s ease infinite;overflow-x:hidden;}
-    @keyframes bgShift{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+    *{margin:0;padding:0;box-sizing:border-box;color:var(--text-color);font-family:'Montserrat',sans-serif;}
+    html,body{height:100%;overflow-x:hidden;position:relative;}
 
+    /* gradient only for dark mode */
+    body:not(.light){
+      background:linear-gradient(120deg,var(--bg-grad-start),var(--bg-grad-mid),var(--bg-grad-end));
+      background-size:200% 200%;
+      animation:bgShift 15s ease infinite;
+    }
+    body.light{background:#ffffff;}
+
+    @keyframes bgShift{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
 
     /* ---------- NAV ---------- */
     nav{
       position:fixed;top:0;width:100%;height:var(--nav-height);
-      display:flex;align-items:center;justify-content:flex-end;gap:2.5rem;padding:0 2rem;
-      background:linear-gradient(90deg,var(--blue-start),var(--blue-end));backdrop-filter:blur(6px);z-index:20;
+      padding:0 2rem;display:flex;align-items:center;justify-content:flex-end;gap:2.5rem;
+      background:linear-gradient(90deg,var(--blue-start),var(--blue-end));
+      backdrop-filter:blur(6px);z-index:20;
     }
-    nav a{text-decoration:none;text-transform:uppercase;font-weight:600;letter-spacing:.5px;transition:opacity .3s;}
+    nav a{
+      text-decoration:none;text-transform:uppercase;font-weight:600;letter-spacing:.5px;
+      transition:opacity .3s;
+    }
     nav a:hover{opacity:var(--link-hover);}
-    /* toggle */
+
+    /* theme toggle */
     #theme-toggle{
       background:none;border:none;cursor:pointer;font-size:1.25rem;
       display:flex;align-items:center;color:var(--text-color);transition:transform .3s;
@@ -48,7 +68,9 @@
     /* ---------- HEADER ---------- */
     header{
       margin-top:calc(var(--nav-height) + 3rem);
-      padding:0 2rem 1rem;text-align:center;max-width:900px;margin-left:auto;margin-right:auto;
+      padding:0 2rem 1rem;
+      text-align:center;
+      max-width:900px;margin-left:auto;margin-right:auto;
       opacity:0;animation:fadeIn 1s ease .5s forwards;
     }
     header h1{font-size:clamp(2.6rem,6vw,4rem);}
@@ -64,9 +86,13 @@
       gap:2rem;padding:0 2rem;max-width:1300px;margin:0 auto;
     }
     .card{
-      background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);
-      border-radius:1rem;padding:1.6rem 1.4rem;display:flex;flex-direction:column;justify-content:space-between;
-      backdrop-filter:blur(3px);transition:transform .3s,box-shadow .3s;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:1rem;
+      padding:1.6rem 1.4rem;
+      display:flex;flex-direction:column;justify-content:space-between;
+      backdrop-filter:blur(3px);
+      transition:transform .3s,box-shadow .3s;
     }
     .card:hover{transform:translateY(-6px);box-shadow:0 10px 20px rgba(0,0,0,.4);}
     .card h3{font-size:1.22rem;margin-bottom:.55rem;line-height:1.3;}
@@ -78,13 +104,16 @@
     }
     .card button:hover{background:var(--blue-end);color:#000;}
 
-
     /* ---------- MODALS ---------- */
-    .modal{position:fixed;inset:0;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;
-      padding:1.5rem;z-index:50;visibility:hidden;opacity:0;transition:opacity .3s,visibility .3s;}
+    .modal{
+      position:fixed;inset:0;background:rgba(0,0,0,.85);
+      display:flex;align-items:center;justify-content:center;
+      padding:1.5rem;z-index:50;
+      visibility:hidden;opacity:0;transition:opacity .3s,visibility .3s;
+    }
     .modal.open{visibility:visible;opacity:1;}
     .modal-content{
-      background:var(--modal-bg);       /* ← now theme-aware */
+      background:var(--modal-bg);
       max-width:900px;max-height:90vh;overflow-y:auto;
       border-radius:1rem;padding:2rem 2.5rem;position:relative;
     }
@@ -93,18 +122,41 @@
     .modal-content li{margin-bottom:.4rem;}
     .modal-content a{color:var(--blue-end);}
     .modal-content img{margin:.5rem auto 1rem;display:block;max-width:150px;}
-    .close-btn{position:absolute;top:1rem;right:1rem;font-size:1.5rem;background:none;border:none;color:var(--blue-end);cursor:pointer;}
+    .close-btn{
+      position:absolute;top:1rem;right:1rem;font-size:1.5rem;
+      background:none;border:none;color:var(--blue-end);cursor:pointer;
+    }
 
     footer{padding:2rem 2rem 4rem;text-align:center;font-size:.85rem;opacity:.6;}
 
+    /* ---------- MOBILE ---------- */
     @media(max-width:768px){
       nav{padding:0 1rem;justify-content:center;}
       .experience-grid{padding:0 1.5rem;}
+    }
+
+    /* ---------- LIGHT-MODE STAR ANIMATION ---------- */
+    .light #stars{
+      position:fixed;inset:0;z-index:-1;pointer-events:none;
+    }
+    .star{
+      position:absolute;width:8px;height:8px;border-radius:50%;background:var(--blue-end);
+      animation:float 8s linear infinite;
+    }
+    @keyframes float{
+      0%{transform:translateY(100vh) scale(.5);opacity:0;}
+      25%{opacity:.8;}
+      50%{transform:translateY(50vh) scale(1);}
+      75%{opacity:.6;}
+      100%{transform:translateY(-10vh) scale(.3);opacity:0;}
     }
   </style>
 </head>
 
 <body>
+  <!-- star container for light mode -->
+  <div id="stars"></div>
+
   <!-- ---------- NAV ---------- -->
   <nav>
     <button id="theme-toggle" aria-label="Toggle dark/light mode"><i class="fas fa-sun"></i></button>
@@ -131,8 +183,8 @@
     <h2 class="category-title">E.A. Sween Company</h2>
     <section class="experience-grid">
       <div class="card">
-        <h3>Continuous Improvement Specialist<br><span style="font-weight:400;">Sep 2023 – May 2024</span></h3>
-        <p>Automated mass-balance workflows, R & Tableau analytics, scrap-reduction tooling.</p>
+        <h3>Continuous Improvement Specialist<br><span style="font-weight:400;">Sep&nbsp;2023 – May&nbsp;2024</span></h3>
+        <p>Automated mass-balance workflows, R &amp; Tableau analytics, scrap-reduction tooling.</p>
         <button data-modal="modal-eas">Details</button>
       </div>
     </section>
@@ -141,8 +193,8 @@
     <h2 class="category-title">Stranded on State (Startup)</h2>
     <section class="experience-grid">
       <div class="card">
-        <h3>Head of Technology<br><span style="font-weight:400;">Jan 2024 – Present</span></h3>
-        <p>Maintained a 30,000 follower site, streamlined front-end updates with Git workflows.</p>
+        <h3>Head of Technology<br><span style="font-weight:400;">Jan&nbsp;2024 – Present</span></h3>
+        <p>Maintained a 30&nbsp;000-follower site, streamlined front-end updates with Git workflows.</p>
         <button data-modal="modal-sos">Details</button>
       </div>
     </section>
@@ -151,8 +203,8 @@
     <h2 class="category-title">Leukemia &amp; Lymphoma Society</h2>
     <section class="experience-grid">
       <div class="card">
-        <h3>Campaign Manager<br><span style="font-weight:400;">Dec 2019 – Feb 2020</span></h3>
-        <p>Raised $27,000 in seven fund-raisers for Students of the Year; earned regional scholarship.</p>
+        <h3>Campaign Manager<br><span style="font-weight:400;">Dec&nbsp;2019 – Feb&nbsp;2020</span></h3>
+        <p>Raised $27&nbsp;000 in seven fund-raisers for Students of the Year; earned regional scholarship.</p>
         <button data-modal="modal-lls">Details</button>
       </div>
     </section>
@@ -197,7 +249,7 @@
       <img src="images/sos.png" alt="Stranded on State logo">
       <h2>Stranded on State – Head of Technology</h2>
       <ul>
-        <li>Maintain and optimise a GitHub-Pages website serving 30,000 followers across IG &amp; TikTok.</li>
+        <li>Maintain and optimise a GitHub-Pages website serving 30&nbsp;000 followers across IG &amp; TikTok.</li>
         <li>Streamlined front-end updates with modular HTML/CSS and Git workflows; cut release time 50%.</li>
         <li>Implemented basic CI to lint, build, and auto-deploy on push.</li>
         <li>Added lightweight analytics hooks to track post reach and inform content cadence.</li>
@@ -212,45 +264,67 @@
       <img src="images/lls.jpg" alt="Leukemia &amp; Lymphoma Society logo">
       <h2>Leukemia &amp; Lymphoma Society – Campaign Manager</h2>
       <ul>
-        <li>Raised $27,000 in three months by organising seven community fund-raisers and leveraging donor data for targeted outreach.</li>
+        <li>Raised $27&nbsp;000 in three months by organising seven community fund-raisers and leveraging donor data for targeted outreach.</li>
         <li>Awarded the 2020 MN/ND/SD Citizenship Engagement Scholarship for leadership and impact.</li>
         <li>Archived campaign page: <a href="https://events.lls.org/mn/mplsSOY20/tlivclaudi" target="_blank" rel="noopener">Students of the Year</a></li>
       </ul>
     </div>
   </div>
+
   <footer>
     This website is built with vanilla HTML, CSS, and JavaScript, and deployed through GitHub Pages.
   </footer>
 
   <!-- ---------- SCRIPTS ---------- -->
   <script>
-    /* theme persist / toggle */
-    const tBtn=document.getElementById('theme-toggle');
-    const sun='fas fa-sun', moon='fas fa-moon';
-    const touch = matchMedia('(pointer:coarse)').matches || innerWidth<1024;
-    if(touch){
+    const tBtn  = document.getElementById('theme-toggle');
+    const sun   = 'fas fa-sun';
+    const moon  = 'fas fa-moon';
+    const stars = document.getElementById('stars');
+    const isTouch = window.matchMedia('(pointer:coarse)').matches || innerWidth < 1024;
+
+    if(isTouch){
       document.body.classList.remove('light');
       localStorage.setItem('theme','dark');
     }else{
-      if(localStorage.getItem('theme')==='light'){
+      if(localStorage.getItem('theme') === 'light'){
         document.body.classList.add('light');
-        tBtn.firstElementChild.className=moon;
+        tBtn.firstElementChild.className = moon;
+        generateStars();
       }
       tBtn.addEventListener('click',()=>{
         document.body.classList.toggle('light');
-        const isLight=document.body.classList.contains('light');
-        tBtn.firstElementChild.className=isLight?moon:sun;
-        localStorage.setItem('theme',isLight?'light':'dark');
+        const isLight = document.body.classList.contains('light');
+        tBtn.firstElementChild.className = isLight ? moon : sun;
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        stars.innerHTML = '';
+        if(isLight) generateStars();
       });
     }
 
-    /* existing modal logic */
+    function generateStars(){
+      for(let i=0;i<70;i++){
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.left = Math.random()*100 + 'vw';
+        star.style.animationDuration = 6 + Math.random()*6 + 's';
+        stars.appendChild(star);
+      }
+    }
+
+    /* -------- MODAL HANDLERS -------- */
     document.querySelectorAll('button[data-modal]').forEach(btn=>{
       btn.addEventListener('click',()=>document.getElementById(btn.dataset.modal)?.classList.add('open'));
     });
-    document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>b.closest('.modal').classList.remove('open')));
-    window.addEventListener('click',e=>{if(e.target.classList.contains('modal'))e.target.classList.remove('open');});
-    addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.modal.open').forEach(m=>m.classList.remove('open'));});
+    document.querySelectorAll('[data-close]').forEach(b=>{
+      b.addEventListener('click',()=>b.closest('.modal').classList.remove('open'));
+    });
+    window.addEventListener('click',e=>{
+      if(e.target.classList.contains('modal')) e.target.classList.remove('open');
+    });
+    document.addEventListener('keydown',e=>{
+      if(e.key==='Escape') document.querySelectorAll('.modal.open').forEach(m=>m.classList.remove('open'));
+    });
   </script>
 </body>
-</html>  
+</html>
