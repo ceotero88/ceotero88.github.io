@@ -1,198 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="canonical" href="https://claudiaotero.com/workexperience.html">
-  <meta name="description" content="Claudia Otero, University of Wisconsin-Madison graduate, Data Scientist and incoming Systems Analyst at Mortenson. Explore projects, professional experience, and more." />
+  <meta name="description" content="Professional experience of Claudia Otero – Systems Analyst, data scientist, continuous-improvement lead.">
   <script type="application/ld+json">
- {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Claudia Otero",
-  "alumniOf": "University of Wisconsin-Madison",
-  "jobTitle": "Data Scientist & Systems Analyst",
-  "worksFor": {
-  "@type": "Organization",
-  "name": "Mortenson"
-   },
-   "url": "https://claudiaotero.com"
- }
- </script>
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Claudia Otero",
+    "alumniOf":"University of Wisconsin-Madison",
+    "jobTitle":"Data Scientist & Systems Analyst",
+    "worksFor":{"@type":"Organization","name":"Mortenson"},
+    "url":"https://claudiaotero.com"
+  }
+  </script>
   <title>Claudia Otero – Professional Experience</title>
 
-  <!-- Montserrat + Font Awesome -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
+    /* ---------- THEME VARIABLES ---------- */
     :root{
+      --nav-height:72px;
+      --bg-grad-start:#000;
+      --bg-grad-mid:#1a1a1a;
+      --bg-grad-end:#000;
+      --text-color:#fff;
+      --link-hover:rgba(255,255,255,.75);
       --blue-start:#007cc2;
       --blue-end:#00e5ff;
-      --nav-height:72px;
+    }
+    body.light{
+      --bg-grad-start:#ffffff;
+      --bg-grad-mid:#bbbbbb;
+      --bg-grad-end:#989898;
+      --text-color:#000;
+      --link-hover:rgba(0,0,0,.6);
+      --blue-start:#b40000;
+      --blue-end:#ff4d4d;
     }
 
-    /* ---------- base ---------- */
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;color:#fff;}
+    /* ---------- BASE ---------- */
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;color:var(--text-color);}
     html,body{
       height:100%;
-      background:linear-gradient(120deg,#000,#1a1a1a,#000);
-      background-size:200% 200%;
-      animation:bgShift 15s ease infinite;
-      overflow-x:hidden;
+      background:linear-gradient(120deg,var(--bg-grad-start),var(--bg-grad-mid),var(--bg-grad-end));
+      background-size:200% 200%;animation:bgShift 15s ease infinite;overflow-x:hidden;
     }
-    @keyframes bgShift{
-      0%{background-position:0 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0 50%}
-    }
+    @keyframes bgShift{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
 
-    /* ---------- nav ---------- */
+    /* ---------- NAV ---------- */
     nav{
       position:fixed;top:0;width:100%;height:var(--nav-height);
-      display:flex;align-items:center;justify-content:flex-end;
-      gap:2.5rem;padding:0 2rem;
-      background:linear-gradient(90deg,var(--blue-start),var(--blue-end));
-      backdrop-filter:blur(6px);
-      z-index:20;
+      display:flex;align-items:center;justify-content:flex-end;gap:2.5rem;padding:0 2rem;
+      background:linear-gradient(90deg,var(--blue-start),var(--blue-end));backdrop-filter:blur(6px);z-index:20;
     }
-    nav a{
-      text-decoration:none;text-transform:uppercase;font-weight:600;letter-spacing:.5px;
-      transition:opacity .3s;
+    nav a{text-decoration:none;text-transform:uppercase;font-weight:600;letter-spacing:.5px;transition:opacity .3s;}
+    nav a:hover{opacity:var(--link-hover);}
+    /* toggle */
+    #theme-toggle{
+      background:none;border:none;cursor:pointer;font-size:1.25rem;
+      display:flex;align-items:center;color:var(--text-color);transition:transform .3s;
     }
-    nav a:hover{opacity:.75;}
+    #theme-toggle:hover{transform:scale(1.2);}
+    @media(pointer:coarse),(max-width:1023px){#theme-toggle{display:none;}}
 
-    /* ---------- header ---------- */
+    /* ---------- HEADER ---------- */
     header{
       margin-top:calc(var(--nav-height) + 3rem);
-      padding:0 2rem 1rem;
-      text-align:center;
-      max-width:900px;margin-left:auto;margin-right:auto;
-      animation:fadeIn 1s ease forwards .5s;opacity:0;
+      padding:0 2rem 1rem;text-align:center;max-width:900px;margin-left:auto;margin-right:auto;
+      opacity:0;animation:fadeIn 1s ease .5s forwards;
     }
     header h1{font-size:clamp(2.6rem,6vw,4rem);}
-    header p{margin-top:.6rem;font-size:1.05rem;line-height:1.55;}
 
-    @keyframes fadeIn{
-      from{opacity:0;transform:translateY(20px);}
-      to{opacity:1;transform:translateY(0);}
-    }
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 
-    /* ---------- company headings ---------- */
-    .category-title{
-      font-size:1.7rem;
-      margin:3rem 0 1rem;
-      text-align:center;
-      opacity:.85;
-    }
+    /* ---------- TITLES ---------- */
+    .category-title{font-size:1.7rem;margin:3rem 0 1rem;text-align:center;opacity:.85;}
 
-    /* ---------- grid & cards ---------- */
+    /* ---------- GRID & CARDS ---------- */
     .experience-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:2rem;
-      padding:0 2rem;
-      max-width:1300px;
-      margin:0 auto;
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:2rem;padding:0 2rem;max-width:1300px;margin:0 auto;
     }
     .card{
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:1rem;
-      padding:1.6rem 1.4rem;
-      display:flex;flex-direction:column;justify-content:space-between;
-      backdrop-filter:blur(3px);
-      transition:transform .3s,box-shadow .3s;
+      background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);
+      border-radius:1rem;padding:1.6rem 1.4rem;display:flex;flex-direction:column;justify-content:space-between;
+      backdrop-filter:blur(3px);transition:transform .3s,box-shadow .3s;
     }
-    .card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 10px 20px rgba(0,0,0,.4);
-    }
-    .card h3{
-      font-size:1.22rem;
-      margin-bottom:.55rem;
-      line-height:1.3;
-      word-wrap:break-word;
-      white-space:normal;
-    }
-    .card p{
-      font-size:.88rem;line-height:1.45;
-    }
+    .card:hover{transform:translateY(-6px);box-shadow:0 10px 20px rgba(0,0,0,.4);}
+    .card h3{font-size:1.22rem;margin-bottom:.55rem;line-height:1.3;}
+    .card p{font-size:.88rem;line-height:1.45;}
     .card button{
-      margin-top:1rem;align-self:flex-start;
-      padding:.55rem 1rem;
-      border-radius:.5rem;
-      border:2px solid var(--blue-end);
-      background:transparent;
-      color:var(--blue-end);
-      font-weight:600;cursor:pointer;
-      transition:background .3s,color .3s;
+      margin-top:1rem;align-self:flex-start;padding:.55rem 1rem;border-radius:.5rem;
+      border:2px solid var(--blue-end);background:transparent;color:var(--blue-end);
+      font-weight:600;cursor:pointer;transition:background .3s,color .3s;
     }
-    .card button:hover{
-      background:var(--blue-end);color:#000;
-    }
+    .card button:hover{background:var(--blue-end);color:#000;}
 
-    /* ---------- modals ---------- */
-    .modal{
-      position:fixed;inset:0;
-      background:rgba(0,0,0,.85);
-      display:flex;align-items:center;justify-content:center;
-      padding:1.5rem;z-index:50;
-      visibility:hidden;opacity:0;
-      transition:opacity .3s,visibility .3s;
-    }
+    /* ---------- MODALS ---------- */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;
+      padding:1.5rem;z-index:50;visibility:hidden;opacity:0;transition:opacity .3s,visibility .3s;}
     .modal.open{visibility:visible;opacity:1;}
     .modal-content{
-      background:#121212;
-      max-width:900px;max-height:90vh;overflow-y:auto;
-      border-radius:1rem;padding:2rem 2.5rem;position:relative;
+      background:#121212;max-width:900px;max-height:90vh;overflow-y:auto;border-radius:1rem;
+      padding:2rem 2.5rem;position:relative;
     }
     .modal-content h2{margin-bottom:.9rem;text-align:center;}
     .modal-content ul{margin-left:1.2rem;margin-bottom:1rem;}
     .modal-content li{margin-bottom:.4rem;}
     .modal-content a{color:var(--blue-end);}
-    .modal-content img{margin:0.5rem auto 1rem;display:block;max-width:150px;}
-    .close-btn{
-      position:absolute;top:1rem;right:1rem;font-size:1.5rem;
-      background:none;border:none;color:var(--blue-end);cursor:pointer;
+    .modal-content img{margin:.5rem auto 1rem;display:block;max-width:150px;}
+    .close-btn{position:absolute;top:1rem;right:1rem;font-size:1.5rem;background:none;border:none;color:var(--blue-end);cursor:pointer;}
+
+    footer{padding:2rem 2rem 4rem;text-align:center;font-size:.85rem;opacity:.6;}
+
+    @media(max-width:768px){
+      nav{padding:0 1rem;justify-content:center;}
+      .experience-grid{padding:0 1.5rem;}
     }
-
-    footer{
-      padding:2rem 2rem 4rem;
-      text-align:center;
-      font-size:.85rem;
-      opacity:.6;
-    }
-    /* ---------- MOBILE FIX ---------- */
-@media (max-width: 768px) {
-  /* center the nav like on index.html */
-  nav{
-    padding: 0 1rem;
-    justify-content: center;
-  }
-
-  /* trim side-padding so the content no longer overhangs */
-  .projects-grid,
-  .experience-grid{
-    padding: 0 1.5rem;
-  }
-}
-
   </style>
 </head>
 
 <body>
   <!-- ---------- NAV ---------- -->
   <nav>
+    <button id="theme-toggle" aria-label="Toggle dark/light mode"><i class="fas fa-sun"></i></button>
     <a href="index.html">Home</a>
     <a href="projects.html">Projects</a>
     <a href="workexperience.html">Professional Experience</a>
   </nav>
 
   <!-- ---------- HEADER ---------- -->
-  <header>
-    <h1>Professional Experience</h1>
-  </header>
+  <header><h1>Professional Experience</h1></header>
 
   <main>
     <!--══════════ MORTENSON ══════════-->
@@ -296,39 +239,39 @@
       </ul>
     </div>
   </div>
-
-  <!-- ---------- FOOTER ---------- -->
   <footer>
     This website is built with vanilla HTML, CSS, and JavaScript, and deployed through GitHub Pages.
   </footer>
 
   <!-- ---------- SCRIPTS ---------- -->
   <script>
-    /* Modal open / close */
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('button[data-modal]').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const modal = document.getElementById(btn.dataset.modal);
-          if(modal) modal.classList.add('open');
-        });
+    /* theme persist / toggle */
+    const tBtn=document.getElementById('theme-toggle');
+    const sun='fas fa-sun', moon='fas fa-moon';
+    const touch = matchMedia('(pointer:coarse)').matches || innerWidth<1024;
+    if(touch){
+      document.body.classList.remove('light');
+      localStorage.setItem('theme','dark');
+    }else{
+      if(localStorage.getItem('theme')==='light'){
+        document.body.classList.add('light');
+        tBtn.firstElementChild.className=moon;
+      }
+      tBtn.addEventListener('click',()=>{
+        document.body.classList.toggle('light');
+        const isLight=document.body.classList.contains('light');
+        tBtn.firstElementChild.className=isLight?moon:sun;
+        localStorage.setItem('theme',isLight?'light':'dark');
       });
+    }
 
-      document.querySelectorAll('[data-close]').forEach(btn => {
-        btn.addEventListener('click', () => {
-          btn.closest('.modal').classList.remove('open');
-        });
-      });
-
-      window.addEventListener('click', e => {
-        if(e.target.classList.contains('modal')) e.target.classList.remove('open');
-      });
-
-      document.addEventListener('keydown', e => {
-        if(e.key === 'Escape'){
-          document.querySelectorAll('.modal.open').forEach(m => m.classList.remove('open'));
-        }
-      });
+    /* existing modal logic */
+    document.querySelectorAll('button[data-modal]').forEach(btn=>{
+      btn.addEventListener('click',()=>document.getElementById(btn.dataset.modal)?.classList.add('open'));
     });
+    document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>b.closest('.modal').classList.remove('open')));
+    window.addEventListener('click',e=>{if(e.target.classList.contains('modal'))e.target.classList.remove('open');});
+    addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.modal.open').forEach(m=>m.classList.remove('open'));});
   </script>
 </body>
-</html>
+</html>  
