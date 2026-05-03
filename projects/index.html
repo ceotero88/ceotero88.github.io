@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://claudiaotero.com/projects/">
+  <meta name="description" content="Featured projects by Claudia Otero showcasing data science, APIs, and optimization work.">
+  <title>Projects | Claudia Otero</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <div class="page">
+    <nav class="site-nav">
+      <a class="brand" href="/">Claudia Otero</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/projects/">Projects</a>
+        <a href="/resume/">Resume</a>
+        <button id="theme-toggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+      </div>
+    </nav>
+
+    <main style="padding: 8rem 2rem 4rem; max-width: 1100px; margin: 0 auto;">
+      <h1 class="section-title reveal">Featured Projects</h1>
+
+      <div class="projects-grid">
+        <article class="project-card reveal reveal-delay-1">
+          <div class="project-preview">
+            <h2 class="project-title">E-Commerce Sentiment Intelligence</h2>
+            <a class="project-link" href="/documents/Sentiment_Analysis_of_Amazon_Electronics_Reviews.pdf" target="_blank" rel="noopener">
+              <i class="fas fa-file-pdf"></i> Open Report
+            </a>
+          </div>
+          <p class="project-description">
+            Mining 300,000+ Amazon Electronics reviews with VADER and BERT to classify sentiment, surface product failure patterns, and visualize brand-level satisfaction trends across five product categories.
+          </p>
+        </article>
+
+        <article class="project-card reveal reveal-delay-2">
+          <div class="project-preview">
+            <h2 class="project-title">Museum API Acquisition Analytics</h2>
+            <a class="project-link" href="/documents/Museum APIs_ Islamic Art Study.pdf" target="_blank" rel="noopener">
+              <i class="fas fa-file-pdf"></i> Open Report
+            </a>
+          </div>
+          <p class="project-description">
+            Querying Met, Louvre, and V&A APIs with Python to quantify shifts in Islamic art acquisitions and metadata evolution across 48 years of institutional records, revealing acquisition trends post-9/11.
+          </p>
+        </article>
+
+        <article class="project-card reveal reveal-delay-3">
+          <div class="project-preview">
+            <h2 class="project-title">Passenger Wait-Time Optimization Engine</h2>
+            <a class="project-link" href="/documents/CourseProjectClaudiaOtero (1).html" target="_blank" rel="noopener">
+              <i class="fas fa-file-alt"></i> Open Report
+            </a>
+          </div>
+          <p class="project-description">
+            Formulating baggage carousel assignment as a JuMP/Gurobi mixed-integer program to minimize passenger-weighted wait times and test fairness-aware scheduling under airport operational constraints.
+          </p>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer"></footer>
+  </div>
+
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>
